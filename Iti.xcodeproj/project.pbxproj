@@ -13,6 +13,8 @@
 		8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C392503C80700DBAF15 /* ListInvestmentsViewController.swift */; };
 		8ABB7C3C2503CAB700DBAF15 /* UITableView+FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C3B2503CAB600DBAF15 /* UITableView+FooterView.swift */; };
 		8ABB7C3E2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C3D2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift */; };
+		8ABB7C412503E32300DBAF15 /* ForexAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C402503E32300DBAF15 /* ForexAPI.swift */; };
+		8ABB7C442503E66500DBAF15 /* ForexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C432503E66500DBAF15 /* ForexModel.swift */; };
 		E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */; };
 		E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A52503C05D00400CB7 /* ViewController.swift */; };
 		E7EAD0A92503C05D00400CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EAD0A72503C05D00400CB7 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 		8ABB7C392503C80700DBAF15 /* ListInvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInvestmentsViewController.swift; sourceTree = "<group>"; };
 		8ABB7C3B2503CAB600DBAF15 /* UITableView+FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+FooterView.swift"; sourceTree = "<group>"; };
 		8ABB7C3D2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInvestmentsTableViewCell.swift; sourceTree = "<group>"; };
+		8ABB7C402503E32300DBAF15 /* ForexAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForexAPI.swift; sourceTree = "<group>"; };
+		8ABB7C432503E66500DBAF15 /* ForexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForexModel.swift; sourceTree = "<group>"; };
 		E7EAD09E2503C05D00400CB7 /* Iti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7EAD0A52503C05D00400CB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		8ABB7C312503C51800DBAF15 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8ABB7C422503E65A00DBAF15 /* Models */,
+				8ABB7C3F2503E30D00DBAF15 /* API */,
 				8ABB7C322503C52100DBAF15 /* Views */,
 			);
 			path = Shared;
@@ -104,6 +110,22 @@
 				8ABB7C3B2503CAB600DBAF15 /* UITableView+FooterView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8ABB7C3F2503E30D00DBAF15 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C402503E32300DBAF15 /* ForexAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8ABB7C422503E65A00DBAF15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C432503E66500DBAF15 /* ForexModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E793C2ED2503C16B0093D921 /* ListInvestments */ = {
@@ -273,6 +295,8 @@
 				8ABB7C352503C53A00DBAF15 /* GradientButton.swift in Sources */,
 				E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */,
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
+				8ABB7C442503E66500DBAF15 /* ForexModel.swift in Sources */,
+				8ABB7C412503E32300DBAF15 /* ForexAPI.swift in Sources */,
 				8ABB7C3E2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift in Sources */,
 				E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */,
 				8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */,

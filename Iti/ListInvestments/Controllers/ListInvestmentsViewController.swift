@@ -14,6 +14,20 @@ class ListInvestmentsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setupView()
+        
+        ForexAPI.loadAction {[weak self] (result) in
+            guard let self = self else { return }
+            
+            switch result {
+            case .failure(let apiError):
+                print(apiError.errorMessage)
+            case .success(let forex):
+                print(forex.quote.price)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - IBActions
