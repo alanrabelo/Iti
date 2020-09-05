@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5ZW-iL-5zE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5ZW-iL-5zE">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -191,7 +191,7 @@
                     <connections>
                         <outlet property="btnEdit" destination="1tc-LT-Q0B" id="gPF-wG-1iy"/>
                         <outlet property="btnExit" destination="D2C-l8-dXc" id="FgG-RJ-Gb8"/>
-                        <outlet property="lbAmount" destination="OQ1-xR-CmT" id="N9q-fP-xuB"/>
+                        <outlet property="lbAmount" destination="wEU-Rv-BQJ" id="BtU-uJ-2Bm"/>
                         <outlet property="lbDate" destination="hTV-x5-ilH" id="sfP-88-k22"/>
                         <outlet property="lbPrice" destination="fw1-5S-jBH" id="zDB-dl-kPj"/>
                         <outlet property="lbProfitability" destination="T26-Y0-clX" id="Aiq-cS-4El"/>
