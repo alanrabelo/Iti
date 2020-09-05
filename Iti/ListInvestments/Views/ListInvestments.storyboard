@@ -119,7 +119,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activeLabel" destination="2YE-AV-ahC" id="L5H-E3-3lZ"/>
                                             <outlet property="barView" destination="d5q-Ox-8S7" id="Uy5-hs-WnH"/>
+                                            <outlet property="saldoAtualLabel" destination="Vnj-WU-nZh" id="XAu-85-rfX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -161,10 +163,10 @@
     <resources>
         <image name="eye" catalog="system" width="128" height="81"/>
         <namedColor name="MainOrange">
-            <color red="0.92247861620000005" green="0.4313769341" blue="0.010983846150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.92199999094009399" green="0.4309999942779541" blue="0.010999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainPink">
-            <color red="0.99425429109999997" green="0.33315980429999997" blue="0.56207901240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99400001764297485" green="0.33300000429153442" blue="0.56199997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
