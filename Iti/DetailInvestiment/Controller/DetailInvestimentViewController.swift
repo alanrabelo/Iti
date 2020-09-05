@@ -31,6 +31,10 @@ class DetailInvestimentViewController: UIViewController {
     @IBOutlet weak var btnEdit                      : UIButton!
     @IBOutlet weak var btnExit                      : UIButton!
     
+    // MARK: - Properties
+    
+    var investiment : Investment?
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -41,8 +45,13 @@ class DetailInvestimentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        callExternalAPI(with: "itsa4")
-        
+        if let unwrappedInvestiment = self.investiment {
+            
+            if let unwrappedSymbol = unwrappedInvestiment.active {
+                
+                callExternalAPI(with: unwrappedSymbol)
+            }
+        }
     }
     
     // MARK: - Actions
@@ -80,17 +89,32 @@ extension DetailInvestimentViewController {
     
     fileprivate func displayQuoteDetails(quote : Forex){
         
-        DispatchQueue.main.sync {
+       if let unwrappedInvestiment = self.investiment {
             
-            self.lbTodayQuoteText.text = quote.priceFormatted;
+            DispatchQueue.main.sync {
+                
+                self.lbStockIdentifier.text = quote.symbol
+                
+                self.lbAmount.text          = String(unwrappedInvestiment.quantity)
+                
+                self.lbPrice.text           = unwrappedInvestiment.price.formattedPrice
+                
+                self.lbDate.text            = unwrappedInvestiment.startDate ?? ""
+                
+                self.lbTotalValueText.text  = (unwrappedInvestiment.quantity * unwrappedInvestiment.price).formattedPrice
+                
+                self.lbTodayQuoteText.text  = quote.priceFormatted;
+                
+                self.lbTodayValueText.text  = (unwrappedInvestiment.quantity * (Double(quote.price) ?? 0)).formattedPrice
+            }
         }
-        
     }
 }
 
 extension DetailInvestimentViewController {
     
     fileprivate func handleError(error : APIError){
+        
         
     }
 }
