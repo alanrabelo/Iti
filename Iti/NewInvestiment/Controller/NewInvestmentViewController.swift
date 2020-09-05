@@ -142,7 +142,9 @@ class NewInvestmentViewController: UIViewController {
     func setupTextFields() {
         textfieldPurchaseDate.text = formattedPurchaseDate
         textfieldStockPrice.text = newInvestmentModel.formattedPrice
-        
+        textfieldStockName.text = newInvestmentModel.active
+        textfieldStockAmmount.text = "\(Int(newInvestmentModel.quantity))"
+
         textfieldStockAmmount.type = .ammount
         textfieldStockAmmount.label = labelStockAmmount
         
