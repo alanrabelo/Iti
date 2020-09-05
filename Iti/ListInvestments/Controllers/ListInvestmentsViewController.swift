@@ -1,3 +1,10 @@
+//
+//  ListInvestmentsViewController.swift
+//  Iti
+//
+//  Created by Italus Rodrigues do Prado on 05/09/20.
+//  Copyright © 2020 Alan Rabelo Martins. All rights reserved.
+//
 import UIKit
 import CoreData
 
@@ -12,6 +19,13 @@ class ListInvestmentsViewController: UIViewController {
         let investmentManager = InvestmentManager(context: context)
         investmentManager.delegate = self
         return investmentManager
+    }()
+    
+    let label: UILabel = {
+       let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 22))
+        label.text = "Sem ações cadastradas"
+        label.textAlignment = .center
+        return label
     }()
     
     // MARK: - Super Methods
@@ -44,10 +58,12 @@ class ListInvestmentsViewController: UIViewController {
     private func setupView() {
         tableView.layer.cornerRadius = 10
         tableView.layer.masksToBounds = true
-        let gradientColorTopView = UIColor.gradientColorFor(view: topView, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!, endPoint: CGPoint(x: 1.5, y: 0.0))
-        //let gradientColorNavigation = UIColor.gradientColorFor(view: self.navigationController!.navigationBar, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!, endPoint: CGPoint(x: 1.5, y: 0.0))
-        topView.layer.insertSublayer(gradientColorTopView, at: 0)
-        //navigationController?.navigationBar.layer.insertSublayer(gradientColorNavigation, at: 0)
+        
+        let firstColor = UIColor(named: "MainOrange") ?? .white
+        let secondColor = UIColor(named: "MainPink") ?? .white
+        
+        topView.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
+        self.navigationController?.navigationBar.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
     }
     
 
@@ -71,6 +87,7 @@ class ListInvestmentsViewController: UIViewController {
 extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.backgroundView = investmentManager.totalInvestments == 0 ? label : nil
         return investmentManager.totalInvestments
     }
     
