@@ -171,12 +171,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6D-65-P5D">
-                                <rect key="frame" x="20" y="812" width="374" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6D-65-P5D" customClass="GradientButton" customModule="Iti" customModuleProvider="target">
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9Pu-F2-HOx"/>
+                                    <constraint firstAttribute="height" constant="50" id="9Pu-F2-HOx"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Investir"/>
                                 <connections>
                                     <action selector="sendRequest:" destination="cko-60-mcY" eventType="touchUpInside" id="p1b-Fa-toh"/>
                                 </connections>
