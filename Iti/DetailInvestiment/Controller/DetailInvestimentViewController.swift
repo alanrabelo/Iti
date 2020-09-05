@@ -93,6 +93,12 @@ extension DetailInvestimentViewController {
 
             DispatchQueue.main.sync {
 
+                let initialValue = (unwrappedInvestiment.quantity * unwrappedInvestiment.price)
+                
+                let currentValue = (unwrappedInvestiment.quantity * (Double(quote.price) ?? 0))
+                
+                let profitability = (currentValue - initialValue)/initialValue*100
+                
                 self.lbStockIdentifier.text = quote.symbol
 
                 self.lbQuantityDescription.text          = String(unwrappedInvestiment.quantity)
@@ -101,11 +107,13 @@ extension DetailInvestimentViewController {
 
                 self.lbDate.text            = formatDate(with: unwrappedInvestiment.startDate ?? "")
 
-                self.lbTotalValueText.text  = (unwrappedInvestiment.quantity * unwrappedInvestiment.price).formattedPrice
+                self.lbTotalValueText.text  = initialValue.formattedPrice
 
                 self.lbTodayQuoteText.text  = quote.priceFormatted;
 
-                self.lbTodayValueText.text  = (unwrappedInvestiment.quantity * (Double(quote.price) ?? 0)).formattedPrice
+                self.lbTodayValueText.text  = currentValue.formattedPrice
+                
+                self.lbProfitability.text   = "\(Int(profitability))%"
             }
         }
     }
