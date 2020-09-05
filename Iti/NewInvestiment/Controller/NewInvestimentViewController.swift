@@ -26,12 +26,7 @@ class NewInvestmentViewController: UIViewController {
     var investment: Investment?
     private var datePicker: UIDatePicker?
     var newInvestmentModel = NewInvestmentModel(withModel: nil)
-//    private var price: Int = 0 {
-//        didSet {
-//            textfieldStockPrice.text = formattedPrice
-//        }
-//    }
-//
+
     private var toolbar: UIToolbar {
         let textToolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         textToolbar.barStyle = .default

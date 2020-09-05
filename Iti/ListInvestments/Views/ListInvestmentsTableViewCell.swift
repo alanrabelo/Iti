@@ -37,9 +37,6 @@ class ListInvestmentsTableViewCell: UITableViewCell {
                 let formattedPrice = (price * quantity).formattedPrice
                 saldoAtualLabel.text = "\(formattedPrice)"
             }
-            
         }
-        
     }
-
 }
