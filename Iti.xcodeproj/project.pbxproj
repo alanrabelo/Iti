@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */; };
+		08D39A152503FF5300E35499 /* DetailInvestiment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */; };
 		174ABA9C2503CADB00CC09E9 /* NewInvestmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */; };
 		174ABA9E2503CAFC00CC09E9 /* InvestmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */; };
 		1755D2FD2503EED500B6691E /* UIVIewController+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755D2FC2503EED500B6691E /* UIVIewController+Context.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentViewController.swift; sourceTree = "<group>"; };
+		08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailInvestiment.storyboard; sourceTree = "<group>"; };
 		174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestmentModel.swift; sourceTree = "<group>"; };
 		174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentManager.swift; sourceTree = "<group>"; };
 		1755D2FC2503EED500B6691E /* UIVIewController+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Context.swift"; sourceTree = "<group>"; };
@@ -79,6 +83,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08723E752503C4FD006FF47F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08723E762503C506006FF47F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		08723E782503C519006FF47F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8ABB7C2C2503C3CF00DBAF15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +211,9 @@
 		E793C2EF2503C1880093D921 /* DetailInvestiment */ = {
 			isa = PBXGroup;
 			children = (
+				08723E782503C519006FF47F /* Model */,
+				08723E762503C506006FF47F /* Controller */,
+				08723E752503C4FD006FF47F /* View */,
 			);
 			path = DetailInvestiment;
 			sourceTree = "<group>";
@@ -341,6 +371,7 @@
 			files = (
 				E793C2F42503C41A0093D921 /* NewInvestiment.storyboard in Resources */,
 				E7EAD0B12503C05F00400CB7 /* LaunchScreen.storyboard in Resources */,
+				08D39A152503FF5300E35499 /* DetailInvestiment.storyboard in Resources */,
 				8ABB7C302503C48800DBAF15 /* ListInvestments.storyboard in Resources */,
 				E7EAD0AE2503C05F00400CB7 /* Assets.xcassets in Resources */,
 				E7EAD0A92503C05D00400CB7 /* Main.storyboard in Resources */,
@@ -371,7 +402,8 @@
 				8ABB7C412503E32300DBAF15 /* ForexAPI.swift in Sources */,
 				8ABB7C3E2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift in Sources */,
 				E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */,
-				E793C2F62503C42B0093D921 /* NewInvestmentViewController.swift in Sources */,
+				08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */,
+				E793C2F62503C42B0093D921 /* NewInvestimentViewController.swift in Sources */,
 				E722700B2503E4CC006BF6F1 /* CustomTextfield.swift in Sources */,
 				8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */,
 				E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */,
