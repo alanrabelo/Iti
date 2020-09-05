@@ -39,6 +39,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E793C2ED2503C16B0093D921 /* ListInvestments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ListInvestments;
+			sourceTree = "<group>";
+		};
+		E793C2EE2503C17F0093D921 /* NewInvestiment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewInvestiment;
+			sourceTree = "<group>";
+		};
+		E793C2EF2503C1880093D921 /* DetailInvestiment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailInvestiment;
+			sourceTree = "<group>";
+		};
 		E7EAD0952503C05D00400CB7 = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +79,51 @@
 		E7EAD0A02503C05D00400CB7 /* Iti */ = {
 			isa = PBXGroup;
 			children = (
+				E793C2EF2503C1880093D921 /* DetailInvestiment */,
+				E793C2EE2503C17F0093D921 /* NewInvestiment */,
+				E793C2ED2503C16B0093D921 /* ListInvestments */,
+				E7EAD0B82503C11B00400CB7 /* Home */,
 				E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */,
 				E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */,
-				E7EAD0A52503C05D00400CB7 /* ViewController.swift */,
-				E7EAD0A72503C05D00400CB7 /* Main.storyboard */,
 				E7EAD0AD2503C05F00400CB7 /* Assets.xcassets */,
 				E7EAD0AF2503C05F00400CB7 /* LaunchScreen.storyboard */,
 				E7EAD0B22503C05F00400CB7 /* Info.plist */,
 				E7EAD0AA2503C05D00400CB7 /* Iti.xcdatamodeld */,
 			);
 			path = Iti;
+			sourceTree = "<group>";
+		};
+		E7EAD0B82503C11B00400CB7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E7EAD0BA2503C13800400CB7 /* Model */,
+				E7EAD0BB2503C13D00400CB7 /* View */,
+				E7EAD0B92503C12500400CB7 /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E7EAD0B92503C12500400CB7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7EAD0A52503C05D00400CB7 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7EAD0BA2503C13800400CB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7EAD0BB2503C13D00400CB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7EAD0A72503C05D00400CB7 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
