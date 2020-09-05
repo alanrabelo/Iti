@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */; };
+		08723E7C2503C54C006FF47F /* DetailInvestimentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08723E7A2503C54C006FF47F /* DetailInvestimentViewController.xib */; };
 		E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */; };
 		E7EAD0A42503C05D00400CB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */; };
 		E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A52503C05D00400CB7 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentViewController.swift; sourceTree = "<group>"; };
+		08723E7A2503C54C006FF47F /* DetailInvestimentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInvestimentViewController.xib; sourceTree = "<group>"; };
 		E7EAD09E2503C05D00400CB7 /* Iti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08723E752503C4FD006FF47F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08723E7E2503C55B006FF47F /* XIBs */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08723E762503C506006FF47F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		08723E782503C519006FF47F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08723E7E2503C55B006FF47F /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				08723E7A2503C54C006FF47F /* DetailInvestimentViewController.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		E793C2ED2503C16B0093D921 /* ListInvestments */ = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +91,9 @@
 		E793C2EF2503C1880093D921 /* DetailInvestiment */ = {
 			isa = PBXGroup;
 			children = (
+				08723E782503C519006FF47F /* Model */,
+				08723E762503C506006FF47F /* Controller */,
+				08723E752503C4FD006FF47F /* View */,
 			);
 			path = DetailInvestiment;
 			sourceTree = "<group>";
@@ -184,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08723E7C2503C54C006FF47F /* DetailInvestimentViewController.xib in Resources */,
 				E7EAD0B12503C05F00400CB7 /* LaunchScreen.storyboard in Resources */,
 				E7EAD0AE2503C05F00400CB7 /* Assets.xcassets in Resources */,
 				E7EAD0A92503C05D00400CB7 /* Main.storyboard in Resources */,
@@ -201,6 +240,7 @@
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
 				E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */,
 				E7EAD0A42503C05D00400CB7 /* SceneDelegate.swift in Sources */,
+				08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
