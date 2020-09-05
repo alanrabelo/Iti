@@ -27,12 +27,19 @@ class ListInvestmentsTableViewCell: UITableViewCell {
     }
     
     // MARK: - Methods
-    func configure(with investiment: Investment?) {
+    func configure(with investiment: Investment?, currentValue: Double? = nil) {
         activeLabel.text = investiment?.active?.uppercased()
         if let price = investiment?.price, let quantity = investiment?.quantity {
-            let formattedPrice = (price * quantity).formattedPrice
-            saldoAtualLabel.text = "\(formattedPrice)"
+            if let currentValue = currentValue {
+                let formattedPrice = (currentValue * quantity).formattedPrice
+                saldoAtualLabel.text = "\(formattedPrice)"
+            } else {
+                let formattedPrice = (price * quantity).formattedPrice
+                saldoAtualLabel.text = "\(formattedPrice)"
+            }
+            
         }
+        
     }
 
 }

@@ -25,14 +25,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 13.250,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRz-Ls-Fub">
-                                        <rect key="frame" x="20" y="30.5" width="214" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 0,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRz-Ls-Fub">
+                                        <rect key="frame" x="20" y="30.5" width="125.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKL-ch-ec5">
-                                        <rect key="frame" x="244" y="40" width="26" height="22"/>
+                                        <rect key="frame" x="155.5" y="40" width="26" height="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="eye" catalog="system"/>
                                         <connections>
@@ -84,7 +84,7 @@
                                                             <color key="textColor" red="0.40843603010000001" green="0.44645994900000002" blue="0.47059249879999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 3.500,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-WU-nZh">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ --,--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-WU-nZh">
                                                             <rect key="frame" x="0.0" y="56.5" width="104" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" name="MainPink"/>
@@ -125,7 +125,6 @@
                                             <outlet property="activeLabel" destination="2YE-AV-ahC" id="L5H-E3-3lZ"/>
                                             <outlet property="barView" destination="d5q-Ox-8S7" id="Uy5-hs-WnH"/>
                                             <outlet property="saldoAtualLabel" destination="Vnj-WU-nZh" id="XAu-85-rfX"/>
-                                            <segue destination="4fN-nF-boX" kind="presentation" id="ift-AV-X4K"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -137,7 +136,7 @@
                                 </constraints>
                                 <state key="normal" title="Novo Investimento"/>
                                 <connections>
-                                    <action selector="newInvestment:" destination="0Ph-M0-PQi" eventType="touchUpInside" id="fmY-3O-DBk"/>
+                                    <action selector="newInvestiment:" destination="0Ph-M0-PQi" eventType="touchUpInside" id="qFj-Iu-ydn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -163,6 +162,7 @@
                         <outlet property="tableView" destination="XTd-Eq-loe" id="vcz-d4-6bK"/>
                         <outlet property="topView" destination="ut2-2K-ubT" id="yEB-CW-KTW"/>
                         <segue destination="XME-K5-B9J" kind="presentation" identifier="showForm" id="DkI-nR-Vhc"/>
+                        <segue destination="4fN-nF-boX" kind="presentation" identifier="detailSegue" id="UDY-qq-CZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7B-wW-9ZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -172,7 +172,9 @@
         <!--DetailInvestiment-->
         <scene sceneID="Tiz-V6-drx">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="=" storyboardName="DetailInvestiment" id="4fN-nF-boX" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="=" storyboardName="DetailInvestiment" id="4fN-nF-boX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="yKF-OR-GDF"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8j-yU-CPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2749" y="167"/>
