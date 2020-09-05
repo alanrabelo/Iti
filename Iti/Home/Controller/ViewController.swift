@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let logo = UIImage(named: "logoiti")
+        let imageView = UIImageView(image: logo)
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
     }
 
 }
