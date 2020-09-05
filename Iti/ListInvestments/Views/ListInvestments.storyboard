@@ -162,7 +162,7 @@
                         <outlet property="tableView" destination="XTd-Eq-loe" id="vcz-d4-6bK"/>
                         <outlet property="topView" destination="ut2-2K-ubT" id="yEB-CW-KTW"/>
                         <segue destination="XME-K5-B9J" kind="presentation" identifier="showForm" id="DkI-nR-Vhc"/>
-                        <segue destination="4fN-nF-boX" kind="presentation" identifier="detailSegue" id="UDY-qq-CZ6"/>
+                        <segue destination="4fN-nF-boX" kind="showDetail" identifier="SegueDetail" id="G41-Lf-mGk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7B-wW-9ZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
