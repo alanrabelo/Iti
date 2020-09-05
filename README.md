@@ -1,7 +1,7 @@
 # Iti
 
-Alan Rabelo Martins
-Matheus Ramos Silva
-Italus Rodrigues do Prado
-Cleber Silva dos Reis
+Alan Rabelo Martins <br />
+Matheus Ramos Silva <br />
+Italus Rodrigues do Prado <br />
+Cleber Silva dos Reis <br />
 Marcos Lacerda
