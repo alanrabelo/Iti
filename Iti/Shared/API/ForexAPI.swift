@@ -28,7 +28,7 @@ enum APIError: Error {
 
 class ForexAPI {
     
-    private static let basePath = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=ITSA4.SA&apikey=S0XOTXR7AS9YNLK8"
+    private static let basePath = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&apikey=S0XOTXR7AS9YNLK8"
     
     private static let configuration: URLSessionConfiguration = {
         let configuration = URLSessionConfiguration.default
@@ -41,8 +41,9 @@ class ForexAPI {
     
     private static let session = URLSession(configuration: configuration)
     
-    static func loadAction(onComplete: @escaping (Result<ForexFather, APIError>) -> Void) {
-        guard let url = URL(string: basePath) else {
+    static func loadAction(withSymbol symbol: String, onComplete: @escaping (Result<ForexQuote, APIError>) -> Void) {
+        let path = "\(basePath)&symbol=\(symbol).SA"
+        guard let url = URL(string: path) else {
             return onComplete(.failure(.badURL))
         }
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -62,13 +63,9 @@ class ForexAPI {
             
             do {
                 
-                let forex = try JSONDecoder().decode(ForexFather.self, from: data)
-                if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
-                   print(JSONString)
-                }
+                let forex = try JSONDecoder().decode(ForexQuote.self, from: data)
                 return onComplete(.success(forex))
             } catch {
-                print(error)
                 return onComplete(.failure(.invalidJSON))
             }
         }
