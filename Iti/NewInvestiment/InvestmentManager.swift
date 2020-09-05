@@ -34,6 +34,15 @@ class InvestmentManager {
         fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
+    var totalAmmount: Double {
+        
+        var sum = 0.0
+        fetchedResultsController.fetchedObjects?.forEach({ (investment) in
+            sum += investment.price * investment.quantity
+        })
+        return sum
+    }
+    
     func getInvestimentAt(_ indexPath: IndexPath) -> Investment {
         fetchedResultsController.object(at: indexPath)
     }

@@ -39,6 +39,7 @@ class ListInvestmentsViewController: UIViewController {
         tableView.dataSource = self
         setupView()
         loadInvestments()
+        self.labelValue.text = investmentManager.totalAmmount.formattedPrice
         loadCurrentValues()
     }
 
@@ -51,7 +52,7 @@ class ListInvestmentsViewController: UIViewController {
             print(sender.tag)
         } else {
             buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-            labelValue.text = "R$ 1000,00"
+            labelValue.text = investmentManager.totalAmmount.formattedPrice
             sender.tag = 0
             print(sender.tag)
         }
@@ -76,7 +77,7 @@ class ListInvestmentsViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = firstColor
         
         buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-        labelValue.text = "R$ 1000,00"
+        labelValue.text = investmentManager.totalAmmount.formattedPrice
     }
 
 
@@ -223,5 +224,6 @@ extension ListInvestmentsViewController: NSFetchedResultsControllerDelegate {
 
    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
        tableView.reloadData()
+        self.labelValue.text = investmentManager.totalAmmount.formattedPrice
    }
 }
