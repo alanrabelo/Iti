@@ -23,7 +23,11 @@ class NewInvestmentViewController: UIViewController {
     
     // MARK: - Properties
     var activeTextfield: CustomTextfield?
-    var investment: Investment?
+    var investment: Investment? {
+        didSet {
+            newInvestmentModel = NewInvestmentModel(withModel: investment)
+        }
+    }
     private var datePicker: UIDatePicker?
     private var newInvestmentModel = NewInvestmentModel(withModel: nil)
 //    private var price: Int = 0 {
@@ -95,7 +99,6 @@ class NewInvestmentViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        textfieldStockName.becomeFirstResponder()
         setupDatePicker()
         setupTextFields()
     }

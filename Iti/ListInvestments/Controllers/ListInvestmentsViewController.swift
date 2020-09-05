@@ -98,11 +98,22 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
         let action = UIContextualAction(style: .normal, title: title,
           handler: { (action, view, completionHandler) in
+            self.performSegue(withIdentifier: "showForm", sender: indexPath)
         })
         
         action.backgroundColor = UIColor(named: "MainOrange")
         let configuration = UISwipeActionsConfiguration(actions: [action])
         return configuration
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? NewInvestmentViewController {
+            if let indexPath = sender as? IndexPath {
+                let investment = self.investmentManager.getInvestimentAt(indexPath)
+                destination.investment = investment
+            }
+        }
     }
     
 }

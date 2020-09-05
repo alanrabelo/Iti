@@ -132,9 +132,6 @@
                                     <constraint firstAttribute="height" constant="50" id="8gp-S9-j97"/>
                                 </constraints>
                                 <state key="normal" title="Novo Investimento"/>
-                                <connections>
-                                    <segue destination="XME-K5-B9J" kind="presentation" id="Hvo-w3-6iH"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -156,6 +153,7 @@
                     <connections>
                         <outlet property="tableView" destination="XTd-Eq-loe" id="vcz-d4-6bK"/>
                         <outlet property="topView" destination="ut2-2K-ubT" id="yEB-CW-KTW"/>
+                        <segue destination="XME-K5-B9J" kind="presentation" identifier="showForm" id="DkI-nR-Vhc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7B-wW-9ZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -168,7 +166,7 @@
                 <viewControllerPlaceholder storyboardName="NewInvestiment" id="XME-K5-B9J" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3VO-zV-pK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004" y="50"/>
+            <point key="canvasLocation" x="2748" y="220"/>
         </scene>
     </scenes>
     <resources>
