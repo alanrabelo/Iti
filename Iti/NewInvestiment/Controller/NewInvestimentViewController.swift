@@ -23,13 +23,9 @@ class NewInvestmentViewController: UIViewController {
     
     // MARK: - Properties
     var activeTextfield: CustomTextfield?
-    var investment: Investment? {
-        didSet {
-            newInvestmentModel = NewInvestmentModel(withModel: investment)
-        }
-    }
+    var investment: Investment?
     private var datePicker: UIDatePicker?
-    private var newInvestmentModel = NewInvestmentModel(withModel: nil)
+    var newInvestmentModel = NewInvestmentModel(withModel: nil)
 //    private var price: Int = 0 {
 //        didSet {
 //            textfieldStockPrice.text = formattedPrice

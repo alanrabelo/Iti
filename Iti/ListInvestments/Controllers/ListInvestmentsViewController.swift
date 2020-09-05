@@ -162,6 +162,8 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
             if let indexPath = sender as? IndexPath {
                 let investment = self.investmentManager.getInvestimentAt(indexPath)
                 destination.investment = investment
+                destination.newInvestmentModel = NewInvestmentModel(withModel: investment)
+
             }
         }
         
