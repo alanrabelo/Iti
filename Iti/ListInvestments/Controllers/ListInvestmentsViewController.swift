@@ -20,6 +20,7 @@ class ListInvestmentsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setupView()
+        loadInvestments()
         
         ForexAPI.loadAction(withSymbol: "PETR4") {[weak self] (result) in
             guard let self = self else { return }

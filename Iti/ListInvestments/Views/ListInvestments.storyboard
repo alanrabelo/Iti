@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="125.5" width="414" height="666.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="109" id="sMp-Qr-3qi" customClass="ListInvestmentsTableViewCell" customModule="Iti" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListInvestmentsTableViewCell" rowHeight="109" id="sMp-Qr-3qi" customClass="ListInvestmentsTableViewCell" customModule="Iti" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sMp-Qr-3qi" id="MGX-Ok-dSa">
@@ -67,22 +67,22 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4eb-5X-Ckt">
-                                                    <rect key="frame" x="34" y="16" width="99.5" height="77"/>
+                                                    <rect key="frame" x="34" y="16" width="104" height="77"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ITS4 - ITAUSA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2YE-AV-ahC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="99.5" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" red="0.40843603010000001" green="0.44645994900000002" blue="0.47059249879999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saldo atual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t6-dK-x7i">
-                                                            <rect key="frame" x="0.0" y="28.5" width="99.5" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="31" width="104" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" red="0.40843603010000001" green="0.44645994900000002" blue="0.47059249879999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 3.500,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-WU-nZh">
-                                                            <rect key="frame" x="0.0" y="56.5" width="99.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="56.5" width="104" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" name="MainPink"/>
                                                             <nil key="highlightedColor"/>
@@ -132,6 +132,9 @@
                                     <constraint firstAttribute="height" constant="50" id="8gp-S9-j97"/>
                                 </constraints>
                                 <state key="normal" title="Novo Investimento"/>
+                                <connections>
+                                    <segue destination="XME-K5-B9J" kind="presentation" id="Hvo-w3-6iH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,6 +161,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7B-wW-9ZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1959.4202898550727" y="97.767857142857139"/>
+        </scene>
+        <!--NewInvestiment-->
+        <scene sceneID="7Sn-Xs-XN3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewInvestiment" id="XME-K5-B9J" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3VO-zV-pK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3004" y="50"/>
         </scene>
     </scenes>
     <resources>
