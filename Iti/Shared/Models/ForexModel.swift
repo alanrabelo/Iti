@@ -8,13 +8,6 @@
 
 import Foundation
 
-struct ForexFather: Codable {
-    
-    let quote: Forex
-    enum CodingKeys: String, CodingKey {
-        case quote = "Global Quote"
-    }
-}
 struct Forex: Codable {
     
     let symbol: String
@@ -23,6 +16,10 @@ struct Forex: Codable {
     enum CodingKeys: String, CodingKey {
         case symbol = "01. symbol"
         case price = "05. price"
+    }
+    
+    var priceFormatted: String {
+        "\((Double(price) ?? 0.0).formattedPrice)"
     }
 
 }

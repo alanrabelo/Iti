@@ -15,14 +15,15 @@ class ListInvestmentsViewController: UIViewController {
         tableView.dataSource = self
         setupView()
         
-        ForexAPI.loadAction {[weak self] (result) in
+        ForexAPI.loadAction(withSymbol: "PETR4") {[weak self] (result) in
             guard let self = self else { return }
             
             switch result {
             case .failure(let apiError):
+                print("Falha")
                 print(apiError.errorMessage)
             case .success(let forex):
-                print(forex.quote.price)
+                print(forex.quote.priceFormatted)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
