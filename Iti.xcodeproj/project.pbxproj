@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8ABB7C302503C48800DBAF15 /* ListInvestments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB7C2F2503C48800DBAF15 /* ListInvestments.storyboard */; };
+		8ABB7C352503C53A00DBAF15 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C342503C53A00DBAF15 /* GradientButton.swift */; };
+		8ABB7C382503C65600DBAF15 /* Color+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C372503C65600DBAF15 /* Color+Gradient.swift */; };
+		8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C392503C80700DBAF15 /* ListInvestmentsViewController.swift */; };
 		E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */; };
-		E7EAD0A42503C05D00400CB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */; };
 		E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A52503C05D00400CB7 /* ViewController.swift */; };
 		E7EAD0A92503C05D00400CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EAD0A72503C05D00400CB7 /* Main.storyboard */; };
 		E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0AA2503C05D00400CB7 /* Iti.xcdatamodeld */; };
@@ -19,9 +21,11 @@
 
 /* Begin PBXFileReference section */
 		8ABB7C2F2503C48800DBAF15 /* ListInvestments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListInvestments.storyboard; sourceTree = "<group>"; };
+		8ABB7C342503C53A00DBAF15 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		8ABB7C372503C65600DBAF15 /* Color+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Gradient.swift"; sourceTree = "<group>"; };
+		8ABB7C392503C80700DBAF15 /* ListInvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInvestmentsViewController.swift; sourceTree = "<group>"; };
 		E7EAD09E2503C05D00400CB7 /* Iti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7EAD0A52503C05D00400CB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E7EAD0A82503C05D00400CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7EAD0AB2503C05D00400CB7 /* Iti.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Iti.xcdatamodel; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 		8ABB7C2C2503C3CF00DBAF15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8ABB7C392503C80700DBAF15 /* ListInvestmentsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -61,6 +66,38 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8ABB7C312503C51800DBAF15 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C322503C52100DBAF15 /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8ABB7C322503C52100DBAF15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C332503C52700DBAF15 /* Buttons */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8ABB7C332503C52700DBAF15 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C342503C53A00DBAF15 /* GradientButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		8ABB7C362503C64600DBAF15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C372503C65600DBAF15 /* Color+Gradient.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E793C2ED2503C16B0093D921 /* ListInvestments */ = {
@@ -106,12 +143,13 @@
 		E7EAD0A02503C05D00400CB7 /* Iti */ = {
 			isa = PBXGroup;
 			children = (
+				8ABB7C362503C64600DBAF15 /* Extensions */,
+				8ABB7C312503C51800DBAF15 /* Shared */,
 				E793C2EF2503C1880093D921 /* DetailInvestiment */,
 				E793C2EE2503C17F0093D921 /* NewInvestiment */,
 				E793C2ED2503C16B0093D921 /* ListInvestments */,
 				E7EAD0B82503C11B00400CB7 /* Home */,
 				E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */,
-				E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */,
 				E7EAD0AD2503C05F00400CB7 /* Assets.xcassets */,
 				E7EAD0AF2503C05F00400CB7 /* LaunchScreen.storyboard */,
 				E7EAD0B22503C05F00400CB7 /* Info.plist */,
@@ -225,10 +263,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ABB7C352503C53A00DBAF15 /* GradientButton.swift in Sources */,
 				E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */,
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
 				E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */,
-				E7EAD0A42503C05D00400CB7 /* SceneDelegate.swift in Sources */,
+				8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */,
+				8ABB7C382503C65600DBAF15 /* Color+Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
