@@ -72,8 +72,10 @@ class NewInvestmentViewController: UIViewController {
                 investment = Investment(context: context)
             }
             
-            investment?.active = newInvestmentModel.active
-            investment?.quantity = newInvestmentModel.quantity
+            if let ammountString = textfieldStockAmmount.text {
+                investment?.quantity = Double(ammountString) ?? 0
+            }
+            investment?.active = textfieldStockName.text ?? ""
             investment?.price = Double(newInvestmentModel.price)/100
             investment?.startDate = newInvestmentModel.startDate
             
@@ -84,6 +86,7 @@ class NewInvestmentViewController: UIViewController {
             }
             
             print("Enviando dados")
+            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -148,7 +151,7 @@ class NewInvestmentViewController: UIViewController {
     func setupTextFields() {
         textfieldPurchaseDate.text = formattedPurchaseDate
         textfieldStockPrice.text = formattedPrice
-        textfieldStockAmmount.text = "\(Double(newInvestmentModel.quantity))"
+        textfieldStockAmmount.text = "\(Int(newInvestmentModel.quantity))"
         textfieldStockName.text = newInvestmentModel.active.uppercased()
         
         textfieldStockAmmount.type = .ammount
