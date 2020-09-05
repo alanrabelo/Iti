@@ -75,6 +75,10 @@ class ListInvestmentsViewController: UIViewController {
         investmentManager.performFetch()
     }
     
+    @IBAction func newInvestment(_ sender: Any) {
+        self.performSegue(withIdentifier: "showForm", sender: nil)
+    }
+    
     private func deleteInvestment(_ indexPath: IndexPath) {
         
         let investment = investmentManager.getInvestimentAt(indexPath)
