@@ -164,6 +164,14 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
                 destination.investment = investment
             }
         }
+        
+        if let destination = segue.destination as? DetailInvestimentViewController {
+           
+            if let indexPath = sender as? IndexPath {
+                let investment = self.investmentManager.getInvestimentAt(indexPath)
+                destination.investiment = investment
+            }
+        }
     }
 
 }
