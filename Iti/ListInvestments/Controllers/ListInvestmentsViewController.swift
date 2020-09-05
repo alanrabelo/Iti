@@ -15,7 +15,7 @@ class ListInvestmentsViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var labelValue: UILabel!
     @IBOutlet weak var buttonEye: UIButton!
-    
+
     // MARK: - Properties
     lazy var investmentManager: InvestmentManager = { [weak self] in
         let investmentManager = InvestmentManager(context: context)
@@ -29,7 +29,7 @@ class ListInvestmentsViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    
+
     var currentValues: [String?] = []
 
     // MARK: - Super Methods
@@ -56,7 +56,7 @@ class ListInvestmentsViewController: UIViewController {
             print(sender.tag)
         }
     }
-    
+
     @IBAction func newInvestiment(_ sender: Any) {
         self.performSegue(withIdentifier: "showForm", sender: nil)
     }
@@ -68,13 +68,13 @@ class ListInvestmentsViewController: UIViewController {
 
         let orangeColor = UIColor(named: "MainOrange") ?? .white
         self.navigationController?.navigationBar.barTintColor = orangeColor
-        
+
         let firstColor = UIColor(named: "MainOrange") ?? .white
         let secondColor = UIColor(named: "MainPink") ?? .white
-        
+
         topView.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
         self.navigationController?.navigationBar.barTintColor = firstColor
-        
+
         buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
         labelValue.text = "R$ 1000,00"
     }
@@ -99,7 +99,7 @@ class ListInvestmentsViewController: UIViewController {
             print("Failed to delete investment")
         }
     }
-    
+
     private func loadCurrentValues() {
         let dispatchGroup = DispatchGroup()
         for row in 0..<investmentManager.totalInvestments {
@@ -168,10 +168,11 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
         let configuration = UISwipeActionsConfiguration(actions: [action])
         return configuration
     }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "detailSegue", sender: indexPath)
-        self.tableView.deselectRow(at: indexPath, animated: true)
+
+        performSegue(withIdentifier: "SegueDetail", sender: indexPath)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -190,9 +191,9 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
             }
         }
-        
+
         if let destination = segue.destination as? DetailInvestimentViewController {
-           
+
             if let indexPath = sender as? IndexPath {
                 let investment = self.investmentManager.getInvestimentAt(indexPath)
                 destination.investiment = investment

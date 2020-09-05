@@ -95,11 +95,11 @@ extension DetailInvestimentViewController {
 
                 self.lbStockIdentifier.text = quote.symbol
 
-                self.lbAmount.text          = String(unwrappedInvestiment.quantity)
+                self.lbQuantityDescription.text          = String(unwrappedInvestiment.quantity)
 
                 self.lbPrice.text           = unwrappedInvestiment.price.formattedPrice
 
-                self.lbDate.text            = unwrappedInvestiment.startDate ?? ""
+                self.lbDate.text            = formatDate(with: unwrappedInvestiment.startDate ?? "")
 
                 self.lbTotalValueText.text  = (unwrappedInvestiment.quantity * unwrappedInvestiment.price).formattedPrice
 
@@ -116,5 +116,26 @@ extension DetailInvestimentViewController {
     fileprivate func handleError(error : APIError){
 
 
+    }
+}
+
+extension DetailInvestimentViewController {
+
+    fileprivate func formatDate(with dateString : String) -> String{
+
+        let dateFormatterGet = DateFormatter()
+
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+
+        let dateFormatterPrint = DateFormatter()
+
+        dateFormatterPrint.dateFormat = "dd/MM/yyyy"
+
+        if let date = dateFormatterGet.date(from: dateString) {
+
+            return dateFormatterPrint.string(from: date)
+        }
+
+        return ""
     }
 }
