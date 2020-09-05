@@ -32,6 +32,7 @@ class DetailInvestimentViewController: UIViewController {
     @IBOutlet weak var btnExit                      : UIButton!
     
     // MARK: - View Life Cycle
+    var symbol: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class DetailInvestimentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        callExternalAPI(with: "itsa4")
+        callExternalAPI(with: symbol)
         
     }
     

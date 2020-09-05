@@ -53,6 +53,9 @@ class ListInvestmentsViewController: UIViewController {
     }
     
     // MARK: - IBActions
+    @IBAction func newInvestiment(_ sender: Any) {
+        self.performSegue(withIdentifier: "showForm", sender: nil)
+    }
     
     // MARK: - Methods
     private func setupView() {
@@ -64,7 +67,7 @@ class ListInvestmentsViewController: UIViewController {
         
 //        topView.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
 //        self.navigationController!.view.backgroundColor = .clear
-        self.navigationController!.navigationBar.barTintColor = firstColor
+        self.navigationController?.navigationBar.barTintColor = firstColor
     }
     
 
@@ -126,6 +129,12 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if let destination = segue.destination as? DetailInvestimentViewController {
+            if let indexPath = sender as? IndexPath {
+                let investment = self.investmentManager.getInvestimentAt(indexPath)
+                destination.symbol = investment.active!
+            }
+        }
         if let destination = segue.destination as? NewInvestmentViewController {
             if let indexPath = sender as? IndexPath {
                 let investment = self.investmentManager.getInvestimentAt(indexPath)

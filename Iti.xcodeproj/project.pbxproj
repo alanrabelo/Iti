@@ -28,7 +28,6 @@
 		E722700D2503E502006BF6F1 /* FormStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700C2503E502006BF6F1 /* FormStatus.swift */; };
 		E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700E2503FA0B006BF6F1 /* DateExtensions.swift */; };
 		E793C2F42503C41A0093D921 /* NewInvestiment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */; };
-		E793C2F62503C42B0093D921 /* NewInvestmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E793C2F52503C42B0093D921 /* NewInvestmentViewController.swift */; };
 		E793C2F62503C42B0093D921 /* NewInvestimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */; };
 		E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */; };
 		E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A52503C05D00400CB7 /* ViewController.swift */; };
@@ -60,7 +59,6 @@
 		E722700C2503E502006BF6F1 /* FormStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatus.swift; sourceTree = "<group>"; };
 		E722700E2503FA0B006BF6F1 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewInvestiment.storyboard; sourceTree = "<group>"; };
-		E793C2F52503C42B0093D921 /* NewInvestmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestmentViewController.swift; sourceTree = "<group>"; };
 		E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestimentViewController.swift; sourceTree = "<group>"; };
 		E7EAD09E2503C05D00400CB7 /* Iti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -239,7 +237,7 @@
 		E793C2F22503C3E20093D921 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E793C2F52503C42B0093D921 /* NewInvestmentViewController.swift */,
+				E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

@@ -122,6 +122,7 @@
                                             <outlet property="activeLabel" destination="2YE-AV-ahC" id="L5H-E3-3lZ"/>
                                             <outlet property="barView" destination="d5q-Ox-8S7" id="Uy5-hs-WnH"/>
                                             <outlet property="saldoAtualLabel" destination="Vnj-WU-nZh" id="XAu-85-rfX"/>
+                                            <segue destination="Qlm-qz-AIV" kind="presentation" id="Pef-IC-TWf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -132,6 +133,9 @@
                                     <constraint firstAttribute="height" constant="50" id="8gp-S9-j97"/>
                                 </constraints>
                                 <state key="normal" title="Novo Investimento"/>
+                                <connections>
+                                    <action selector="newInvestiment:" destination="0Ph-M0-PQi" eventType="touchUpInside" id="qFj-Iu-ydn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,6 +163,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7B-wW-9ZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1959.4202898550727" y="97.767857142857139"/>
+        </scene>
+        <!--DetailInvestiment-->
+        <scene sceneID="gUf-uG-hQn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailInvestiment" id="Qlm-qz-AIV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="66G-in-Z3Y"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5s-J0-1a8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2754" y="97"/>
         </scene>
         <!--NewInvestiment-->
         <scene sceneID="7Sn-Xs-XN3">
