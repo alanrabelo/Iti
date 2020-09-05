@@ -36,7 +36,6 @@ class DetailInvestimentViewController: UIViewController {
     var investiment : Investment?
 
     // MARK: - View Life Cycle
-    var symbol: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

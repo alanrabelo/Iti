@@ -144,13 +144,18 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
         let configuration = UISwipeActionsConfiguration(actions: [action])
         return configuration
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detailSegue", sender: indexPath)
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if let destination = segue.destination as? DetailInvestimentViewController {
             if let indexPath = sender as? IndexPath {
                 let investment = self.investmentManager.getInvestimentAt(indexPath)
-                destination.symbol = investment.active!
+                destination.investiment = investment
             }
         }
         if let destination = segue.destination as? NewInvestmentViewController {
