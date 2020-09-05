@@ -62,8 +62,9 @@ class ListInvestmentsViewController: UIViewController {
         let firstColor = UIColor(named: "MainOrange") ?? .white
         let secondColor = UIColor(named: "MainPink") ?? .white
         
-        topView.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
-        self.navigationController?.navigationBar.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
+//        topView.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
+//        self.navigationController!.view.backgroundColor = .clear
+        self.navigationController!.navigationBar.barTintColor = firstColor
     }
     
 
