@@ -26,7 +26,7 @@ class GradientButton: UIButton {
         self.setTitleColor(.white, for: .normal)
         self.layer.cornerRadius = self.frame.size.height/2
         self.layer.masksToBounds = true
-        let gradientColor = UIColor().gradientColorFor(view: self, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!)
+        let gradientColor = UIColor.gradientColorFor(view: self, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!)
         self.layer.insertSublayer(gradientColor, at: 0)
     }
 
