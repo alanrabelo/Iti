@@ -132,6 +132,9 @@
                                     <constraint firstAttribute="height" constant="50" id="8gp-S9-j97"/>
                                 </constraints>
                                 <state key="normal" title="Novo Investimento"/>
+                                <connections>
+                                    <action selector="newInvestment:" destination="0Ph-M0-PQi" eventType="touchUpInside" id="fmY-3O-DBk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

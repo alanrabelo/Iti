@@ -105,9 +105,8 @@ class NewInvestmentViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        textfieldStockName.becomeFirstResponder()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         setupDatePicker()
         setupTextFields()
     }
@@ -151,7 +150,8 @@ class NewInvestmentViewController: UIViewController {
     func setupTextFields() {
         textfieldPurchaseDate.text = formattedPurchaseDate
         textfieldStockPrice.text = formattedPrice
-        textfieldStockAmmount.text = "\(Int(newInvestmentModel.quantity))"
+        let quantityString = newInvestmentModel.quantity > 0 ? "\(Int(newInvestmentModel.quantity))" : ""
+        textfieldStockAmmount.text = quantityString
         textfieldStockName.text = newInvestmentModel.active.uppercased()
         
         textfieldStockAmmount.type = .ammount
@@ -259,7 +259,10 @@ extension NewInvestmentViewController: UITextFieldDelegate {
     
     func validateStockAmmount(_ previous: String?, _ replacement: String, _ newString: String?) -> Bool {
         let newStringLength = newString?.lengthOfBytes(using: .utf8) ?? 0
-        let textIsNotNumerical = Int(replacement) == nil && newStringLength > 0
+        if newStringLength <= 0 {
+            return true
+        }
+        let textIsNotNumerical = Int(newString ?? "") == nil && newStringLength > 0
         if textIsNotNumerical {
             return false
         }
