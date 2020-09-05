@@ -13,6 +13,8 @@ class ListInvestmentsViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var labelValue: UILabel!
+    @IBOutlet weak var buttonEye: UIButton!
     
     // MARK: - Properties
     lazy var investmentManager: InvestmentManager = { [weak self] in
@@ -53,6 +55,19 @@ class ListInvestmentsViewController: UIViewController {
     }
     
     // MARK: - IBActions
+    @IBAction func hideShowValue(_ sender: UIButton) {
+        if sender.tag == 0 {
+            buttonEye.setBackgroundImage(UIImage(systemName: "eye.fill"), for: .normal)
+            labelValue.text = "R$ ----,--"
+            sender.tag = 1
+            print(sender.tag)
+        } else {
+            buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
+            labelValue.text = "R$ 1000,00"
+            sender.tag = 0
+            print(sender.tag)
+        }
+    }
     
     // MARK: - Methods
     private func setupView() {
@@ -64,6 +79,9 @@ class ListInvestmentsViewController: UIViewController {
         
         topView.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
         self.navigationController?.navigationBar.barTintColor = firstColor
+        
+        buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
+        labelValue.text = "R$ 1000,00"
     }
     
 

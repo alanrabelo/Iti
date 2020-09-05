@@ -35,6 +35,9 @@
                                         <rect key="frame" x="244" y="40" width="26" height="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="eye" catalog="system"/>
+                                        <connections>
+                                            <action selector="hideShowValue:" destination="0Ph-M0-PQi" eventType="touchUpInside" id="ekL-3c-eai"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="MainOrange"/>
@@ -155,6 +158,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="QS9-Gg-83o"/>
                     <connections>
+                        <outlet property="buttonEye" destination="VKL-ch-ec5" id="MPF-HE-6F9"/>
+                        <outlet property="labelValue" destination="pRz-Ls-Fub" id="Ks4-so-WXJ"/>
                         <outlet property="tableView" destination="XTd-Eq-loe" id="vcz-d4-6bK"/>
                         <outlet property="topView" destination="ut2-2K-ubT" id="yEB-CW-KTW"/>
                         <segue destination="XME-K5-B9J" kind="presentation" identifier="showForm" id="DkI-nR-Vhc"/>

@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var btnEye: UIButton!
+    @IBOutlet weak var labelValue: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -28,13 +31,34 @@ class ViewController: UIViewController {
         self.navigationItem.titleView = imageView
         
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        btnEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
+        labelValue.text = "R$ 1000,00"
     }
 
-    @IBAction func saibaTudo(_ sender: Any) {
+    @IBAction func saibaTudo(_ sender: UIButton) {
         if let url = URL(string: "https://iti.itau") {
             UIApplication.shared.open(url)
         }
     }
+    
+    @IBAction func btnHideShow(_ sender: UIButton) {
+        
+        if sender.tag == 0 {
+            btnEye.setBackgroundImage(UIImage(systemName: "eye.fill"), for: .normal)
+            labelValue.text = "R$ ----,--"
+            sender.tag = 1
+            print(sender.tag)
+        } else {
+            btnEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
+            labelValue.text = "R$ 1000,00"
+            sender.tag = 0
+            print(sender.tag)
+        }
+        
+    }
+    
+    
 }
 
 extension UIColor {
