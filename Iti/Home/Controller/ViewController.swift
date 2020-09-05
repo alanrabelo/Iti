@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         btnEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-        labelValue.text = "R$ 1000,00"
+        labelValue.text = "R$ 0,00"
     }
 
     @IBAction func saibaTudo(_ sender: UIButton) {
@@ -46,12 +46,12 @@ class ViewController: UIViewController {
         
         if sender.tag == 0 {
             btnEye.setBackgroundImage(UIImage(systemName: "eye.fill"), for: .normal)
-            labelValue.text = "R$ ----,--"
+            labelValue.text = "R$ -,--"
             sender.tag = 1
             print(sender.tag)
         } else {
             btnEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-            labelValue.text = "R$ 1000,00"
+            labelValue.text = "R$ 0,00"
             sender.tag = 0
             print(sender.tag)
         }
