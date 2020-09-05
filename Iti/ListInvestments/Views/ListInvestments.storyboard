@@ -122,7 +122,7 @@
                                             <outlet property="activeLabel" destination="2YE-AV-ahC" id="L5H-E3-3lZ"/>
                                             <outlet property="barView" destination="d5q-Ox-8S7" id="Uy5-hs-WnH"/>
                                             <outlet property="saldoAtualLabel" destination="Vnj-WU-nZh" id="XAu-85-rfX"/>
-                                            <segue destination="Qlm-qz-AIV" kind="presentation" id="Pef-IC-TWf"/>
+                                            <segue destination="4fN-nF-boX" kind="presentation" id="ift-AV-X4K"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -165,14 +165,12 @@
             <point key="canvasLocation" x="1959.4202898550727" y="97.767857142857139"/>
         </scene>
         <!--DetailInvestiment-->
-        <scene sceneID="gUf-uG-hQn">
+        <scene sceneID="Tiz-V6-drx">
             <objects>
-                <viewControllerPlaceholder storyboardName="DetailInvestiment" id="Qlm-qz-AIV" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="66G-in-Z3Y"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g5s-J0-1a8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="=" storyboardName="DetailInvestiment" id="4fN-nF-boX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8j-yU-CPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2754" y="97"/>
+            <point key="canvasLocation" x="2749" y="167"/>
         </scene>
         <!--NewInvestiment-->
         <scene sceneID="7Sn-Xs-XN3">

@@ -11,7 +11,7 @@ import UIKit
 class DetailInvestimentViewController: UIViewController {
 
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var lbStockIdentifier            : UILabel!
     @IBOutlet weak var lbAmount                     : UILabel!
     @IBOutlet weak var lbPurchasePrice              : UILabel!
@@ -30,46 +30,55 @@ class DetailInvestimentViewController: UIViewController {
     @IBOutlet weak var lbProfitability              : UILabel!
     @IBOutlet weak var btnEdit                      : UIButton!
     @IBOutlet weak var btnExit                      : UIButton!
-    
+
+    // MARK: - Properties
+
+    var investiment : Investment?
+
     // MARK: - View Life Cycle
     var symbol: String = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
-        
-        callExternalAPI(with: symbol)
-        
+
+        if let unwrappedInvestiment = self.investiment {
+
+            if let unwrappedSymbol = unwrappedInvestiment.active {
+
+                callExternalAPI(with: unwrappedSymbol)
+            }
+        }
     }
-    
+
     // MARK: - Actions
-   
+
     @IBAction func btnEdit(_ sender: Any, forEvent event: UIEvent) {
-    
-        
+
+
     }
-    
+
     @IBAction func btnExit(_ sender: Any, forEvent event: UIEvent) {
-    
+
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension DetailInvestimentViewController {
-    
+
     fileprivate func callExternalAPI(with symbol : String){
-        
+
         ForexAPI.loadAction(withSymbol: symbol)
         { (result) in
-            
+
             switch result {
-                
+
                 case .success(let forexQuote) : self.displayQuoteDetails(quote: forexQuote.quote)
-                
+
                 case .failure(let error)  : self.handleError(error: error)
             }
         }
@@ -78,20 +87,35 @@ extension DetailInvestimentViewController {
 
 
 extension DetailInvestimentViewController {
-    
+
     fileprivate func displayQuoteDetails(quote : Forex){
-        
-        DispatchQueue.main.sync {
-            
-            self.lbTodayQuoteText.text = quote.priceFormatted;
+
+       if let unwrappedInvestiment = self.investiment {
+
+            DispatchQueue.main.sync {
+
+                self.lbStockIdentifier.text = quote.symbol
+
+                self.lbAmount.text          = String(unwrappedInvestiment.quantity)
+
+                self.lbPrice.text           = unwrappedInvestiment.price.formattedPrice
+
+                self.lbDate.text            = unwrappedInvestiment.startDate ?? ""
+
+                self.lbTotalValueText.text  = (unwrappedInvestiment.quantity * unwrappedInvestiment.price).formattedPrice
+
+                self.lbTodayQuoteText.text  = quote.priceFormatted;
+
+                self.lbTodayValueText.text  = (unwrappedInvestiment.quantity * (Double(quote.price) ?? 0)).formattedPrice
+            }
         }
-        
     }
 }
 
 extension DetailInvestimentViewController {
-    
+
     fileprivate func handleError(error : APIError){
-        
+
+
     }
 }
