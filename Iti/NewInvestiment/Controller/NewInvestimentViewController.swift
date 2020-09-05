@@ -23,7 +23,11 @@ class NewInvestmentViewController: UIViewController {
     
     // MARK: - Properties
     var activeTextfield: CustomTextfield?
-    var investment: Investment?
+    var investment: Investment? {
+        didSet {
+            newInvestmentModel = NewInvestmentModel(withModel: investment)
+        }
+    }
     private var datePicker: UIDatePicker?
     private var newInvestmentModel = NewInvestmentModel(withModel: nil)
 //    private var price: Int = 0 {
@@ -144,6 +148,8 @@ class NewInvestmentViewController: UIViewController {
     func setupTextFields() {
         textfieldPurchaseDate.text = formattedPurchaseDate
         textfieldStockPrice.text = formattedPrice
+        textfieldStockAmmount.text = "\(Double(newInvestmentModel.quantity))"
+        textfieldStockName.text = newInvestmentModel.active.uppercased()
         
         textfieldStockAmmount.type = .ammount
         textfieldStockAmmount.label = labelStockAmmount
