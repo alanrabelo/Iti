@@ -23,7 +23,11 @@ class NewInvestmentViewController: UIViewController {
     
     // MARK: - Properties
     var activeTextfield: CustomTextfield?
-    var investment: Investment?
+    var investment: Investment? {
+        didSet {
+            newInvestmentModel = NewInvestmentModel(withModel: investment)
+        }
+    }
     private var datePicker: UIDatePicker?
     private var newInvestmentModel = NewInvestmentModel(withModel: nil)
 //    private var price: Int = 0 {
@@ -45,13 +49,6 @@ class NewInvestmentViewController: UIViewController {
     
     private var name: String = ""
     
-    private var formattedPrice: String {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "pt_BR") // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
-        formatter.numberStyle = .currency
-        return formatter.string(from: Double(newInvestmentModel.price)/100 as NSNumber) ?? "R$ 0,00"
-    }
-    
     private var formattedPurchaseDate: String {
         let dateFormatter: DateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "pt_BR")
@@ -68,13 +65,15 @@ class NewInvestmentViewController: UIViewController {
                 investment = Investment(context: context)
             }
             
-            investment?.active = newInvestmentModel.active
+            let active = textfieldStockName.text ?? ""
+            investment?.active = active
             investment?.quantity = newInvestmentModel.quantity
             investment?.price = Double(newInvestmentModel.price)/100
             investment?.startDate = newInvestmentModel.startDate
             
             do {
                 try context.save()
+                self.dismiss(animated: true, completion: nil)
             } catch {
                 print("Failed saving")
             }
@@ -100,7 +99,6 @@ class NewInvestmentViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        textfieldStockName.becomeFirstResponder()
         setupDatePicker()
         setupTextFields()
     }
@@ -143,8 +141,10 @@ class NewInvestmentViewController: UIViewController {
     
     func setupTextFields() {
         textfieldPurchaseDate.text = formattedPurchaseDate
-        textfieldStockPrice.text = formattedPrice
-        
+        textfieldStockPrice.text = newInvestmentModel.formattedPrice
+        textfieldStockName.text = newInvestmentModel.active
+        textfieldStockAmmount.text = "\(Int(newInvestmentModel.quantity))"
+
         textfieldStockAmmount.type = .ammount
         textfieldStockAmmount.label = labelStockAmmount
         
@@ -237,14 +237,14 @@ extension NewInvestmentViewController: UITextFieldDelegate {
             priceAsString.removeLast()
             if priceAsString.lengthOfBytes(using: .utf8) == 0 {
                 newInvestmentModel.price = 0
-                self.textfieldStockPrice.text = formattedPrice
+                self.textfieldStockPrice.text = newInvestmentModel.formattedPrice
                 return false
             }
         }
         
         guard let newPrice = Int(priceAsString + replacement) else { return false }
         newInvestmentModel.price = Int(newPrice)
-        self.textfieldStockPrice.text = formattedPrice
+        self.textfieldStockPrice.text = newInvestmentModel.formattedPrice
         return false
     }
     
@@ -270,7 +270,7 @@ extension NewInvestmentViewController: UITextFieldDelegate {
         if textField == textfieldPurchaseDate {
             textField.inputView = datePicker
         } else if currentTextField.type == .price {
-            currentTextField.text = formattedPrice
+            currentTextField.text = newInvestmentModel.formattedPrice
         }
     }
     
