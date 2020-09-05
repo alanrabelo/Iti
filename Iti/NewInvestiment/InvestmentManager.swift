@@ -38,16 +38,7 @@ class InvestmentManager {
         fetchedResultsController.object(at: indexPath)
     }
     
-    /*
-        Instanciar InvestmentManager na ListInvestments
-     
-         lazy var investmentManager: InvestmentManager = { [weak self] in
-             let investmentManager = InvestmentManager(context: context)
-             investmentManager.delegate = self
-             return investmentManager
-         }()
-     */
-    
+
     /*
            Declarar investment na NewInvestment
         
@@ -79,50 +70,8 @@ class InvestmentManager {
         
     }
     
-    /*
-       Função para carregar os investimentos
-    */
-    func loadInvestments() {
-//        investmentManager.performFetch()
-    }
-    
-    /*
-       Função para deletar investimento na tableview
-    */
-    func deleteInvestment(_ indexPath: IndexPath) {
-        
-//        let investment = investmentManager.getInvestimentAt(indexPath)
-//        context.delete(investment)
-//
-//        do {
-//            try context.save()
-//        } catch {
-//            print("Failed to delete investment")
-//        }
-    }
-    
-    /*
-        extension NewInvestmentViewController: NSFetchedResultsControllerDelegate {
 
-            func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-                switch type {
-                case .delete:
-                    print("Código para excluir o investimento da tabela")
-                case .move:
-                    print("Código para atualizar a posição do investimento da tabela")
-                case .update:
-                    print("Código para atualizar o investimento da tabela")
-                case .insert:
-                    print("Código para inserir o investimento da tabela")
-                @unknown default:
-                    print("Cenário desconhecido")
-                }
-            }
-            
-            func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-                tableView.reloadData()
-            }
-        }
-     */
     
+   
 }
+
