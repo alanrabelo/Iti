@@ -58,7 +58,7 @@ class InvestmentManager {
     /*
         Função para adicionar investimento no Form
      */
-    func addNewInvestment() {
+    func addNewInvestment(_ newInvestiment: NewInvestmentModel) {
         
 //        if investment == nil {
 //           investment = Investment(context: context)
