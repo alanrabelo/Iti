@@ -130,7 +130,7 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
 //        performSegue(withIdentifier: "SegueDetail", sender: indexPath)
 
-        coordinator?.showDetailInvestment(with: DetailInvestmentViewModel())
+        coordinator?.showDetailInvestment(with: DetailInvestmentViewModel(investment:  viewModel.getInvestmentAt(indexPath)))
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -138,7 +138,7 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
         if let destination = segue.destination as? DetailInvestimentViewController {
             if let indexPath = sender as? IndexPath {
                 let investment = viewModel.getInvestmentAt(indexPath)
-                destination.investiment = investment
+//                destination.investiment = investment
             }
         }
         if let destination = segue.destination as? NewInvestmentViewController {
@@ -152,7 +152,7 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
             if let indexPath = sender as? IndexPath {
                 let investment = viewModel.getInvestmentAt(indexPath)
-                destination.investiment = investment
+//                destination.investiment = investment
             }
         }
     }

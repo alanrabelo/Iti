@@ -1,10 +1,5 @@
 import UIKit
 
-// @TODO excluir, pois foi criada apenas para teste
-class DetailInvestmentViewModel {
-    
-}
-
 protocol HomePresenter: AnyObject {
     func showHome()
 }
@@ -24,7 +19,7 @@ class DetailInvestmentCoordinator: Coordinator {
     
     func start() {
         let detailInvestmentViewController = DetailInvestimentViewController()
-//        detailInvestmentViewController.viewModel = detailInvestmentViewController
+        detailInvestmentViewController.viewModel = detailInvestmentViewModel
         detailInvestmentViewController.coordinator = self
         navigationController.present(detailInvestmentViewController, animated: true, completion: nil)
     }
