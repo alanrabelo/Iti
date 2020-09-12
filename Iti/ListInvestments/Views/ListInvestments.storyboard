@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ph-M0-PQi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ph-M0-PQi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -137,7 +137,7 @@
                                 </constraints>
                                 <state key="normal" title="Novo Investimento"/>
                                 <connections>
-                                    <action selector="newInvestiment:" destination="0Ph-M0-PQi" eventType="touchUpInside" id="qFj-Iu-ydn"/>
+                                    <action selector="newInvestment:" destination="0Ph-M0-PQi" eventType="touchUpInside" id="kOL-eg-fMw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -162,7 +162,6 @@
                         <outlet property="labelValue" destination="pRz-Ls-Fub" id="Ks4-so-WXJ"/>
                         <outlet property="tableView" destination="XTd-Eq-loe" id="vcz-d4-6bK"/>
                         <outlet property="topView" destination="ut2-2K-ubT" id="yEB-CW-KTW"/>
-                        <segue destination="XME-K5-B9J" kind="presentation" identifier="showForm" id="DkI-nR-Vhc"/>
                         <segue destination="4fN-nF-boX" kind="showDetail" identifier="SegueDetail" id="G41-Lf-mGk"/>
                     </connections>
                 </viewController>
@@ -179,14 +178,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8j-yU-CPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2749" y="167"/>
-        </scene>
-        <!--NewInvestiment-->
-        <scene sceneID="7Sn-Xs-XN3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NewInvestiment" id="XME-K5-B9J" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3VO-zV-pK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2748" y="220"/>
         </scene>
     </scenes>
     <resources>

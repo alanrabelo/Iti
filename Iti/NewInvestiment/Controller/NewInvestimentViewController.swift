@@ -11,19 +11,23 @@ import UIKit
 class NewInvestmentViewController: UIViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var textfieldStockName: CustomTextfield!
-    @IBOutlet weak var textfieldStockAmmount: CustomTextfield!
-    @IBOutlet weak var textfieldStockPrice: CustomTextfield!
-    @IBOutlet weak var textfieldPurchaseDate: CustomTextfield!
-    @IBOutlet weak var labelStockName: CustomLabel!
-    @IBOutlet weak var labelStockAmmount: CustomLabel!
-    @IBOutlet weak var labelPurchasePrice: CustomLabel!
-    @IBOutlet weak var labelPurchaseDate: CustomLabel!
-    @IBOutlet weak var scrollView: UIScrollView!
+//    @IBOutlet weak var textfieldStockName: CustomTextfield!
+//    @IBOutlet weak var textfieldStockAmmount: CustomTextfield!
+//    @IBOutlet weak var textfieldStockPrice: CustomTextfield!
+//    @IBOutlet weak var textfieldPurchaseDate: CustomTextfield!
+//    @IBOutlet weak var labelStockName: CustomLabel!
+//    @IBOutlet weak var labelStockAmmount: CustomLabel!
+//    @IBOutlet weak var labelPurchasePrice: CustomLabel!
+//    @IBOutlet weak var labelPurchaseDate: CustomLabel!
+//    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Properties
     var activeTextfield: CustomTextfield?
     lazy var viewModel: InvestmentViewModel = InvestmentViewModel(in: context)
+    var formView: NewInvestmentView {
+        self.view as! NewInvestmentView
+    }
+    
     private var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -68,13 +72,13 @@ class NewInvestmentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setupTextFields()
+//        setupTextFields()
     }
     
     // MARK: - Date Picker
     @objc func datePickerValueChanged(_ sender: UIDatePicker){
         viewModel.newInvestmentModel.startDate = sender.date.asString
-        textfieldPurchaseDate.text = viewModel.purchaseDate
+        formView.stackViewStartDate.textField.text = viewModel.purchaseDate
     }
     
     func presentDatePicker() {
@@ -85,34 +89,34 @@ class NewInvestmentViewController: UIViewController {
     func moveToNext(fromTextField textfield: CustomTextfield) {
         switch textfield.type {
         case .title:
-            textfieldStockAmmount.becomeFirstResponder()
+            formView.stackViewName.textField.becomeFirstResponder()
         case .ammount:
-            textfieldStockPrice.becomeFirstResponder()
+            formView.stackViewQuantity.textField.becomeFirstResponder()
         case .price:
-            textfieldPurchaseDate.becomeFirstResponder()
+            formView.stackViewPrice.textField.becomeFirstResponder()
         case .date:
-            textfieldStockName.becomeFirstResponder()
+            formView.stackViewStartDate.textField.becomeFirstResponder()
         }
     }
     
-    func setupTextFields() {
-        textfieldPurchaseDate.text = viewModel.purchaseDate
-        textfieldStockPrice.text = viewModel.price
-        textfieldStockAmmount.text = viewModel.quantity
-        textfieldStockName.text = viewModel.name
-        
-        textfieldStockAmmount.type = .ammount
-        textfieldStockAmmount.label = labelStockAmmount
-        
-        textfieldStockPrice.type = .price
-        textfieldStockPrice.label = labelPurchasePrice
-        
-        textfieldPurchaseDate.type = .date
-        textfieldPurchaseDate.label = labelPurchaseDate
-        
-        textfieldStockName.type = .title
-        textfieldStockName.label = labelStockName
-    }
+//    func setupTextFields() {
+//        textfieldPurchaseDate.text = viewModel.purchaseDate
+//        textfieldStockPrice.text = viewModel.price
+//        textfieldStockAmmount.text = viewModel.quantity
+//        textfieldStockName.text = viewModel.name
+//
+//        textfieldStockAmmount.type = .ammount
+//        textfieldStockAmmount.label = labelStockAmmount
+//
+//        textfieldStockPrice.type = .price
+//        textfieldStockPrice.label = labelPurchasePrice
+//
+//        textfieldPurchaseDate.type = .date
+//        textfieldPurchaseDate.label = labelPurchaseDate
+//
+//        textfieldStockName.type = .title
+//        textfieldStockName.label = labelStockName
+//    }
     
     // MARK: - Keyboard Notifications for Scrollview
     func setupKeyboardNotifications() {
@@ -125,14 +129,14 @@ class NewInvestmentViewController: UIViewController {
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
-        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        var contentInset:UIEdgeInsets = formView.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height + 20
-        scrollView.contentInset = contentInset
+        formView.scrollView.contentInset = contentInset
     }
     
     @objc func keyboardWillHide(notification:NSNotification){
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
+        formView.scrollView.contentInset = contentInset
     }
     
     // MARK: Keyboard toolbar actions
@@ -156,11 +160,11 @@ extension NewInvestmentViewController: UITextFieldDelegate {
         
         let newText = text.replacingCharacters(in: textRange, with: string)
         
-        if textField == textfieldStockPrice {
+        if textField == formView.stackViewPrice.textField {
             return viewModel.shouldChangeCharactersIn(priceTextfield: textField, string, newText)
-        } else if textField == textfieldStockAmmount {
+        } else if textField == formView.stackViewQuantity.textField {
             return viewModel.shouldChangeCharactersIn(quantityTextfield: textField, string, newText)
-        } else if textField == textfieldStockName {
+        } else if textField == formView.stackViewName.textField {
             viewModel.newInvestmentModel.active = newText
         } 
         return true
@@ -192,13 +196,13 @@ extension NewInvestmentViewController: InvestmentViewModelDelegate {
     
     func didValidateTextfields(_ viewModel: InvestmentViewModel, _ validation: (Bool, Bool, Bool)) {
         if !validation.0 {
-            textfieldStockName.status = .invalid
+            formView.stackViewName.textField.status = .invalid
         }
         if !validation.1 {
-            textfieldStockPrice.status = .invalid
+            formView.stackViewPrice.textField.status = .invalid
         }
         if !validation.2 {
-            textfieldStockAmmount.status = .invalid
+            formView.stackViewQuantity.textField.status = .invalid
         }
     }
     

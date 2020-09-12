@@ -73,7 +73,10 @@ class ListInvestmentsViewController: UIViewController {
     }
     
     @IBAction func newInvestment(_ sender: Any) {
-        self.performSegue(withIdentifier: "showForm", sender: nil)
+        
+        let controller = NewInvestmentViewController()
+        controller.view = NewInvestmentView(textFieldDelegate: controller, investmentsModelDelegate: controller)
+        self.present(controller, animated: true, completion: nil)
     }
 }
 
