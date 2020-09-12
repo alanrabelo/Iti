@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     }
     
     private func goToListInvestments() {
-        coordinator?.showList(with: ListInvestmentViewModel())
+        coordinator?.showList(with: ListInvestmentsViewModel(context: context))
     }
     
     @IBAction func btnHideShow(_ sender: UIButton) {

@@ -1,12 +1,7 @@
 import UIKit
 
-// @TODO excluir, pois foi criada apenas para teste
-class ListInvestmentViewModel {
-    
-}
-
 protocol ListInvestmentPresenter: AnyObject {
-    func showList(with viewModel: ListInvestmentViewModel)
+    func showList(with viewModel: ListInvestmentsViewModel)
 }
 
 class HomeCoordinator: Coordinator {
@@ -14,9 +9,12 @@ class HomeCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
-    
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+
+
+    init() {
+       navigationController = UINavigationController()
+       navigationController.navigationBar.prefersLargeTitles = true
+       navigationController.navigationBar.tintColor = UIColor(named: "main")
     }
     
     func start() {
@@ -25,7 +23,7 @@ class HomeCoordinator: Coordinator {
         navigationController.pushViewController(homeViewController, animated: true)
     }
     
-    func showList(with viewModel: ListInvestmentViewModel) {
+    func showList(with viewModel: ListInvestmentsViewModel) {
         let childCoordinator = ListInvestmentCoordinator(navigationController: navigationController, listViewModel: viewModel)
         childCoordinator.parentCoordinator = self
         add(childCoordinator: childCoordinator)

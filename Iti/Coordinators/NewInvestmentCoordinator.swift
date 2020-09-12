@@ -14,17 +14,17 @@ class NewInvestmentCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
-    var newInvestmentViewModel: NewInvestmentViewModel
+    var newInvestmentViewModel: InvestmentViewModel
     
-    init(navigationController: UINavigationController, newInvestmentViewModel: NewInvestmentViewModel? = nil) {
+    init(navigationController: UINavigationController, newInvestmentViewModel: InvestmentViewModel? = nil) {
         self.navigationController = navigationController
-        self.newInvestmentViewModel = newInvestmentViewModel ?? NewInvestmentViewModel()
+        self.newInvestmentViewModel = newInvestmentViewModel ?? InvestmentViewModel(in: navigationController.context)
     }
     
     func start() {
         let newInvestmentViewController = NewInvestmentViewController()
-//        newInvestmentViewModel.viewModel = newInvestmentViewModel
-//        newInvestmentViewController.delegate = self
+        newInvestmentViewController.viewModel = newInvestmentViewModel
+        newInvestmentViewController.coordinator = self
         navigationController.pushViewController(newInvestmentViewController, animated: true)
     }
     

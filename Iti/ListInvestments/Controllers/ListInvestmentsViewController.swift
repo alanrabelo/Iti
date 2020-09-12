@@ -56,7 +56,7 @@ class ListInvestmentsViewController: UIViewController {
     @IBAction func newInvestiment(_ sender: Any) {
 //        self.performSegue(withIdentifier: "showForm", sender: nil)
         
-        coordinator?.showNewInvestment(with: NewInvestmentViewModel())
+        coordinator?.showNewInvestment(with: InvestmentViewModel(in: context))
     }
     
     // MARK: - Methods
@@ -79,6 +79,8 @@ class ListInvestmentsViewController: UIViewController {
     
     @IBAction func newInvestment(_ sender: Any) {
         self.performSegue(withIdentifier: "showForm", sender: nil)
+        
+        coordinator?.showNewInvestment(with: InvestmentViewModel(in: context))
     }
     
     deinit {

@@ -3,7 +3,7 @@ import UIKit
 
 
 protocol NewInvestmentPresenter: AnyObject {
-    func showNewInvestment(with viewModel: NewInvestmentViewModel)
+    func showNewInvestment(with viewModel: InvestmentViewModel)
 }
 
 class ListInvestmentCoordinator: Coordinator {
@@ -11,21 +11,21 @@ class ListInvestmentCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
-    var listViewModel: ListInvestmentViewModel
+    var listViewModel: ListInvestmentsViewModel
     
-    init(navigationController: UINavigationController, listViewModel: ListInvestmentViewModel) {
+    init(navigationController: UINavigationController, listViewModel: ListInvestmentsViewModel) {
         self.navigationController = navigationController
         self.listViewModel = listViewModel
     }
     
     func start() {
         let listInvestmentViewController = ListInvestmentsViewController()
-//        listInvestmentViewController.viewModel = listViewModel
+        listInvestmentViewController.viewModel = listViewModel
         listInvestmentViewController.coordinator = self
         navigationController.pushViewController(listInvestmentViewController, animated: true)
     }
     
-    func showNewInvestment(with viewModel: NewInvestmentViewModel) {
+    func showNewInvestment(with viewModel: InvestmentViewModel) {
         let childCoordinator = NewInvestmentCoordinator(navigationController: navigationController, newInvestmentViewModel: viewModel)
         childCoordinator.parentCoordinator = self
         add(childCoordinator: childCoordinator)
