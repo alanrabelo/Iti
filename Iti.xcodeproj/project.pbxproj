@@ -31,7 +31,7 @@
 		E72270092503E4C7006BF6F1 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72270082503E4C7006BF6F1 /* CustomLabel.swift */; };
 		E722700B2503E4CC006BF6F1 /* CustomTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700A2503E4CC006BF6F1 /* CustomTextfield.swift */; };
 		E722700D2503E502006BF6F1 /* FormStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700C2503E502006BF6F1 /* FormStatus.swift */; };
-		E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700E2503FA0B006BF6F1 /* DateExtensions.swift */; };
+		E722700F2503FA0B006BF6F1 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700E2503FA0B006BF6F1 /* Date+Formatter.swift */; };
 		E793C2F42503C41A0093D921 /* NewInvestiment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */; };
 		E793C2F62503C42B0093D921 /* NewInvestimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */; };
 		E7BA9690250CF795006B464F /* InvestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA968F250CF795006B464F /* InvestmentViewModel.swift */; };
@@ -69,7 +69,7 @@
 		E72270082503E4C7006BF6F1 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		E722700A2503E4CC006BF6F1 /* CustomTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfield.swift; sourceTree = "<group>"; };
 		E722700C2503E502006BF6F1 /* FormStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatus.swift; sourceTree = "<group>"; };
-		E722700E2503FA0B006BF6F1 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		E722700E2503FA0B006BF6F1 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewInvestiment.storyboard; sourceTree = "<group>"; };
 		E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestimentViewController.swift; sourceTree = "<group>"; };
 		E7BA968F250CF795006B464F /* InvestmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentViewModel.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 				8ABB7C3B2503CAB600DBAF15 /* UITableView+FooterView.swift */,
 				8ABB7C472503EEBA00DBAF15 /* Double+MoneyFormat.swift */,
 				1755D2FC2503EED500B6691E /* UIVIewController+Context.swift */,
-				E722700E2503FA0B006BF6F1 /* DateExtensions.swift */,
+				E722700E2503FA0B006BF6F1 /* Date+Formatter.swift */,
 				8ABEC83B2503F95D0008568D /* UIView+GradientSublayer.swift */,
 			);
 			path = Extensions;
@@ -455,7 +455,7 @@
 				E722700B2503E4CC006BF6F1 /* CustomTextfield.swift in Sources */,
 				8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */,
 				E7BA9693250D0A10006B464F /* NewInvestmentView.swift in Sources */,
-				E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */,
+				E722700F2503FA0B006BF6F1 /* Date+Formatter.swift in Sources */,
 				8ABB7C382503C65600DBAF15 /* Color+Gradient.swift in Sources */,
 				8ABB7C462503ED7D00DBAF15 /* ForexQuote.swift in Sources */,
 				8AAE714C250D003B0014F090 /* ListInvestmentsCellViewModel.swift in Sources */,
