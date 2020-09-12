@@ -23,6 +23,7 @@ class InvestmentViewModel {
     var newInvestmentModel: NewInvestmentModel
     weak var delegate: InvestmentViewModelDelegate?
     
+    
     private var rawPrice: Double {
         return Double(newInvestmentModel.price) / 100
     }

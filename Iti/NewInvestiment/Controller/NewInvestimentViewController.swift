@@ -21,6 +21,8 @@ class NewInvestmentViewController: UIViewController {
 //    @IBOutlet weak var labelPurchaseDate: CustomLabel!
 //    @IBOutlet weak var scrollView: UIScrollView!
     
+    weak var coordinator: NewInvestmentCoordinator?
+    
     // MARK: - Properties
     var activeTextfield: CustomTextfield?
     lazy var viewModel: InvestmentViewModel = InvestmentViewModel(in: context)
@@ -156,6 +158,10 @@ class NewInvestmentViewController: UIViewController {
     
     @objc func didTapDismissButton() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    deinit {
+        print("NewInvestmentViewController deinit")
     }
 }
 
