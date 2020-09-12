@@ -43,6 +43,8 @@
 		E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0AA2503C05D00400CB7 /* Iti.xcdatamodeld */; };
 		E7EAD0AE2503C05F00400CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7EAD0AD2503C05F00400CB7 /* Assets.xcassets */; };
 		E7EAD0B12503C05F00400CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EAD0AF2503C05F00400CB7 /* LaunchScreen.storyboard */; };
+		FE104627250D09D4002454E6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE104626250D09D4002454E6 /* HomeView.swift */; };
+		FE10462A250D171D002454E6 /* StringsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE104629250D171D002454E6 /* StringsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		E7EAD0AD2503C05F00400CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7EAD0B02503C05F00400CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7EAD0B22503C05F00400CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE104626250D09D4002454E6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FE104629250D171D002454E6 /* StringsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 		8ABB7C312503C51800DBAF15 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				FE104629250D171D002454E6 /* StringsHelper.swift */,
 				08CABAF1250D0D9B00CEC740 /* AppStyle.swift */,
 				08CABAEA250CFE3800CEC740 /* Protocol */,
 				8ABB7C422503E65A00DBAF15 /* Models */,
@@ -353,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				E7EAD0A72503C05D00400CB7 /* Main.storyboard */,
+				FE104626250D09D4002454E6 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,6 +441,8 @@
 				174ABA9E2503CAFC00CC09E9 /* InvestmentManager.swift in Sources */,
 				E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */,
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
+				FE10462A250D171D002454E6 /* StringsHelper.swift in Sources */,
+				FE104627250D09D4002454E6 /* HomeView.swift in Sources */,
 				174ABA9C2503CADB00CC09E9 /* NewInvestmentModel.swift in Sources */,
 				8ABB7C3C2503CAB700DBAF15 /* UITableView+FooterView.swift in Sources */,
 				8ABB7C352503C53A00DBAF15 /* GradientButton.swift in Sources */,

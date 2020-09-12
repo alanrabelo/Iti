@@ -13,6 +13,10 @@ extension UIColor {
     static let lbStockIdentifier    = UIColor.black
     
     static let lbTitle              = UIColor.systemGray
+    
+    static let mainViewHome         = UIColor(hexString: "2B374B")
+    
+    static let lineViewHome       = UIColor(hexString: "212429")
 }
 
 extension UIFont {
@@ -21,6 +25,7 @@ extension UIFont {
     
     static let lbTitle              = UIFont.systemFont(ofSize: 15, weight: .semibold)
     
+    static let lbUserNameHome       = UIFont.systemFont(ofSize: 25, weight: .semibold)
 }
 
 enum Margin {
