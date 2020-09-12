@@ -29,10 +29,11 @@ class ListInvestmentsViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = ListInvestmentsView()
+        let investmentView = ListInvestmentsView()
+        view = investmentView
+        investmentView.tableView.delegate = self
+        investmentView.tableView.dataSource = self
         viewModel.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
         setupView()
     }
     
@@ -85,12 +86,15 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
         return viewModel.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListInvestmentsTableViewCell", for: indexPath) as? ListInvestmentsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListInvestmentsTableViewCell else {
             return UITableViewCell()
         }
-        
+
         cell.configure(with: viewModel.getInvestmentCellViewModelFor(indexPath))
         
         return cell

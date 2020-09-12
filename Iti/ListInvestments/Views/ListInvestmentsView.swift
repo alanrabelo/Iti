@@ -15,14 +15,15 @@ class ListInvestmentsView: UIView, CodeView {
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .yellow
+        tableView.layer.cornerRadius = 10
+        tableView.layer.masksToBounds = true
         return tableView
     }()
     
     let topView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .orange
+        view.backgroundColor = UIColor(named: "MainOrange") ?? .orange
         //        let firstColor = UIColor(named: "MainOrange") ?? .white
         //        let secondColor = UIColor(named: "MainPink") ?? .white
         
@@ -86,7 +87,7 @@ class ListInvestmentsView: UIView, CodeView {
         topView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         topView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         topView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        topView.bottomAnchor.constraint(equalTo: totalAmmountLabel.bottomAnchor, constant: 10).isActive = true
+        topView.bottomAnchor.constraint(equalTo: totalAmmountLabel.bottomAnchor, constant: 20).isActive = true
         
         //PatrimonyLabel
         patrimonyLabel.topAnchor.constraint(equalTo: topView.topAnchor, constant: 10).isActive = true
@@ -101,7 +102,7 @@ class ListInvestmentsView: UIView, CodeView {
         eyeButton.leadingAnchor.constraint(equalTo: totalAmmountLabel.trailingAnchor, constant: 10).isActive = true
         
         //TableView
-        tableView.topAnchor.constraint(equalTo: topView.bottomAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: -10).isActive = true
         tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         tableView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -110,7 +111,8 @@ class ListInvestmentsView: UIView, CodeView {
     }
     
     func setupExtraConfigurations() {
-        
+        self.backgroundColor = .white
+        tableView.register(ListInvestmentsTableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     

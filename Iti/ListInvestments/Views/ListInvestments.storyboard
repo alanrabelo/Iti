@@ -121,12 +121,6 @@
                                                 <constraint firstItem="4eb-5X-Ckt" firstAttribute="bottom" secondItem="d5q-Ox-8S7" secondAttribute="bottom" id="qt7-gS-oug"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="activeLabel" destination="2YE-AV-ahC" id="L5H-E3-3lZ"/>
-                                            <outlet property="barView" destination="d5q-Ox-8S7" id="Uy5-hs-WnH"/>
-                                            <outlet property="percentageLabel" destination="sUa-5c-CLq" id="26h-xf-xbQ"/>
-                                            <outlet property="saldoAtualLabel" destination="Vnj-WU-nZh" id="XAu-85-rfX"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
