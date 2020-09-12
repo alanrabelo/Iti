@@ -116,7 +116,14 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
         
         let action = UIContextualAction(style: .normal, title: title,
                                         handler: { (action, view, completionHandler) in
-                                            self.performSegue(withIdentifier: "showForm", sender: indexPath)
+                                            
+                                            let investment = self.viewModel.getInvestmentAt(indexPath)
+                                            let viewModel = InvestmentViewModel(withModel: investment, in: self.context)
+                                            
+                                            guard let navigationController = self.navigationController else { return }
+                                            let editInvestmentCoordinator = NewInvestmentCoordinator(navigationController: navigationController, newInvestmentViewModel: viewModel)
+                                            self.coordinator?.add(childCoordinator: editInvestmentCoordinator)
+                                            editInvestmentCoordinator.start()
         })
         
         action.backgroundColor = UIColor(named: "MainOrange")
@@ -160,7 +167,9 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
 extension ListInvestmentsViewController: ListInvestmentsViewModelDelegate {
     func didUpdateList() {
+        
+        (view as! ListInvestmentsView).tableView.reloadData()
 //        tableView.reloadData()
-//        self.labelValue.text = viewModel.totalAmount
+//        (view as! ListInvestmentsView).totalAmmountLabel.text = viewModel.totalAmount
     }
 }

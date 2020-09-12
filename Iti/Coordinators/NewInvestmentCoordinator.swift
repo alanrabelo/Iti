@@ -9,7 +9,8 @@ protocol DetailInvestmentPresenter: AnyObject {
     func showDetailInvestment(with viewModel: DetailInvestmentViewModel)
 }
 
-class NewInvestmentCoordinator: Coordinator {
+class NewInvestmentCoordinator: Coordinator, ListInvestmentPresenter {
+    
     
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
@@ -27,11 +28,18 @@ class NewInvestmentCoordinator: Coordinator {
         newInvestmentViewController.viewModel = newInvestmentViewModel
         newInvestmentViewController.coordinator = self
         navigationController.present(newInvestmentViewController, animated: true, completion: nil)
-//        navigationController.pushViewController(newInvestmentViewController, animated: true)
     }
     
     func showDetailInvestment(with viewModel: DetailInvestmentViewModel) {
         let childCoordinator = DetailInvestmentCoordinator(navigationController: navigationController, detailInvestmentViewModel: viewModel)
+        childCoordinator.parentCoordinator = self
+        add(childCoordinator: childCoordinator)
+        childCoordinator.start()
+    }
+    
+    
+    func showList(with viewModel: ListInvestmentsViewModel) {
+        let childCoordinator = ListInvestmentCoordinator(navigationController: navigationController)
         childCoordinator.parentCoordinator = self
         add(childCoordinator: childCoordinator)
         childCoordinator.start()

@@ -49,6 +49,7 @@ class NewInvestmentView: UIView, CodeView {
     let buttonInvest: GradientButton = {
         let button = GradientButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .orange
         button.setTitle("Investir", for: .normal)
         return button
     }()
@@ -134,10 +135,6 @@ class NewInvestmentView: UIView, CodeView {
     
     func setupExtraConfigurations() {
         self.backgroundColor = .white
-    }
-    
-    @objc func didTapDismissButton() {
-        
     }
     
     /*

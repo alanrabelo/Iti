@@ -28,7 +28,7 @@ class NewInvestmentViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
         return datePicker
     }()
-
+    
     private var toolbar: UIToolbar = {
         let textToolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         textToolbar.barStyle = .default
@@ -40,7 +40,7 @@ class NewInvestmentViewController: UIViewController {
         return textToolbar
     }()
     
-        
+    
     // MARK: - IBActions
     @IBAction func sendRequest(_ sender: Any) {
         viewModel.save()
@@ -65,7 +65,16 @@ class NewInvestmentViewController: UIViewController {
         super.viewWillAppear(true)
         self.view = formView
         formView.buttonDismiss.addTarget(self, action: #selector(didTapDismissButton), for: .touchDown)
-//        setupTextFields()
+        formView.buttonInvest.addTarget(self, action: #selector(didTapInvestButton), for: .touchDown)
+        setupTextFields()
+    }
+    
+    
+    func setupTextFields() {
+        self.formView.stackViewName.textField.text = viewModel.name
+        self.formView.stackViewPrice.textField.text = viewModel.price
+        self.formView.stackViewQuantity.textField.text = viewModel.quantity
+        self.formView.stackViewStartDate.textField.text = viewModel.purchaseDate
     }
     
     // MARK: - Date Picker
@@ -73,7 +82,7 @@ class NewInvestmentViewController: UIViewController {
         viewModel.newInvestmentModel.startDate = sender.date.asString
         formView.stackViewStartDate.textField.text = viewModel.purchaseDate
     }
-    
+
     func presentDatePicker() {
         
         viewModel.newInvestmentModel.startDate = datePicker.date.asString
@@ -127,6 +136,11 @@ class NewInvestmentViewController: UIViewController {
     
     @objc func didTapDismissButton() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func didTapInvestButton() {
+        viewModel.save()
+        dismiss(animated: true, completion: nil)
     }
     
     deinit {
@@ -191,6 +205,7 @@ extension NewInvestmentViewController: InvestmentViewModelDelegate {
     }
     
     func didCreateInvestment(_ viewModel: InvestmentViewModel) {
+//        coordinator?.showList(with: ListInvestmentsViewModel(context: context))
         dismiss(animated: true, completion: nil)
     }
     
