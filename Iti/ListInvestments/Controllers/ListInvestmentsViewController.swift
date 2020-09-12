@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 
+typealias DetailEnabled = Coordinator & DetailInvestmentPresenter
+
 class ListInvestmentsViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -15,6 +17,7 @@ class ListInvestmentsViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var labelValue: UILabel!
     @IBOutlet weak var buttonEye: UIButton!
+    weak var coordinator: DetailEnabled?
     
     // MARK: - Properties
     lazy var viewModel = ListInvestmentsViewModel(context: context)
@@ -119,6 +122,8 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "SegueDetail", sender: indexPath)
+        
+//        coordinator?.showDetailInvestment(with: DetailInvestmentViewModel())
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
