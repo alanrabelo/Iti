@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ph-M0-PQi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ph-M0-PQi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -124,6 +124,7 @@
                                         <connections>
                                             <outlet property="activeLabel" destination="2YE-AV-ahC" id="L5H-E3-3lZ"/>
                                             <outlet property="barView" destination="d5q-Ox-8S7" id="Uy5-hs-WnH"/>
+                                            <outlet property="percentageLabel" destination="sUa-5c-CLq" id="26h-xf-xbQ"/>
                                             <outlet property="saldoAtualLabel" destination="Vnj-WU-nZh" id="XAu-85-rfX"/>
                                         </connections>
                                     </tableViewCell>
