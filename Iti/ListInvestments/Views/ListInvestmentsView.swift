@@ -24,10 +24,6 @@ class ListInvestmentsView: UIView, CodeView {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(named: "MainOrange") ?? .orange
-        //        let firstColor = UIColor(named: "MainOrange") ?? .white
-        //        let secondColor = UIColor(named: "MainPink") ?? .white
-        
-        //        view.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
         
         return view
     }()
@@ -132,5 +128,11 @@ class ListInvestmentsView: UIView, CodeView {
         tableView.register(ListInvestmentsTableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
+    func reloadSublayers() {
+        let gradientColor = UIColor.gradientColorFor(view: newInvestmentButton, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!)
+        newInvestmentButton.layer.insertSublayer(gradientColor, at: 0)
+        let gradientColor2 = UIColor.gradientColorFor(view: topView, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!, endPoint: CGPoint(x: 1.5, y: 0))
+        topView.layer.insertSublayer(gradientColor2, at: 0)
+    }
     
 }

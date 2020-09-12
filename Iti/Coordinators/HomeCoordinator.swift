@@ -13,8 +13,9 @@ class HomeCoordinator: Coordinator {
 
     init() {
        navigationController = UINavigationController()
-       navigationController.navigationBar.prefersLargeTitles = true
+       navigationController.navigationBar.prefersLargeTitles = false
        navigationController.navigationBar.tintColor = UIColor(named: "main")
+        navigationController.navigationBar.isTranslucent = false
     }
     
     func start() {

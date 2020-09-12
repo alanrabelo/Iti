@@ -41,6 +41,7 @@ class DetailInvestimentView: UIView, CodeView {
     let lbTodayQuoteText             = LbTodayValues(frame: .zero)
     let lbTodayValueText             = LbTodayValues(frame: .zero)
     let lbProfitabilityTitle         = LbTitle(title: "Rentabilidade obtida até hoje")
+    let btnEdit                      = GradientButton(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
     
     let contentView: UIView = {
            
@@ -125,18 +126,20 @@ extension DetailInvestimentView {
         contentView.addSubview(lbStockIdentifier)
         contentView.addSubview(lbAmount)
         contentView.addSubview(lbPurchasePrice)
-//        contentView.addSubview(lbPrice)
-//        contentView.addSubview(lbPurchaseDate)
-//        contentView.addSubview(lbTotalValue)
-//        contentView.addSubview(lbDate)
-//        contentView.addSubview(lbTotalValueText)
-//        contentView.addSubview(lbTodayQuote)
-//        contentView.addSubview(lbTotalValue)
-//        contentView.addSubview(lbTodayQuoteText)
-//        contentView.addSubview(lbTodayValueText)
-//        contentView.addSubview(viewLine)
-//        contentView.addSubview(lbProfitabilityTitle)
-//        contentView.addSubview(lbProfitability)
+        contentView.addSubview(lbQuantityDescription)
+        contentView.addSubview(lbPrice)
+        contentView.addSubview(lbPurchaseDate)
+        contentView.addSubview(lbTotalValue)
+        contentView.addSubview(lbDate)
+        contentView.addSubview(lbTotalValueText)
+        contentView.addSubview(viewLine)
+        contentView.addSubview(lbTodayQuote)
+        contentView.addSubview(lbTodayValue)
+        contentView.addSubview(lbTodayQuoteText)
+        contentView.addSubview(lbTodayValueText)
+        contentView.addSubview(lbProfitabilityTitle)
+        contentView.addSubview(lbProfitability)
+        contentView.addSubview(btnEdit)
         
         addSubview(contentView)
      }
@@ -155,21 +158,97 @@ extension DetailInvestimentView {
         
         contentViewHeightContraint.isActive = true
         
-        //MARK : Contraints lbStockIdentifier
+        //MARK: Contraints lbStockIdentifier
         
-             lbStockIdentifier.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Margin.lbStockIdentifierTopAnchor).isActive = true
+             lbStockIdentifier.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Margin.lbStockIdentifierTopAnchor).isActive = true
          lbStockIdentifier.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Margin.leadingSuperview).isActive = true
         
         
-        //MARK : Contraints lbAmount
+        //MARK: Contraints lbAmount
         
              lbAmount.topAnchor.constraint(equalTo: lbStockIdentifier.bottomAnchor, constant: Margin.lbAmountTopAnchor).isActive = true
          lbAmount.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Margin.leadingSuperview).isActive = true
         
-        //MARK : Contraints lbPurchasePrice
+        //MARK: Contraints lbPurchasePrice
         
              lbPurchasePrice.topAnchor.constraint(equalTo: lbAmount.topAnchor).isActive = true
-         lbPurchasePrice.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Margin.trailingSuperview).isActive = true
+        lbPurchasePrice.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Margin.trailingSuperview).isActive = true
+        
+        //MARK: Contraints lbQuantityDescription
+        
+             lbQuantityDescription.topAnchor.constraint(equalTo: lbAmount.bottomAnchor, constant: Margin.topLbTitle).isActive = true
+         lbQuantityDescription.leadingAnchor.constraint(equalTo: lbAmount.leadingAnchor).isActive = true
+        
+        //MARK: Contraints lbPrice
+        
+             lbPrice.topAnchor.constraint(equalTo: lbPurchasePrice.topAnchor, constant: Margin.topLbTitle).isActive = true
+        lbPrice.trailingAnchor.constraint(equalTo: lbPurchasePrice.trailingAnchor).isActive = true
+        
+        //MARK: Contraints lbPurchaseDate
+        
+             lbPurchaseDate.topAnchor.constraint(equalTo: lbQuantityDescription.bottomAnchor, constant: (Margin.topLbTitle + 15)).isActive = true
+         lbPurchaseDate.leadingAnchor.constraint(equalTo: lbAmount.leadingAnchor).isActive = true
+        
+        //MARK: Contraints lbTotalValue
+        
+             lbTotalValue.topAnchor.constraint(equalTo: lbPurchaseDate.topAnchor).isActive = true
+        lbTotalValue.trailingAnchor.constraint(equalTo: lbPurchasePrice.trailingAnchor).isActive = true
+        
+        //MARK: Contraints lbDate
+        
+             lbDate.topAnchor.constraint(equalTo: lbPurchaseDate.bottomAnchor, constant: Margin.topLbTitle).isActive = true
+         lbDate.leadingAnchor.constraint(equalTo: lbPurchaseDate.leadingAnchor).isActive = true
+        
+        //MARK: Contraints lbTotalValue
+        
+             lbTotalValueText.topAnchor.constraint(equalTo: lbTotalValue.bottomAnchor, constant: Margin.topLbTitle).isActive = true
+        lbTotalValueText.trailingAnchor.constraint(equalTo: lbTotalValue.trailingAnchor).isActive = true
+        
+        //MARK: Contraints viewLine
+        
+             viewLine.topAnchor.constraint(equalTo: lbDate.bottomAnchor, constant: (Margin.topLbTitle + 20)).isActive = true
+          viewLine.heightAnchor.constraint(equalToConstant: Size.viewLineHeight).isActive = true
+         viewLine.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant : Margin.leadingSuperview).isActive = true
+        viewLine.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant : Margin.trailingSuperview).isActive = true
+        
+        //MARK: Contraints lbTodayQuote
+
+             lbTodayQuote.topAnchor.constraint(equalTo: viewLine.bottomAnchor, constant: (Margin.topLbTitle + 20)).isActive = true
+             lbTodayQuote.leadingAnchor.constraint(equalTo: lbPurchaseDate.leadingAnchor).isActive = true
+
+        //MARK: Contraints lbTodayValue
+
+             lbTodayValue.topAnchor.constraint(equalTo: lbTodayQuote.topAnchor).isActive = true
+             lbTodayValue.trailingAnchor.constraint(equalTo: lbTotalValue.trailingAnchor).isActive = true
+        
+        //MARK: Contraints lbTodayQuoteText
+
+             lbTodayQuoteText.topAnchor.constraint(equalTo: lbTodayQuote.bottomAnchor, constant: (Margin.topLbTitle + 5)).isActive = true
+             lbTodayQuoteText.leadingAnchor.constraint(equalTo: lbTodayQuote.leadingAnchor).isActive = true
+
+        //MARK: Contraints lbTodayValueText
+
+             lbTodayValueText.topAnchor.constraint(equalTo: lbTodayValue.topAnchor, constant: (Margin.topLbTitle + 5)).isActive = true
+             lbTodayValueText.trailingAnchor.constraint(equalTo: lbTodayValue.trailingAnchor).isActive = true
+        
+        //MARK: Contraints lbProfitabilityTitle
+
+             lbProfitabilityTitle.topAnchor.constraint(equalTo: lbTodayQuote.bottomAnchor, constant: (Margin.topLbTitle + 56)).isActive = true
+             lbProfitabilityTitle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+
+        //MARK: Contraints lbProfitability
+
+             lbProfitability.topAnchor.constraint(equalTo: lbProfitabilityTitle.bottomAnchor).isActive = true
+             lbProfitability.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: Margin.leadingSuperview).isActive = true
+             lbProfitability.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: Margin.trailingSuperview).isActive = true
+             lbProfitability.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        //MARK: Contraints BtnEdit
+
+         btnEdit.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: Margin.leadingSuperview).isActive = true
+         btnEdit.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: Margin.trailingSuperview).isActive = true
+         btnEdit.heightAnchor.constraint(equalToConstant: Size.btnEditHeight).isActive = true
+         btnEdit.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: Margin.btnEditBottom).isActive = true
     }
      
      func setupExtraConfigurations() {

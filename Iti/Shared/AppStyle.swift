@@ -45,7 +45,20 @@ enum Margin {
     
     static let lbAmountTopAnchor          : CGFloat   = 25
     
+    static let topLbTitle                 : CGFloat   = 5
+    
     static let leadingSuperview           : CGFloat   = 20
     
     static let trailingSuperview          : CGFloat   = -20
+    
+    static let btnEditBottom              : CGFloat   = 20
+}
+
+enum Size {
+    
+    static let viewLineHeight : CGFloat   = 1
+    
+    static let btnEditHeight : CGFloat    = 40
+    
+    static let btnEditWidth : CGFloat     = 40
 }
