@@ -12,6 +12,9 @@
 		08CABAEE250CFEC200CEC740 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAED250CFEC200CEC740 /* CodeView.swift */; };
 		08CABAF0250CFFB800CEC740 /* DetailInvestimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAEF250CFFB800CEC740 /* DetailInvestimentView.swift */; };
 		08CABAF2250D0D9B00CEC740 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAF1250D0D9B00CEC740 /* AppStyle.swift */; };
+		08CABAF5250D1CD500CEC740 /* DetailInvestimentLbTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAF4250D1CD500CEC740 /* DetailInvestimentLbTitle.swift */; };
+		08CABAF7250D1E0700CEC740 /* DetailInvestimentLbTodayValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAF6250D1E0700CEC740 /* DetailInvestimentLbTodayValues.swift */; };
+		08CABAF9250D1E9A00CEC740 /* DetailInvestimentLbInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAF8250D1E9A00CEC740 /* DetailInvestimentLbInfos.swift */; };
 		08D39A152503FF5300E35499 /* DetailInvestiment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */; };
 		174ABA9C2503CADB00CC09E9 /* NewInvestmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */; };
 		174ABA9E2503CAFC00CC09E9 /* InvestmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */; };
@@ -56,6 +59,9 @@
 		08CABAED250CFEC200CEC740 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		08CABAEF250CFFB800CEC740 /* DetailInvestimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentView.swift; sourceTree = "<group>"; };
 		08CABAF1250D0D9B00CEC740 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		08CABAF4250D1CD500CEC740 /* DetailInvestimentLbTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentLbTitle.swift; sourceTree = "<group>"; };
+		08CABAF6250D1E0700CEC740 /* DetailInvestimentLbTodayValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentLbTodayValues.swift; sourceTree = "<group>"; };
+		08CABAF8250D1E9A00CEC740 /* DetailInvestimentLbInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentLbInfos.swift; sourceTree = "<group>"; };
 		08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailInvestiment.storyboard; sourceTree = "<group>"; };
 		174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestmentModel.swift; sourceTree = "<group>"; };
 		174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentManager.swift; sourceTree = "<group>"; };
@@ -150,6 +156,17 @@
 				179648C1250CF84900DF6424 /* HomeCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+
+		08CABAF3250D1CAB00CEC740 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				08CABAF4250D1CD500CEC740 /* DetailInvestimentLbTitle.swift */,
+				08CABAF6250D1E0700CEC740 /* DetailInvestimentLbTodayValues.swift */,
+				08CABAF8250D1E9A00CEC740 /* DetailInvestimentLbInfos.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		8ABB7C2C2503C3CF00DBAF15 /* Controllers */ = {
@@ -332,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				179648B8250CF70C00DF6424 /* Coordinators */,
+				08CABAF3250D1CAB00CEC740 /* Components */,
 				8ABB7C362503C64600DBAF15 /* Extensions */,
 				8ABB7C312503C51800DBAF15 /* Shared */,
 				E793C2EF2503C1880093D921 /* DetailInvestiment */,
@@ -462,8 +480,10 @@
 				179648C2250CF84900DF6424 /* HomeCoordinator.swift in Sources */,
 				8ABB7C3C2503CAB700DBAF15 /* UITableView+FooterView.swift in Sources */,
 				8ABB7C352503C53A00DBAF15 /* GradientButton.swift in Sources */,
+				08CABAF7250D1E0700CEC740 /* DetailInvestimentLbTodayValues.swift in Sources */,
 				8ABB7C482503EEBB00DBAF15 /* Double+MoneyFormat.swift in Sources */,
 				E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */,
+				08CABAF5250D1CD500CEC740 /* DetailInvestimentLbTitle.swift in Sources */,
 				E72270092503E4C7006BF6F1 /* CustomLabel.swift in Sources */,
 				E722700D2503E502006BF6F1 /* FormStatus.swift in Sources */,
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
@@ -489,6 +509,7 @@
 				E722700F2503FA0B006BF6F1 /* Date+Formatter.swift in Sources */,
 				E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */,
 				179648BA250CF75300DF6424 /* Coordinator.swift in Sources */,
+				08CABAF9250D1E9A00CEC740 /* DetailInvestimentLbInfos.swift in Sources */,
 				8ABB7C382503C65600DBAF15 /* Color+Gradient.swift in Sources */,
 				8ABB7C462503ED7D00DBAF15 /* ForexQuote.swift in Sources */,
 				8AAE714C250D003B0014F090 /* ListInvestmentsCellViewModel.swift in Sources */,
