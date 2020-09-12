@@ -23,7 +23,6 @@ class InvestmentViewModel {
     var newInvestmentModel: NewInvestmentModel
     weak var delegate: InvestmentViewModelDelegate?
     
-    
     private var rawPrice: Double {
         return Double(newInvestmentModel.price) / 100
     }
@@ -76,7 +75,7 @@ class InvestmentViewModel {
     func save() {
         let validationResult = validateInput()
         if !validationResult.0 || !validationResult.1 || !validationResult.2 {
-            delegate?.errorCreatingInvestment(self)
+//            delegate?.errorCreatingInvestment(self)
             return
         }
         

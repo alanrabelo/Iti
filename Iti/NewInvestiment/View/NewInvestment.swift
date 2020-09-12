@@ -50,6 +50,7 @@ class NewInvestmentView: UIView, CodeView {
         let button = GradientButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .orange
+        button.clipsToBounds = true
         button.setTitle("Investir", for: .normal)
         return button
     }()
@@ -99,6 +100,12 @@ class NewInvestmentView: UIView, CodeView {
         self.addSubview(buttonInvest)
     }
     
+    func reloadSublayers() {
+        let gradientColor = UIColor.gradientColorFor(view: buttonInvest, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!)
+        buttonInvest.layer.insertSublayer(gradientColor, at: 0)
+        buttonInvest.layer.cornerRadius = 25
+    }
+    
     func setupConstraints() {
         
         // Button Dismiss
@@ -127,7 +134,7 @@ class NewInvestmentView: UIView, CodeView {
         stackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -40).isActive = true
 
         // Button
-        buttonInvest.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 20).isActive = true
+        buttonInvest.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         buttonInvest.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         buttonInvest.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         buttonInvest.heightAnchor.constraint(equalToConstant: 50).isActive = true

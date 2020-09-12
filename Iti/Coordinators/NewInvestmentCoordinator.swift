@@ -11,7 +11,6 @@ protocol DetailInvestmentPresenter: AnyObject {
 
 class NewInvestmentCoordinator: Coordinator, ListInvestmentPresenter {
     
-    
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
@@ -26,6 +25,7 @@ class NewInvestmentCoordinator: Coordinator, ListInvestmentPresenter {
         let newInvestmentViewController = NewInvestmentViewController()
         newInvestmentViewController.view = NewInvestmentView(textFieldDelegate: newInvestmentViewController, investmentsModelDelegate: newInvestmentViewController)
         newInvestmentViewController.viewModel = newInvestmentViewModel
+        newInvestmentViewModel.delegate = newInvestmentViewController
         newInvestmentViewController.coordinator = self
         navigationController.present(newInvestmentViewController, animated: true, completion: nil)
     }

@@ -40,17 +40,8 @@ class NewInvestmentViewController: UIViewController {
         return textToolbar
     }()
     
-    
-    // MARK: - IBActions
-    @IBAction func sendRequest(_ sender: Any) {
-    }
-    
-    @IBAction func closeView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func didTapScreen(_ sender: Any) {
-        view.endEditing(true)
+    override func viewDidLayoutSubviews() {
+        formView.reloadSublayers()
     }
     
     // MARK: - Lifecycle
@@ -81,7 +72,7 @@ class NewInvestmentViewController: UIViewController {
         viewModel.newInvestmentModel.startDate = sender.date.asString
         formView.stackViewStartDate.textField.text = viewModel.purchaseDate
     }
-
+    
     func presentDatePicker() {
         
         viewModel.newInvestmentModel.startDate = datePicker.date.asString
@@ -139,7 +130,7 @@ class NewInvestmentViewController: UIViewController {
     
     @objc func didTapInvestButton() {
         viewModel.save()
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
     }
     
     deinit {
@@ -204,7 +195,6 @@ extension NewInvestmentViewController: InvestmentViewModelDelegate {
     }
     
     func didCreateInvestment(_ viewModel: InvestmentViewModel) {
-//        coordinator?.showList(with: ListInvestmentsViewModel(context: context))
         dismiss(animated: true, completion: nil)
     }
     
