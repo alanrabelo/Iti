@@ -20,7 +20,7 @@ class InvestmentViewModel {
     //MARK: - Properties
     private var investment: Investment
     private var context: NSManagedObjectContext
-    lazy var newInvestmentModel = NewInvestmentModel(withModel: nil)
+    var newInvestmentModel: NewInvestmentModel
     weak var delegate: InvestmentViewModelDelegate?
     
     private var rawPrice: Double {
@@ -56,6 +56,13 @@ class InvestmentViewModel {
     
     init(in context: NSManagedObjectContext) {
         self.investment = Investment(context: context)
+        self.newInvestmentModel = NewInvestmentModel(withModel: nil)
+        self.context = context
+    }
+    
+    init(withModel model: Investment, in context: NSManagedObjectContext) {
+        self.investment = model
+        self.newInvestmentModel = NewInvestmentModel(withModel: model)
         self.context = context
     }
     
