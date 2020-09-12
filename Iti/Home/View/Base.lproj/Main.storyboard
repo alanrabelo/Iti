@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aUB-70-4N1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aUB-70-4N1">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Iti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Iti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,6 +79,9 @@
                                     <constraint firstAttribute="height" constant="25" id="thW-Io-BSW"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="icobottom"/>
+                                <connections>
+                                    <action selector="saibaTudo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5P-ad-ImE"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seta" translatesAutoresizingMaskIntoConstraints="NO" id="bSI-Gp-L2l">
                                 <rect key="frame" x="321" y="232.66666666666669" width="8" height="41"/>
@@ -102,7 +105,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="img01"/>
                                 <connections>
-                                    <segue destination="cvr-XB-44k" kind="show" id="czj-jI-jxe"/>
+                                    <action selector="gotoList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uQN-Dz-gwN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxg-iH-a2n" userLabel="btnInvestimento">
