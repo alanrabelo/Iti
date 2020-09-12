@@ -14,7 +14,7 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
 
     typealias CustomView = DetailInvestimentView
     weak var coordinator: DetailInvestmentCoordinator?
-    
+
     // MARK: - Properties
     var viewModel: DetailInvestmentViewModel?
 
@@ -63,6 +63,14 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
                 }
             }
 
+        }
+    }
+
+    override func viewDidLayoutSubviews() {
+
+        if let view = self.view as? DetailInvestimentView {
+
+            view.reloadSublayers()
         }
     }
 
