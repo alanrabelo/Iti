@@ -14,18 +14,18 @@ class HomeCoordinator: Coordinator {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
-    required init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
         let homeViewController = ViewController()
-        homeViewController.delegate = self
+//        homeViewController.delegate = self
         navigationController.pushViewController(homeViewController, animated: true)
     }
     
     func showList(with viewModel: ListInvestmentViewModel) {
-        let childCoordinator = ListInvestmentCoordinator(navigationController: navigationController, viewModel: viewModel)
+        let childCoordinator = ListInvestmentCoordinator(navigationController: navigationController, listViewModel: viewModel)
         childCoordinator.parentCoordinator = self
         add(childCoordinator: childCoordinator)
         childCoordinator.start()

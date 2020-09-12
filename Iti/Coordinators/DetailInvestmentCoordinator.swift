@@ -9,20 +9,21 @@ protocol HomePresenter: AnyObject {
 }
 
 class DetailInvestmentCoordinator: Coordinator {
+
     
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     var detailInvestmentViewModel: DetailInvestmentViewModel
     
-    required init(navigationController: UINavigationController, detailInvestmentViewModel: DetailInvestmentViewModel) {
+    init(navigationController: UINavigationController, detailInvestmentViewModel: DetailInvestmentViewModel) {
         self.navigationController = navigationController
         self.detailInvestmentViewModel = detailInvestmentViewModel
     }
     
     func start() {
         let detailInvestmentViewController = DetailInvestimentViewController()
-        detailInvestmentViewController.delegate = self
+//        detailInvestmentViewController.delegate = self
         navigationController.pushViewController(detailInvestmentViewController, animated: true)
     }
     

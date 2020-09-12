@@ -6,8 +6,6 @@ public protocol Coordinator: class {
     var childCoordinators: [Coordinator] { get set }
     var parentCoordinator: Coordinator? { get set }
     
-    init(navigationController: UINavigationController)
-    
     func start()
     
     func add(childCoordinator coordinator: Coordinator)

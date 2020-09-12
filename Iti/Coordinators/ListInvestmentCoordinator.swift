@@ -6,21 +6,21 @@ protocol NewInvestmentPresenter: AnyObject {
 }
 
 class ListInvestmentCoordinator: Coordinator {
-    
+ 
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     var listViewModel: ListInvestmentViewModel
     
-    required init(navigationController: UINavigationController, listViewModel: ListInvestmentViewModel) {
+    init(navigationController: UINavigationController, listViewModel: ListInvestmentViewModel) {
         self.navigationController = navigationController
         self.listViewModel = listViewModel
     }
     
     func start() {
         let listInvestmentViewController = ListInvestmentsViewController()
-        listInvestmentViewController.viewModel = listViewModel
-        listInvestmentViewController.delegate = self
+//        listInvestmentViewController.viewModel = listViewModel
+//        listInvestmentViewController.delegate = self
         navigationController.pushViewController(listInvestmentViewController, animated: true)
     }
     
