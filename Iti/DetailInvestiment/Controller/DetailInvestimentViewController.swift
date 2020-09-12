@@ -8,39 +8,24 @@
 
 import UIKit
 
-class DetailInvestimentViewController: UIViewController {
-
-    // MARK: - IBOutlets
-
-    @IBOutlet weak var lbStockIdentifier            : UILabel!
-    @IBOutlet weak var lbAmount                     : UILabel!
-    @IBOutlet weak var lbPurchasePrice              : UILabel!
-    @IBOutlet weak var lbQuantityDescription        : UILabel!
-    @IBOutlet weak var lbPrice                      : UILabel!
-    @IBOutlet weak var lbPurchaseDate               : UILabel!
-    @IBOutlet weak var lbTotalValue                 : UILabel!
-    @IBOutlet weak var lbDate                       : UILabel!
-    @IBOutlet weak var lbTotalValueText             : UILabel!
-    @IBOutlet weak var viewLine                     : UIView!
-    @IBOutlet weak var lbTodayQuote                 : UILabel!
-    @IBOutlet weak var lbTodayValue                 : UILabel!
-    @IBOutlet weak var lbTodayQuoteText             : UILabel!
-    @IBOutlet weak var lbTodayValueText             : UILabel!
-    @IBOutlet weak var lbProfitabilityTitle         : UILabel!
-    @IBOutlet weak var lbProfitability              : UILabel!
-    @IBOutlet weak var btnEdit                      : UIButton!
-    @IBOutlet weak var btnExit                      : UIButton!
-
+class DetailInvestimentViewController: UIViewController, HasCodeView {
+    
+    typealias CustomView = DetailInvestimentView
+    
     // MARK: - Properties
 
     var investiment : Investment?
 
     // MARK: - View Life Cycle
+    
+    override func loadView() {
+         
+        view = DetailInvestimentView()
+    }
 
     override func viewDidLoad() {
+     
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,18 +37,6 @@ class DetailInvestimentViewController: UIViewController {
                 callExternalAPI(with: unwrappedSymbol)
             }
         }
-    }
-
-    // MARK: - Actions
-
-    @IBAction func btnEdit(_ sender: Any, forEvent event: UIEvent) {
-
-
-    }
-
-    @IBAction func btnExit(_ sender: Any, forEvent event: UIEvent) {
-
-        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -99,21 +72,21 @@ extension DetailInvestimentViewController {
                 
                 let profitability = (currentValue - initialValue)/initialValue*100
                 
-                self.lbStockIdentifier.text = quote.symbol
-
-                self.lbQuantityDescription.text          = String(unwrappedInvestiment.quantity)
-
-                self.lbPrice.text           = unwrappedInvestiment.price.formattedPrice
-
-                self.lbDate.text            = formatDate(with: unwrappedInvestiment.startDate ?? "")
-
-                self.lbTotalValueText.text  = initialValue.formattedPrice
-
-                self.lbTodayQuoteText.text  = quote.priceFormatted;
-
-                self.lbTodayValueText.text  = currentValue.formattedPrice
-                
-                self.lbProfitability.text   = "\(Int(profitability))%"
+//                self.lbStockIdentifier.text = quote.symbol
+//
+//                self.lbQuantityDescription.text          = String(unwrappedInvestiment.quantity)
+//
+//                self.lbPrice.text           = unwrappedInvestiment.price.formattedPrice
+//
+//                self.lbDate.text            = formatDate(with: unwrappedInvestiment.startDate ?? "")
+//
+//                self.lbTotalValueText.text  = initialValue.formattedPrice
+//
+//                self.lbTodayQuoteText.text  = quote.priceFormatted;
+//
+//                self.lbTodayValueText.text  = currentValue.formattedPrice
+//
+//                self.lbProfitability.text   = "\(Int(profitability))%"
             }
         }
     }

@@ -123,9 +123,6 @@
                                 <state key="normal" title="Editar informações">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="btnEdit:forEvent:" destination="5ZW-iL-5zE" eventType="touchUpInside" id="5nG-T8-9Ml"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2C-l8-dXc" userLabel="btnExit">
                                 <rect key="frame" x="359" y="44" width="35" height="35"/>
@@ -137,9 +134,6 @@
                                 <state key="normal" title="X">
                                     <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="btnExit:forEvent:" destination="5ZW-iL-5zE" eventType="touchUpInside" id="nWT-Gk-vKs"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -188,26 +182,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gmz-w1-k8i"/>
                     </view>
-                    <connections>
-                        <outlet property="btnEdit" destination="1tc-LT-Q0B" id="gPF-wG-1iy"/>
-                        <outlet property="btnExit" destination="D2C-l8-dXc" id="FgG-RJ-Gb8"/>
-                        <outlet property="lbAmount" destination="wEU-Rv-BQJ" id="BtU-uJ-2Bm"/>
-                        <outlet property="lbDate" destination="hTV-x5-ilH" id="sfP-88-k22"/>
-                        <outlet property="lbPrice" destination="fw1-5S-jBH" id="zDB-dl-kPj"/>
-                        <outlet property="lbProfitability" destination="T26-Y0-clX" id="Aiq-cS-4El"/>
-                        <outlet property="lbProfitabilityTitle" destination="dlZ-Hi-KZN" id="LF0-zQ-yGe"/>
-                        <outlet property="lbPurchaseDate" destination="laB-Kd-rw2" id="1sH-jp-e8h"/>
-                        <outlet property="lbPurchasePrice" destination="q6E-Ol-gnq" id="b70-jF-mgX"/>
-                        <outlet property="lbQuantityDescription" destination="wEU-Rv-BQJ" id="M2W-dq-Acf"/>
-                        <outlet property="lbStockIdentifier" destination="WH5-XY-euj" id="MXx-vU-BOa"/>
-                        <outlet property="lbTodayQuote" destination="AtG-MU-psE" id="rHe-Sb-ecu"/>
-                        <outlet property="lbTodayQuoteText" destination="PCg-yA-Yw1" id="7G9-eW-O2X"/>
-                        <outlet property="lbTodayValue" destination="nMv-mY-AfS" id="N7W-Ny-Fa3"/>
-                        <outlet property="lbTodayValueText" destination="DkK-9v-6cT" id="6fp-5r-ERa"/>
-                        <outlet property="lbTotalValue" destination="lBQ-fD-Qjx" id="a46-Yo-Hu4"/>
-                        <outlet property="lbTotalValueText" destination="9Yr-pZ-RNS" id="TZt-wu-Uwd"/>
-                        <outlet property="viewLine" destination="zVa-l6-Vto" id="6Wa-dR-mRC"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVT-UK-Vwu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
