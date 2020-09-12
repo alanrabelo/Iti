@@ -29,6 +29,7 @@ class ListInvestmentsViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        view = ListInvestmentsView()
         viewModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
