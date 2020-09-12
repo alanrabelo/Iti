@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum ImageNamed: String {
-    case iconUser = "icouser"
-    case eyeslash = "eye.slash"
-    case icobottom = "icobottom"
-}
-
 class HomeView: UIView {
     //MARK: - ProfileContentView -
     private var viProfileContentView: UIView = {
@@ -68,12 +62,11 @@ class HomeView: UIView {
     //MARK: - Carroussel -
     
     private var menuCollectionView: UICollectionView = {
-        let collectionView = UICollectionView()
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: 150, height: 189)
-        
-        
+        layout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return collectionView
     }()
     

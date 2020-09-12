@@ -12,3 +12,9 @@ struct StringsHelper {
     static let viewAllAboutMyIti = "tudo sobre seu Iti"
     
 }
+
+enum ImageNamed: String {
+    case iconUser = "icouser"
+    case eyeslash = "eye.slash"
+    case icobottom = "icobottom"
+}
