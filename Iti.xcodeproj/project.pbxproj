@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */; };
+		08CABAEC250CFEB200CEC740 /* HasCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAEB250CFEB200CEC740 /* HasCodeView.swift */; };
+		08CABAEE250CFEC200CEC740 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAED250CFEC200CEC740 /* CodeView.swift */; };
+		08CABAF0250CFFB800CEC740 /* DetailInvestimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CABAEF250CFFB800CEC740 /* DetailInvestimentView.swift */; };
 		08D39A152503FF5300E35499 /* DetailInvestiment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */; };
 		174ABA9C2503CADB00CC09E9 /* NewInvestmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */; };
 		174ABA9E2503CAFC00CC09E9 /* InvestmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentViewController.swift; sourceTree = "<group>"; };
+		08CABAEB250CFEB200CEC740 /* HasCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCodeView.swift; sourceTree = "<group>"; };
+		08CABAED250CFEC200CEC740 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		08CABAEF250CFFB800CEC740 /* DetailInvestimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentView.swift; sourceTree = "<group>"; };
 		08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailInvestiment.storyboard; sourceTree = "<group>"; };
 		174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestmentModel.swift; sourceTree = "<group>"; };
 		174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentManager.swift; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */,
+				08CABAEF250CFFB800CEC740 /* DetailInvestimentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,6 +113,15 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		08CABAEA250CFE3800CEC740 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				08CABAEB250CFEB200CEC740 /* HasCodeView.swift */,
+				08CABAED250CFEC200CEC740 /* CodeView.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		8ABB7C2C2503C3CF00DBAF15 /* Controllers */ = {
@@ -135,6 +151,7 @@
 		8ABB7C312503C51800DBAF15 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				08CABAEA250CFE3800CEC740 /* Protocol */,
 				8ABB7C422503E65A00DBAF15 /* Models */,
 				8ABB7C3F2503E30D00DBAF15 /* API */,
 				8ABB7C322503C52100DBAF15 /* Views */,
@@ -397,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08CABAEC250CFEB200CEC740 /* HasCodeView.swift in Sources */,
 				174ABA9E2503CAFC00CC09E9 /* InvestmentManager.swift in Sources */,
 				E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */,
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
@@ -416,6 +434,8 @@
 				8ABB7C3E2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift in Sources */,
 				E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */,
 				08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */,
+				08CABAEE250CFEC200CEC740 /* CodeView.swift in Sources */,
+				08CABAF0250CFFB800CEC740 /* DetailInvestimentView.swift in Sources */,
 				E793C2F62503C42B0093D921 /* NewInvestimentViewController.swift in Sources */,
 				E722700B2503E4CC006BF6F1 /* CustomTextfield.swift in Sources */,
 				8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */,
