@@ -13,10 +13,6 @@ typealias DetailEnabled = Coordinator & DetailInvestmentPresenter & NewInvestmen
 class ListInvestmentsViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var labelValue: UILabel!
-    @IBOutlet weak var buttonEye: UIButton!
     weak var coordinator: DetailEnabled?
 
     // MARK: - Properties
@@ -49,18 +45,15 @@ class ListInvestmentsViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func hideShowValue(_ sender: UIButton) {
+        guard let view = self.view as? ListInvestmentsView else { return }
         if sender.tag == 0 {
-            buttonEye.setBackgroundImage(UIImage(systemName: "eye.fill"), for: .normal)
-            labelValue.text = "R$ ----,--"
+            view.eyeButton.setBackgroundImage(UIImage(systemName: "eye.fill"), for: .normal)
+            view.totalAmmountLabel.text = "R$ ----,--"
             sender.tag = 1
-            print(sender.tag)
         } else {
-            buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-            if let view = self.view as? ListInvestmentsView {
-                view.totalAmmountLabel.text = viewModel.totalAmount
-            }
+            view.eyeButton.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
+            view.totalAmmountLabel.text = viewModel.totalAmount
             sender.tag = 0
-            print(sender.tag)
         }
     }
 
@@ -169,8 +162,8 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
 extension ListInvestmentsViewController: ListInvestmentsViewModelDelegate {
     func didUpdateList() {
-        tableView.reloadData()
         if let view = self.view as? ListInvestmentsView {
+            view.tableView.reloadData()
             view.totalAmmountLabel.text = viewModel.totalAmount
         }
     }

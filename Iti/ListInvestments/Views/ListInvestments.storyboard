@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ph-M0-PQi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ph-M0-PQi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -148,13 +148,6 @@
                         <viewLayoutGuide key="safeArea" id="ej3-Ul-B6d"/>
                     </view>
                     <navigationItem key="navigationItem" id="QS9-Gg-83o"/>
-                    <connections>
-                        <outlet property="buttonEye" destination="VKL-ch-ec5" id="MPF-HE-6F9"/>
-                        <outlet property="labelValue" destination="pRz-Ls-Fub" id="Ks4-so-WXJ"/>
-                        <outlet property="tableView" destination="XTd-Eq-loe" id="vcz-d4-6bK"/>
-                        <outlet property="topView" destination="ut2-2K-ubT" id="yEB-CW-KTW"/>
-                        <segue destination="4fN-nF-boX" kind="showDetail" identifier="SegueDetail" id="G41-Lf-mGk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7B-wW-9ZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
