@@ -61,6 +61,16 @@ class ListInvestmentsView: UIView, CodeView {
         return button
     }()
     
+    let newInvestmentButton: GradientButton = {
+        let button = GradientButton(frame: .zero)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Novo Investimento", for: .normal)
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
+        button.backgroundColor = .orange
+        return button
+    }()
+    
     // MARK: - Inits
     init() {
         super.init(frame: .zero)
@@ -75,6 +85,7 @@ class ListInvestmentsView: UIView, CodeView {
     func setupComponents() {
         addSubview(topView)
         addSubview(tableView)
+        addSubview(newInvestmentButton)
         
         //TopView Subviews
         topView.addSubview(patrimonyLabel)
@@ -101,9 +112,15 @@ class ListInvestmentsView: UIView, CodeView {
         eyeButton.centerYAnchor.constraint(equalTo: totalAmmountLabel.centerYAnchor).isActive = true
         eyeButton.leadingAnchor.constraint(equalTo: totalAmmountLabel.trailingAnchor, constant: 10).isActive = true
         
+        //NewInvestmentButton
+        newInvestmentButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        newInvestmentButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        newInvestmentButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        newInvestmentButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         //TableView
         tableView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: -10).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: newInvestmentButton.topAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         tableView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
