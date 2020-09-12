@@ -126,7 +126,7 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
 //        performSegue(withIdentifier: "SegueDetail", sender: indexPath)
 
-        coordinator?.showDetailInvestment(with: DetailInvestmentViewModel(investment:  viewModel.getInvestmentAt(indexPath)))
+        coordinator?.showDetailInvestment(with: DetailInvestmentViewModel(investment: viewModel.getInvestmentAt(indexPath)))
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

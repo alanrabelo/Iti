@@ -10,37 +10,7 @@ import UIKit
 
 typealias HomeEnabled = Coordinator & ListInvestmentPresenter
 
-class DetailInvestmentViewModel {
-    
-     private var investment: Investment
-    
-     init(investment: Investment) {
-       self.investment = investment
-     }
-    
-    var quantity: Double {
-        return investment.quantity
-    }
-    
-    var price: Double {
-        return investment.price
-    }
-    
-    var active: String {
-        return investment.active!
-    }
 
-    var startDate: String {
-        return investment.startDate!
-    }
-    
-    fileprivate func callExternalAPI(with symbol : String, onComplete: @escaping (Result<ForexQuote, APIError>) -> Void){
-
-        ForexAPI.loadAction(withSymbol: symbol, onComplete: onComplete)
-    }
-
-    
-}
 
 
 class DetailInvestimentViewController: UIViewController, HasCodeView {
@@ -91,12 +61,6 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
         print("DetailInvestimentViewController deinit")
     }
 }
-
-extension DetailInvestimentViewController {
-
-    
-}
-
 
 extension DetailInvestimentViewController {
 
