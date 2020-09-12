@@ -7,8 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */; };
+		08D39A152503FF5300E35499 /* DetailInvestiment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */; };
+		174ABA9C2503CADB00CC09E9 /* NewInvestmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */; };
+		174ABA9E2503CAFC00CC09E9 /* InvestmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */; };
+		1755D2FD2503EED500B6691E /* UIVIewController+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755D2FC2503EED500B6691E /* UIVIewController+Context.swift */; };
+		8ABB7C302503C48800DBAF15 /* ListInvestments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB7C2F2503C48800DBAF15 /* ListInvestments.storyboard */; };
+		8ABB7C352503C53A00DBAF15 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C342503C53A00DBAF15 /* GradientButton.swift */; };
+		8ABB7C382503C65600DBAF15 /* Color+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C372503C65600DBAF15 /* Color+Gradient.swift */; };
+		8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C392503C80700DBAF15 /* ListInvestmentsViewController.swift */; };
+		8ABB7C3C2503CAB700DBAF15 /* UITableView+FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C3B2503CAB600DBAF15 /* UITableView+FooterView.swift */; };
+		8ABB7C3E2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C3D2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift */; };
+		8ABB7C412503E32300DBAF15 /* ForexAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C402503E32300DBAF15 /* ForexAPI.swift */; };
+		8ABB7C442503E66500DBAF15 /* ForexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C432503E66500DBAF15 /* ForexModel.swift */; };
+		8ABB7C462503ED7D00DBAF15 /* ForexQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C452503ED7D00DBAF15 /* ForexQuote.swift */; };
+		8ABB7C482503EEBB00DBAF15 /* Double+MoneyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C472503EEBA00DBAF15 /* Double+MoneyFormat.swift */; };
+		8ABEC83C2503F95D0008568D /* UIView+GradientSublayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABEC83B2503F95D0008568D /* UIView+GradientSublayer.swift */; };
+		E72270092503E4C7006BF6F1 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72270082503E4C7006BF6F1 /* CustomLabel.swift */; };
+		E722700B2503E4CC006BF6F1 /* CustomTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700A2503E4CC006BF6F1 /* CustomTextfield.swift */; };
+		E722700D2503E502006BF6F1 /* FormStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700C2503E502006BF6F1 /* FormStatus.swift */; };
+		E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700E2503FA0B006BF6F1 /* DateExtensions.swift */; };
+		E793C2F42503C41A0093D921 /* NewInvestiment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */; };
+		E793C2F62503C42B0093D921 /* NewInvestimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */; };
 		E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */; };
-		E7EAD0A42503C05D00400CB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */; };
 		E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A52503C05D00400CB7 /* ViewController.swift */; };
 		E7EAD0A92503C05D00400CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EAD0A72503C05D00400CB7 /* Main.storyboard */; };
 		E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0AA2503C05D00400CB7 /* Iti.xcdatamodeld */; };
@@ -17,9 +38,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestimentViewController.swift; sourceTree = "<group>"; };
+		08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailInvestiment.storyboard; sourceTree = "<group>"; };
+		174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestmentModel.swift; sourceTree = "<group>"; };
+		174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentManager.swift; sourceTree = "<group>"; };
+		1755D2FC2503EED500B6691E /* UIVIewController+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Context.swift"; sourceTree = "<group>"; };
+		8ABB7C2F2503C48800DBAF15 /* ListInvestments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListInvestments.storyboard; sourceTree = "<group>"; };
+		8ABB7C342503C53A00DBAF15 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		8ABB7C372503C65600DBAF15 /* Color+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Gradient.swift"; sourceTree = "<group>"; };
+		8ABB7C392503C80700DBAF15 /* ListInvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInvestmentsViewController.swift; sourceTree = "<group>"; };
+		8ABB7C3B2503CAB600DBAF15 /* UITableView+FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+FooterView.swift"; sourceTree = "<group>"; };
+		8ABB7C3D2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInvestmentsTableViewCell.swift; sourceTree = "<group>"; };
+		8ABB7C402503E32300DBAF15 /* ForexAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForexAPI.swift; sourceTree = "<group>"; };
+		8ABB7C432503E66500DBAF15 /* ForexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForexModel.swift; sourceTree = "<group>"; };
+		8ABB7C452503ED7D00DBAF15 /* ForexQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForexQuote.swift; sourceTree = "<group>"; };
+		8ABB7C472503EEBA00DBAF15 /* Double+MoneyFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+MoneyFormat.swift"; sourceTree = "<group>"; };
+		8ABEC83B2503F95D0008568D /* UIView+GradientSublayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+GradientSublayer.swift"; sourceTree = "<group>"; };
+		E72270082503E4C7006BF6F1 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		E722700A2503E4CC006BF6F1 /* CustomTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfield.swift; sourceTree = "<group>"; };
+		E722700C2503E502006BF6F1 /* FormStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatus.swift; sourceTree = "<group>"; };
+		E722700E2503FA0B006BF6F1 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewInvestiment.storyboard; sourceTree = "<group>"; };
+		E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestimentViewController.swift; sourceTree = "<group>"; };
 		E7EAD09E2503C05D00400CB7 /* Iti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7EAD0A52503C05D00400CB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E7EAD0A82503C05D00400CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7EAD0AB2503C05D00400CB7 /* Iti.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Iti.xcdatamodel; sourceTree = "<group>"; };
@@ -39,9 +81,115 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08723E752503C4FD006FF47F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08D39A142503FF5300E35499 /* DetailInvestiment.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08723E762503C506006FF47F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				08723E792503C54C006FF47F /* DetailInvestimentViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		08723E782503C519006FF47F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8ABB7C2C2503C3CF00DBAF15 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C392503C80700DBAF15 /* ListInvestmentsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8ABB7C2D2503C3DD00DBAF15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C2F2503C48800DBAF15 /* ListInvestments.storyboard */,
+				8ABB7C3D2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8ABB7C2E2503C3F000DBAF15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8ABB7C312503C51800DBAF15 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C422503E65A00DBAF15 /* Models */,
+				8ABB7C3F2503E30D00DBAF15 /* API */,
+				8ABB7C322503C52100DBAF15 /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8ABB7C322503C52100DBAF15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C332503C52700DBAF15 /* Buttons */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8ABB7C332503C52700DBAF15 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C342503C53A00DBAF15 /* GradientButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		8ABB7C362503C64600DBAF15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C372503C65600DBAF15 /* Color+Gradient.swift */,
+				8ABB7C3B2503CAB600DBAF15 /* UITableView+FooterView.swift */,
+				8ABB7C472503EEBA00DBAF15 /* Double+MoneyFormat.swift */,
+				1755D2FC2503EED500B6691E /* UIVIewController+Context.swift */,
+				E722700E2503FA0B006BF6F1 /* DateExtensions.swift */,
+				8ABEC83B2503F95D0008568D /* UIView+GradientSublayer.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8ABB7C3F2503E30D00DBAF15 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C402503E32300DBAF15 /* ForexAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8ABB7C422503E65A00DBAF15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB7C432503E66500DBAF15 /* ForexModel.swift */,
+				8ABB7C452503ED7D00DBAF15 /* ForexQuote.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E793C2ED2503C16B0093D921 /* ListInvestments */ = {
 			isa = PBXGroup;
 			children = (
+				8ABB7C2E2503C3F000DBAF15 /* Models */,
+				8ABB7C2D2503C3DD00DBAF15 /* Views */,
+				8ABB7C2C2503C3CF00DBAF15 /* Controllers */,
 			);
 			path = ListInvestments;
 			sourceTree = "<group>";
@@ -49,6 +197,11 @@
 		E793C2EE2503C17F0093D921 /* NewInvestiment */ = {
 			isa = PBXGroup;
 			children = (
+				E793C2F22503C3E20093D921 /* Controller */,
+				E793C2F12503C3DD0093D921 /* Model */,
+				E793C2F02503C3D60093D921 /* View */,
+				174ABA9B2503CADB00CC09E9 /* NewInvestmentModel.swift */,
+				174ABA9D2503CAFC00CC09E9 /* InvestmentManager.swift */,
 			);
 			path = NewInvestiment;
 			sourceTree = "<group>";
@@ -56,8 +209,37 @@
 		E793C2EF2503C1880093D921 /* DetailInvestiment */ = {
 			isa = PBXGroup;
 			children = (
+				08723E782503C519006FF47F /* Model */,
+				08723E762503C506006FF47F /* Controller */,
+				08723E752503C4FD006FF47F /* View */,
 			);
 			path = DetailInvestiment;
+			sourceTree = "<group>";
+		};
+		E793C2F02503C3D60093D921 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E793C2F12503C3DD0093D921 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E722700A2503E4CC006BF6F1 /* CustomTextfield.swift */,
+				E72270082503E4C7006BF6F1 /* CustomLabel.swift */,
+				E722700C2503E502006BF6F1 /* FormStatus.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E793C2F22503C3E20093D921 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E7EAD0952503C05D00400CB7 = {
@@ -79,12 +261,13 @@
 		E7EAD0A02503C05D00400CB7 /* Iti */ = {
 			isa = PBXGroup;
 			children = (
+				8ABB7C362503C64600DBAF15 /* Extensions */,
+				8ABB7C312503C51800DBAF15 /* Shared */,
 				E793C2EF2503C1880093D921 /* DetailInvestiment */,
 				E793C2EE2503C17F0093D921 /* NewInvestiment */,
 				E793C2ED2503C16B0093D921 /* ListInvestments */,
 				E7EAD0B82503C11B00400CB7 /* Home */,
 				E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */,
-				E7EAD0A32503C05D00400CB7 /* SceneDelegate.swift */,
 				E7EAD0AD2503C05F00400CB7 /* Assets.xcassets */,
 				E7EAD0AF2503C05F00400CB7 /* LaunchScreen.storyboard */,
 				E7EAD0B22503C05F00400CB7 /* Info.plist */,
@@ -184,7 +367,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E793C2F42503C41A0093D921 /* NewInvestiment.storyboard in Resources */,
 				E7EAD0B12503C05F00400CB7 /* LaunchScreen.storyboard in Resources */,
+				08D39A152503FF5300E35499 /* DetailInvestiment.storyboard in Resources */,
+				8ABB7C302503C48800DBAF15 /* ListInvestments.storyboard in Resources */,
 				E7EAD0AE2503C05F00400CB7 /* Assets.xcassets in Resources */,
 				E7EAD0A92503C05D00400CB7 /* Main.storyboard in Resources */,
 			);
@@ -197,10 +383,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				174ABA9E2503CAFC00CC09E9 /* InvestmentManager.swift in Sources */,
 				E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */,
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
+				174ABA9C2503CADB00CC09E9 /* NewInvestmentModel.swift in Sources */,
+				8ABB7C3C2503CAB700DBAF15 /* UITableView+FooterView.swift in Sources */,
+				8ABB7C352503C53A00DBAF15 /* GradientButton.swift in Sources */,
+				8ABB7C482503EEBB00DBAF15 /* Double+MoneyFormat.swift in Sources */,
+				E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */,
+				E72270092503E4C7006BF6F1 /* CustomLabel.swift in Sources */,
+				E722700D2503E502006BF6F1 /* FormStatus.swift in Sources */,
+				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
+				8ABEC83C2503F95D0008568D /* UIView+GradientSublayer.swift in Sources */,
+				1755D2FD2503EED500B6691E /* UIVIewController+Context.swift in Sources */,
+				8ABB7C442503E66500DBAF15 /* ForexModel.swift in Sources */,
+				8ABB7C412503E32300DBAF15 /* ForexAPI.swift in Sources */,
+				8ABB7C3E2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift in Sources */,
 				E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */,
-				E7EAD0A42503C05D00400CB7 /* SceneDelegate.swift in Sources */,
+				08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */,
+				E793C2F62503C42B0093D921 /* NewInvestimentViewController.swift in Sources */,
+				E722700B2503E4CC006BF6F1 /* CustomTextfield.swift in Sources */,
+				8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */,
+				E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */,
+				8ABB7C382503C65600DBAF15 /* Color+Gradient.swift in Sources */,
+				8ABB7C462503ED7D00DBAF15 /* ForexQuote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -330,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -345,8 +551,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 338S3PS486;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Iti/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.alanrabelo.Iti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -363,8 +570,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 338S3PS486;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Iti/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,7 +580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.alanrabelo.Iti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
