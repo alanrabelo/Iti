@@ -145,6 +145,10 @@ class NewInvestmentViewController: UIViewController {
             moveToNext(fromTextField: activeTextfield)
         }
     }
+    
+    deinit {
+        print("NewInvestmentViewController deinit")
+    }
 }
 
 extension NewInvestmentViewController: UITextFieldDelegate {

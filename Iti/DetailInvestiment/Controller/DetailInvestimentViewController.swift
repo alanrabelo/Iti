@@ -8,10 +8,12 @@
 
 import UIKit
 
+typealias HomeEnabled = Coordinator & ListInvestmentPresenter
+
 class DetailInvestimentViewController: UIViewController, HasCodeView {
     
     typealias CustomView = DetailInvestimentView
-    
+    weak var coordinator: DetailInvestmentCoordinator?
     // MARK: - Properties
 
     var investiment : Investment?
@@ -37,6 +39,15 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
                 callExternalAPI(with: unwrappedSymbol)
             }
         }
+    }
+    
+    private func goToHome() {
+        coordinator?.showHome()
+    }
+    
+    deinit {
+        coordinator?.childDidFinish(nil)
+        print("DetailInvestimentViewController deinit")
     }
 }
 
