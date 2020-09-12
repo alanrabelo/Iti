@@ -32,9 +32,11 @@ class ListInvestmentsViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        let investmentView = ListInvestmentsView()
+        view = investmentView
+        investmentView.tableView.delegate = self
+        investmentView.tableView.dataSource = self
         viewModel.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
         setupView()
     }
     
@@ -61,20 +63,8 @@ class ListInvestmentsViewController: UIViewController {
     
     // MARK: - Methods
     private func setupView() {
-        tableView.layer.cornerRadius = 10
-        tableView.layer.masksToBounds = true
-        
-        let orangeColor = UIColor(named: "MainOrange") ?? .white
-        self.navigationController?.navigationBar.barTintColor = orangeColor
-        
         let firstColor = UIColor(named: "MainOrange") ?? .white
-        let secondColor = UIColor(named: "MainPink") ?? .white
-        
-        topView.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
         self.navigationController?.navigationBar.barTintColor = firstColor
-        
-        buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-        labelValue.text = viewModel.totalAmount
     }
     
     @IBAction func newInvestment(_ sender: Any) {
@@ -100,12 +90,15 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
         return viewModel.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListInvestmentsTableViewCell", for: indexPath) as? ListInvestmentsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListInvestmentsTableViewCell else {
             return UITableViewCell()
         }
-        
+
         cell.configure(with: viewModel.getInvestmentCellViewModelFor(indexPath))
         
         return cell
