@@ -63,7 +63,6 @@ class ListInvestmentsViewController: UIViewController {
     }
 
     @objc func newInvestment() {
-
         coordinator?.showNewInvestment(with: InvestmentViewModel(in: context))
     }
 

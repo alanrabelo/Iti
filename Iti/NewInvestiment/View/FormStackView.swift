@@ -10,21 +10,11 @@ import UIKit
 
 class FormStackView: UIStackView, CodeView {
     
-    func setupComponents() {
-    }
-    
-    func setupConstraints() {
-        label.heightAnchor.constraint(equalToConstant: 35).isActive = true
-        textField.heightAnchor.constraint(equalToConstant: 35).isActive = true
-    }
-    
-    func setupExtraConfigurations() {
-        
-    }
-    
+    // MARK: - Variables
     var textfieldType: TextFieldType = .date
     var textfieldDelegate: UITextFieldDelegate?
     
+    // MARK: - Visual Elements
     let label: CustomLabel = {
         let label = CustomLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +33,7 @@ class FormStackView: UIStackView, CodeView {
         return textField
     }()
     
+    // MARK: - Methods
     init(labelText: String, placeholder: String, textfieldType: TextFieldType, delegate: UITextFieldDelegate, textFieldText: String = "") {
         label.text = labelText
         textField.placeholder = placeholder
@@ -54,6 +45,15 @@ class FormStackView: UIStackView, CodeView {
         super.init(frame: .zero)
         setupTextField()
         setup()
+        setupStackView()
+    }
+    
+    required init(coder: NSCoder) {
+        self.textfieldType = .date
+        super.init(coder: coder)
+    }
+    
+    private func setupStackView() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addArrangedSubview(label)
         self.addArrangedSubview(textField)
@@ -61,11 +61,6 @@ class FormStackView: UIStackView, CodeView {
         self.distribution = .fillEqually
         self.alignment = .fill
         self.spacing = 8
-    }
-    
-    required init(coder: NSCoder) {
-        self.textfieldType = .date
-        super.init(coder: coder)
     }
     
     private func setupTextField() {
@@ -82,5 +77,14 @@ class FormStackView: UIStackView, CodeView {
         
         textField.delegate = textfieldDelegate
     }
+    
+    func setupComponents() {}
+    
+    func setupConstraints() {
+        label.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 35).isActive = true
+    }
+    
+    func setupExtraConfigurations() {}
     
 }

@@ -19,6 +19,8 @@ class NewInvestmentViewController: UIViewController {
         self.view as! NewInvestmentView
     }
     
+    // MARK: - Visual Elements
+    
     private var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -40,11 +42,11 @@ class NewInvestmentViewController: UIViewController {
         return textToolbar
     }()
     
+    // MARK: - Lifecycle
     override func viewDidLayoutSubviews() {
         formView.reloadSublayers()
     }
     
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -58,15 +60,7 @@ class NewInvestmentViewController: UIViewController {
         formView.buttonInvest.addTarget(self, action: #selector(didTapInvestButton), for: .touchDown)
         setupTextFields()
     }
-    
-    
-    func setupTextFields() {
-        self.formView.stackViewName.textField.text = viewModel.name
-        self.formView.stackViewPrice.textField.text = viewModel.price
-        self.formView.stackViewQuantity.textField.text = viewModel.quantity
-        self.formView.stackViewStartDate.textField.text = viewModel.purchaseDate
-    }
-    
+
     // MARK: - Date Picker
     @objc func datePickerValueChanged(_ sender: UIDatePicker){
         viewModel.newInvestmentModel.startDate = sender.date.asString
@@ -74,7 +68,6 @@ class NewInvestmentViewController: UIViewController {
     }
     
     func presentDatePicker() {
-        
         viewModel.newInvestmentModel.startDate = datePicker.date.asString
     }
     
@@ -90,6 +83,13 @@ class NewInvestmentViewController: UIViewController {
         case .date:
             formView.stackViewName.textField.becomeFirstResponder()
         }
+    }
+    
+    func setupTextFields() {
+        self.formView.stackViewName.textField.text = viewModel.name
+        self.formView.stackViewPrice.textField.text = viewModel.price
+        self.formView.stackViewQuantity.textField.text = viewModel.quantity
+        self.formView.stackViewStartDate.textField.text = viewModel.purchaseDate
     }
     
     // MARK: - Keyboard Notifications for Scrollview
@@ -130,7 +130,6 @@ class NewInvestmentViewController: UIViewController {
     
     @objc func didTapInvestButton() {
         viewModel.save()
-//        dismiss(animated: true, completion: nil)
     }
     
     deinit {

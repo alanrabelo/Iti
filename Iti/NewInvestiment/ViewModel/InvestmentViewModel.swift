@@ -54,6 +54,8 @@ class InvestmentViewModel {
         return newInvestmentModel.active.uppercased()
     }
     
+    // MARK: - Methods
+    
     init(in context: NSManagedObjectContext) {
         self.investment = Investment(context: context)
         self.newInvestmentModel = NewInvestmentModel(withModel: nil)
@@ -75,7 +77,6 @@ class InvestmentViewModel {
     func save() {
         let validationResult = validateInput()
         if !validationResult.0 || !validationResult.1 || !validationResult.2 {
-//            delegate?.errorCreatingInvestment(self)
             return
         }
         
@@ -91,6 +92,31 @@ class InvestmentViewModel {
             delegate?.errorCreatingInvestment(self)
             print("Failed saving")
         }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: CustomTextfield) {
+        if textField.status == .invalid {
+            textField.text = ""
+            textField.status = .valid
+        }
+        
+        if textField.type == .price {
+            textField.text = price
+        }
+    }
+    
+    func shouldChangeCharactersIn(quantityTextfield textfield: UITextField, _ replacement: String, _ newString: String?) -> Bool {
+        let newStringLength = newString?.lengthOfBytes(using: .utf8) ?? 0
+        if newStringLength <= 0 {
+            return true
+        }
+        let textIsNotNumerical = Int(newString ?? "") == nil && newStringLength > 0
+        if textIsNotNumerical {
+            return false
+        }
+        guard let newText = newString, let ammount = Double(newText) else { return false }
+        newInvestmentModel.quantity = ammount
+        return true
     }
     
     func shouldChangeCharactersIn(priceTextfield textfield: UITextField, _ replacement: String, _ newString: String?) -> Bool {
@@ -114,28 +140,4 @@ class InvestmentViewModel {
         return false
     }
     
-    func shouldChangeCharactersIn(quantityTextfield textfield: UITextField, _ replacement: String, _ newString: String?) -> Bool {
-        let newStringLength = newString?.lengthOfBytes(using: .utf8) ?? 0
-        if newStringLength <= 0 {
-            return true
-        }
-        let textIsNotNumerical = Int(newString ?? "") == nil && newStringLength > 0
-        if textIsNotNumerical {
-            return false
-        }
-        guard let newText = newString, let ammount = Double(newText) else { return false }
-        newInvestmentModel.quantity = ammount
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: CustomTextfield) {
-        if textField.status == .invalid {
-            textField.text = ""
-            textField.status = .valid
-        }
-        
-        if textField.type == .price {
-            textField.text = price
-        }
-    }
 }
