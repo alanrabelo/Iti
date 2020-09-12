@@ -36,6 +36,44 @@ class DetailInvestimentView: UIView, CodeView {
         
         return contentView
     }()
+    
+    let lbStockIdentifier: UILabel = {
+          
+          let label                                           = UILabel(frame: .zero)
+          
+          //label.text                                          = Localization.welcomeText
+          
+          label.textAlignment                                 = .center
+          
+          label.font                                          = .lbStockIdentifier
+          
+          label.textColor                                     = .lbStockIdentifier
+          
+         // label.accessibilityIdentifier                       = "welcome-title-label"
+          
+          label.translatesAutoresizingMaskIntoConstraints     = false
+          
+          return label
+      }()
+    
+    let lbTitle : UILabel = {
+        
+        let label                                           = UILabel(frame: .zero)
+        
+        //label.text                                          = Localization.welcomeText
+        
+        label.textAlignment                                 = .center
+        
+        label.font                                          = .lbTitle
+        
+        label.textColor                                     = .lbTitle
+        
+        //label.accessibilityIdentifier                       = "welcome-title-label"
+        
+        label.translatesAutoresizingMaskIntoConstraints     = false
+        
+        return label
+    }()
 }
 
 
