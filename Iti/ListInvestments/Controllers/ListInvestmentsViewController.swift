@@ -63,20 +63,8 @@ class ListInvestmentsViewController: UIViewController {
     
     // MARK: - Methods
     private func setupView() {
-        tableView.layer.cornerRadius = 10
-        tableView.layer.masksToBounds = true
-        
-        let orangeColor = UIColor(named: "MainOrange") ?? .white
-        self.navigationController?.navigationBar.barTintColor = orangeColor
-        
         let firstColor = UIColor(named: "MainOrange") ?? .white
-        let secondColor = UIColor(named: "MainPink") ?? .white
-        
-        topView.addGradientSublayer(firstColor: firstColor, secondColor: secondColor, endPoint: CGPoint(x: 1.5, y: 0.0))
         self.navigationController?.navigationBar.barTintColor = firstColor
-        
-        buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-        labelValue.text = viewModel.totalAmount
     }
     
     @IBAction func newInvestment(_ sender: Any) {
