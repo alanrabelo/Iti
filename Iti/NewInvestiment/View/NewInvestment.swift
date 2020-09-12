@@ -93,8 +93,8 @@ class NewInvestmentView: UIView, CodeView {
         self.addSubview(scrollView)
         self.addSubview(stackView)
         stackView.addArrangedSubview(stackViewName)
-        stackView.addArrangedSubview(stackViewPrice)
         stackView.addArrangedSubview(stackViewQuantity)
+        stackView.addArrangedSubview(stackViewPrice)
         stackView.addArrangedSubview(stackViewStartDate)
         self.addSubview(buttonInvest)
     }

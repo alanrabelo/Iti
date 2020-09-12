@@ -71,11 +71,7 @@ class ListInvestmentsViewController: UIViewController {
     }
 
     @objc func newInvestment() {
-//        self.performSegue(withIdentifier: "showForm", sender: nil)
 
-        // TODO
-//        let controller = NewInvestmentViewController()
-//        controller.view = NewInvestmentView(textFieldDelegate: controller, investmentsModelDelegate: controller)
         coordinator?.showNewInvestment(with: InvestmentViewModel(in: context))
     }
 

@@ -43,7 +43,6 @@ class NewInvestmentViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func sendRequest(_ sender: Any) {
-        viewModel.save()
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -92,13 +91,13 @@ class NewInvestmentViewController: UIViewController {
     func moveToNext(fromTextField textfield: CustomTextfield) {
         switch textfield.type {
         case .title:
-            formView.stackViewName.textField.becomeFirstResponder()
-        case .ammount:
             formView.stackViewQuantity.textField.becomeFirstResponder()
-        case .price:
+        case .ammount:
             formView.stackViewPrice.textField.becomeFirstResponder()
-        case .date:
+        case .price:
             formView.stackViewStartDate.textField.becomeFirstResponder()
+        case .date:
+            formView.stackViewName.textField.becomeFirstResponder()
         }
     }
     
