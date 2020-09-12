@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol ListInvestmentsViewDelegate {
+    func changeTotalLabel(tag: Int)
+}
 class ListInvestmentsView: UIView, CodeView {
     
     //MARK: - Properties
+    var delegate: ListInvestmentsViewDelegate?
     
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -126,6 +130,11 @@ class ListInvestmentsView: UIView, CodeView {
     func setupExtraConfigurations() {
         self.backgroundColor = .white
         tableView.register(ListInvestmentsTableViewCell.self, forCellReuseIdentifier: "cell")
+        eyeButton.addTarget(self, action: #selector(showOrHideValue), for: .touchUpInside)
+    }
+    
+    @objc private func showOrHideValue() {
+        self.delegate?.changeTotalLabel(tag: eyeButton.tag)
     }
     
     func reloadSublayers() {

@@ -31,6 +31,7 @@ class ListInvestmentsViewController: UIViewController {
         let investmentView = ListInvestmentsView()
         investmentView.newInvestmentButton.addTarget(self, action: #selector(newInvestment), for: .touchUpInside)
         view = investmentView
+        investmentView.delegate = self
         investmentView.tableView.delegate = self
         investmentView.tableView.dataSource = self
         viewModel.delegate = self
@@ -45,16 +46,7 @@ class ListInvestmentsViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func hideShowValue(_ sender: UIButton) {
-        guard let view = self.view as? ListInvestmentsView else { return }
-        if sender.tag == 0 {
-            view.eyeButton.setBackgroundImage(UIImage(systemName: "eye.fill"), for: .normal)
-            view.totalAmmountLabel.text = "R$ ----,--"
-            sender.tag = 1
-        } else {
-            view.eyeButton.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-            view.totalAmmountLabel.text = viewModel.totalAmount
-            sender.tag = 0
-        }
+
     }
 
     @IBAction func newInvestiment(_ sender: Any) {
@@ -118,10 +110,10 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
         let action = UIContextualAction(style: .normal, title: title,
                                         handler: { (action, view, completionHandler) in
-                                            
+
                                             let investment = self.viewModel.getInvestmentAt(indexPath)
                                             let viewModel = InvestmentViewModel(withModel: investment, in: self.context)
-                                            
+
                                             guard let navigationController = self.navigationController else { return }
                                             let editInvestmentCoordinator = NewInvestmentCoordinator(navigationController: navigationController, newInvestmentViewModel: viewModel)
                                             self.coordinator?.add(childCoordinator: editInvestmentCoordinator)
@@ -164,7 +156,7 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
             }
         }
     }
-    
+
 }
 
 extension ListInvestmentsViewController: ListInvestmentsViewModelDelegate {
@@ -172,6 +164,21 @@ extension ListInvestmentsViewController: ListInvestmentsViewModelDelegate {
         if let view = self.view as? ListInvestmentsView {
             view.tableView.reloadData()
             view.totalAmmountLabel.text = viewModel.totalAmount
+        }
+    }
+}
+
+extension ListInvestmentsViewController: ListInvestmentsViewDelegate {
+    func changeTotalLabel(tag: Int) {
+        guard let view = self.view as? ListInvestmentsView else { return }
+        if tag == 0 {
+            view.eyeButton.setBackgroundImage(UIImage(systemName: "eye.fill"), for: .normal)
+            view.totalAmmountLabel.text = "R$ ----,--"
+            view.eyeButton.tag = 1
+        } else {
+            view.eyeButton.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
+            view.totalAmmountLabel.text = viewModel.totalAmount
+            view.eyeButton.tag = 0
         }
     }
 }
