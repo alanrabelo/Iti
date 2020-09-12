@@ -45,6 +45,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func gotoList(_ sender: Any) {
+        goToListInvestments()
+    }
+    
     private func goToListInvestments() {
         coordinator?.showList(with: ListInvestmentsViewModel(context: context))
     }

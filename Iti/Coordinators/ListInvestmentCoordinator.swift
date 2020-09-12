@@ -11,16 +11,13 @@ class ListInvestmentCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
-    var listViewModel: ListInvestmentsViewModel
-    
-    init(navigationController: UINavigationController, listViewModel: ListInvestmentsViewModel) {
+ 
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.listViewModel = listViewModel
     }
     
     func start() {
         let listInvestmentViewController = ListInvestmentsViewController()
-        listInvestmentViewController.viewModel = listViewModel
         listInvestmentViewController.coordinator = self
         navigationController.pushViewController(listInvestmentViewController, animated: true)
     }

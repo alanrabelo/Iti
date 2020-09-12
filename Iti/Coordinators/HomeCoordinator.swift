@@ -18,13 +18,13 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let homeViewController = ViewController()
-        homeViewController.coordinator = self
-        navigationController.pushViewController(homeViewController, animated: true)
+        let viewController = ViewController.instantiateFromStoryboard(.main)
+        viewController.coordinator = self
+        navigationController.pushViewController(viewController, animated: false)
     }
     
     func showList(with viewModel: ListInvestmentsViewModel) {
-        let childCoordinator = ListInvestmentCoordinator(navigationController: navigationController, listViewModel: viewModel)
+        let childCoordinator = ListInvestmentCoordinator(navigationController: navigationController)
         childCoordinator.parentCoordinator = self
         add(childCoordinator: childCoordinator)
         childCoordinator.start()
