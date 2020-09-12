@@ -29,6 +29,8 @@
 		E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722700E2503FA0B006BF6F1 /* DateExtensions.swift */; };
 		E793C2F42503C41A0093D921 /* NewInvestiment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */; };
 		E793C2F62503C42B0093D921 /* NewInvestimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */; };
+		E7BA9690250CF795006B464F /* InvestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA968F250CF795006B464F /* InvestmentViewModel.swift */; };
+		E7BA9693250D0A10006B464F /* NewInvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA9692250D0A10006B464F /* NewInvestmentView.swift */; };
 		E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */; };
 		E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD0A52503C05D00400CB7 /* ViewController.swift */; };
 		E7EAD0A92503C05D00400CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EAD0A72503C05D00400CB7 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		E722700E2503FA0B006BF6F1 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E793C2F32503C41A0093D921 /* NewInvestiment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewInvestiment.storyboard; sourceTree = "<group>"; };
 		E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestimentViewController.swift; sourceTree = "<group>"; };
+		E7BA968F250CF795006B464F /* InvestmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentViewModel.swift; sourceTree = "<group>"; };
+		E7BA9692250D0A10006B464F /* NewInvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestmentView.swift; sourceTree = "<group>"; };
 		E7EAD09E2503C05D00400CB7 /* Iti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EAD0A12503C05D00400CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7EAD0A52503C05D00400CB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 		E793C2EE2503C17F0093D921 /* NewInvestiment */ = {
 			isa = PBXGroup;
 			children = (
+				E7BA968E250CF787006B464F /* ViewModel */,
 				E793C2F22503C3E20093D921 /* Controller */,
 				E793C2F12503C3DD0093D921 /* Model */,
 				E793C2F02503C3D60093D921 /* View */,
@@ -238,8 +243,17 @@
 			isa = PBXGroup;
 			children = (
 				E793C2F52503C42B0093D921 /* NewInvestimentViewController.swift */,
+				E7BA9692250D0A10006B464F /* NewInvestmentView.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7BA968E250CF787006B464F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E7BA968F250CF795006B464F /* InvestmentViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E7EAD0952503C05D00400CB7 = {
@@ -396,6 +410,7 @@
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
 				8ABEC83C2503F95D0008568D /* UIView+GradientSublayer.swift in Sources */,
 				1755D2FD2503EED500B6691E /* UIVIewController+Context.swift in Sources */,
+				E7BA9690250CF795006B464F /* InvestmentViewModel.swift in Sources */,
 				8ABB7C442503E66500DBAF15 /* ForexModel.swift in Sources */,
 				8ABB7C412503E32300DBAF15 /* ForexAPI.swift in Sources */,
 				8ABB7C3E2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift in Sources */,
@@ -404,6 +419,7 @@
 				E793C2F62503C42B0093D921 /* NewInvestimentViewController.swift in Sources */,
 				E722700B2503E4CC006BF6F1 /* CustomTextfield.swift in Sources */,
 				8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */,
+				E7BA9693250D0A10006B464F /* NewInvestmentView.swift in Sources */,
 				E722700F2503FA0B006BF6F1 /* DateExtensions.swift in Sources */,
 				8ABB7C382503C65600DBAF15 /* Color+Gradient.swift in Sources */,
 				8ABB7C462503ED7D00DBAF15 /* ForexQuote.swift in Sources */,

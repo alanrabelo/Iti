@@ -23,11 +23,18 @@ class NewInvestmentViewController: UIViewController {
     
     // MARK: - Properties
     var activeTextfield: CustomTextfield?
-    var investment: Investment?
-    private var datePicker: UIDatePicker?
-    var newInvestmentModel = NewInvestmentModel(withModel: nil)
+    lazy var viewModel: InvestmentViewModel = InvestmentViewModel(in: context)
+    private var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.locale = Locale(identifier: "pt_BR")
+        datePicker.date = Date()
+        datePicker.maximumDate = Date()
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        return datePicker
+    }()
 
-    private var toolbar: UIToolbar {
+    private var toolbar: UIToolbar = {
         let textToolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         textToolbar.barStyle = .default
         textToolbar.items = [
@@ -36,49 +43,12 @@ class NewInvestmentViewController: UIViewController {
             UIBarButtonItem(title: "Próximo", style: .plain, target: self, action: #selector(keyboardNextAction))]
         textToolbar.sizeToFit()
         return textToolbar
-    }
+    }()
     
-    private var name: String = ""
-    
-    private var formattedPrice: String {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "pt_BR") // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
-        formatter.numberStyle = .currency
-        return formatter.string(from: Double(newInvestmentModel.price)/100 as NSNumber) ?? "R$ 0,00"
-    }
-    
-    private var formattedPurchaseDate: String {
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "pt_BR")
-        dateFormatter.dateStyle = .short
-        let selectedDate: String = dateFormatter.string(from: newInvestmentModel.startDate.asDate)
-        return selectedDate
-    }
-    
+        
     // MARK: - IBActions
     @IBAction func sendRequest(_ sender: Any) {
-        if validateInput() {
-            
-            if investment == nil {
-                investment = Investment(context: context)
-            }
-            
-            if let ammountString = textfieldStockAmmount.text {
-                investment?.quantity = Double(ammountString) ?? 0
-            }
-            investment?.active = textfieldStockName.text ?? ""
-            investment?.price = Double(newInvestmentModel.price)/100
-            investment?.startDate = newInvestmentModel.startDate
-            
-            do {
-                try context.save()
-            } catch {
-                print("Failed saving")
-            }
-            
-            print("Enviando dados")
-            dismiss(animated: true, completion: nil)
-        }
+        viewModel.save()
     }
     
     @IBAction func closeView(_ sender: Any) {
@@ -92,36 +62,23 @@ class NewInvestmentViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         setupKeyboardNotifications()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setupDatePicker()
         setupTextFields()
     }
     
     // MARK: - Date Picker
-    func setupDatePicker() {
-        datePicker = UIDatePicker()
-        datePicker?.datePickerMode = .date
-        datePicker?.locale = Locale(identifier: "pt_BR")
-        datePicker?.maximumDate = Date()
-        datePicker?.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-    }
-    
     @objc func datePickerValueChanged(_ sender: UIDatePicker){
-        if let date = datePicker?.date {
-            newInvestmentModel.startDate = date.asString
-            textfieldPurchaseDate.text = formattedPurchaseDate
-        }
+        viewModel.newInvestmentModel.startDate = sender.date.asString
+        textfieldPurchaseDate.text = viewModel.purchaseDate
     }
     
     func presentDatePicker() {
-        if let datePicker = self.datePicker {
-            newInvestmentModel.startDate = datePicker.date.asString
-        }
+        viewModel.newInvestmentModel.startDate = datePicker.date.asString
     }
     
     // MARK: Textfields
@@ -139,11 +96,10 @@ class NewInvestmentViewController: UIViewController {
     }
     
     func setupTextFields() {
-        textfieldPurchaseDate.text = formattedPurchaseDate
-        textfieldStockPrice.text = formattedPrice
-        let quantityString = newInvestmentModel.quantity > 0 ? "\(Int(newInvestmentModel.quantity))" : ""
-        textfieldStockAmmount.text = quantityString
-        textfieldStockName.text = newInvestmentModel.active.uppercased()
+        textfieldPurchaseDate.text = viewModel.purchaseDate
+        textfieldStockPrice.text = viewModel.price
+        textfieldStockAmmount.text = viewModel.quantity
+        textfieldStockName.text = viewModel.name
         
         textfieldStockAmmount.type = .ammount
         textfieldStockAmmount.label = labelStockAmmount
@@ -156,25 +112,6 @@ class NewInvestmentViewController: UIViewController {
         
         textfieldStockName.type = .title
         textfieldStockName.label = labelStockName
-    }
-    
-    func validateInput() -> Bool {
-        var isValid = true
-        
-        if textfieldStockName.text == "" {
-            textfieldStockName.status = .invalid
-            isValid = false
-        }
-        if textfieldStockPrice.text == "" || newInvestmentModel.price == 0 {
-            textfieldStockPrice.status = .invalid
-            isValid = false
-        }
-        if textfieldStockAmmount.text == "" || newInvestmentModel.quantity == 0 {
-            textfieldStockAmmount.status = .invalid
-            isValid = false
-        }
-        
-        return isValid
     }
     
     // MARK: - Keyboard Notifications for Scrollview
@@ -211,69 +148,31 @@ class NewInvestmentViewController: UIViewController {
 }
 
 extension NewInvestmentViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var newText: String?
+        guard let text = textField.text,
+            let textRange = Range(range, in: text) else
+        { return true }
         
-        if let text = textField.text,
-            let textRange = Range(range, in: text) {
-            newText = text.replacingCharacters(in: textRange, with: string)
-        }
+        let newText = text.replacingCharacters(in: textRange, with: string)
         
         if textField == textfieldStockPrice {
-            return validateStockPrice(textField.text, string, newText)
+            return viewModel.shouldChangeCharactersIn(priceTextfield: textField, string, newText)
         } else if textField == textfieldStockAmmount {
-            return validateStockAmmount(textField.text, string, newText)
-        }
-        return true
-    }
-    
-    func validateStockPrice(_ previous: String?, _ replacement: String, _ newString: String?) -> Bool {
-        var priceAsString = String(newInvestmentModel.price)
-        let numberOfDigits = priceAsString.lengthOfBytes(using: .utf8)
-        let newStringLength = replacement.lengthOfBytes(using: .utf8)
-        if numberOfDigits == 0 { return true }
-        
-        if newStringLength == 0 && numberOfDigits > 0 {
-            priceAsString.removeLast()
-            if priceAsString.lengthOfBytes(using: .utf8) == 0 {
-                newInvestmentModel.price = 0
-                self.textfieldStockPrice.text = formattedPrice
-                return false
-            }
-        }
-        
-        guard let newPrice = Int(priceAsString + replacement) else { return false }
-        newInvestmentModel.price = Int(newPrice)
-        self.textfieldStockPrice.text = formattedPrice
-        return false
-    }
-    
-    func validateStockAmmount(_ previous: String?, _ replacement: String, _ newString: String?) -> Bool {
-        let newStringLength = newString?.lengthOfBytes(using: .utf8) ?? 0
-        if newStringLength <= 0 {
-            return true
-        }
-        let textIsNotNumerical = Int(newString ?? "") == nil && newStringLength > 0
-        if textIsNotNumerical {
-            return false
-        }
-        guard let newText = newString, let ammount = Double(newText) else { return false }
-        newInvestmentModel.quantity = ammount
+            return viewModel.shouldChangeCharactersIn(quantityTextfield: textField, string, newText)
+        } else if textField == textfieldStockName {
+            viewModel.newInvestmentModel.active = newText
+        } 
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let currentTextField = textField as? CustomTextfield else { return }
-        if currentTextField.status == .invalid {
-            currentTextField.text = ""
-            currentTextField.status = .valid
-        }
+        viewModel.textFieldDidBeginEditing(currentTextField)
         activeTextfield = currentTextField
         textField.inputAccessoryView = toolbar
-        if textField == textfieldPurchaseDate {
+        if currentTextField.type == .date {
             textField.inputView = datePicker
-        } else if currentTextField.type == .price {
-            currentTextField.text = formattedPrice
         }
     }
     
@@ -286,4 +185,29 @@ extension NewInvestmentViewController: UITextFieldDelegate {
         moveToNext(fromTextField: currentTextField)
         return true
     }
+    
+}
+
+extension NewInvestmentViewController: InvestmentViewModelDelegate {
+    
+    func didValidateTextfields(_ viewModel: InvestmentViewModel, _ validation: (Bool, Bool, Bool)) {
+        if !validation.0 {
+            textfieldStockName.status = .invalid
+        }
+        if !validation.1 {
+            textfieldStockPrice.status = .invalid
+        }
+        if !validation.2 {
+            textfieldStockAmmount.status = .invalid
+        }
+    }
+    
+    func didCreateInvestment(_ viewModel: InvestmentViewModel) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func errorCreatingInvestment(_ viewModel: InvestmentViewModel) {
+        
+    }
+    
 }
