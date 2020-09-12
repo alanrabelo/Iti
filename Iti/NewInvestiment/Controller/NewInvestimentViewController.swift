@@ -72,6 +72,9 @@ class NewInvestmentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.view = formView
+        formView.buttonDismiss.addTarget(self, action: #selector(didTapDismissButton), for: .touchDown)
+        
 //        setupTextFields()
     }
     
@@ -82,6 +85,7 @@ class NewInvestmentViewController: UIViewController {
     }
     
     func presentDatePicker() {
+        
         viewModel.newInvestmentModel.startDate = datePicker.date.asString
     }
     
@@ -149,6 +153,10 @@ class NewInvestmentViewController: UIViewController {
             moveToNext(fromTextField: activeTextfield)
         }
     }
+    
+    @objc func didTapDismissButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension NewInvestmentViewController: UITextFieldDelegate {
@@ -175,6 +183,7 @@ extension NewInvestmentViewController: UITextFieldDelegate {
         viewModel.textFieldDidBeginEditing(currentTextField)
         activeTextfield = currentTextField
         textField.inputAccessoryView = toolbar
+        print(currentTextField.type)
         if currentTextField.type == .date {
             textField.inputView = datePicker
         }

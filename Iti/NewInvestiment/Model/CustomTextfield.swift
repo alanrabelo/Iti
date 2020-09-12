@@ -13,10 +13,17 @@ enum TextFieldType: Int {
     case title, ammount, price, date
 }
 
+protocol CustomTextfieldDelegate {
+    func textField(_ textField: CustomTextfield, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    func textFieldDidBeginEditing(_ textField: CustomTextfield)
+    func textFieldDidEndEditing(_ textField: CustomTextfield)
+    func textFieldShouldReturn(_ textField: CustomTextfield) -> Bool
+}
+
 class CustomTextfield: UITextField {
     
     var label: CustomLabel?
-    var type: TextFieldType = .title
+    var type: TextFieldType = .date
     
     var status: FormStatus = .valid {
         didSet {

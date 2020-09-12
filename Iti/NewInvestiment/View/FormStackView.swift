@@ -11,42 +11,64 @@ import UIKit
 class FormStackView: UIStackView, CodeView {
     
     func setupComponents() {
-        setupTextField()
     }
     
     func setupConstraints() {
-        
+        label.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 35).isActive = true
     }
     
     func setupExtraConfigurations() {
         
     }
     
-    var textfieldType: TextFieldType
+    var textfieldType: TextFieldType = .date
     var textfieldDelegate: UITextFieldDelegate?
     
     let label: UILabel = {
         let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .lightGray
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
         return label
     }()
     
     let textField: CustomTextfield = {
         let textField = CustomTextfield(frame: .zero)
-        textField.translatesAutoresizingMaskIntoConstraints = true
+        textField.borderStyle = .none
+        textField.layer.cornerRadius = 5
+        textField.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 247/255, alpha: 1)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont(name: "System", size: 14)
         return textField
     }()
     
-    init(labelText: String, placeholder: String, textfieldType: TextFieldType, textFieldText: String = "") {
+    init(labelText: String, placeholder: String, textfieldType: TextFieldType, delegate: UITextFieldDelegate, textFieldText: String = "") {
         label.text = labelText
         textField.placeholder = placeholder
         textField.text = textFieldText
-        self.textfieldType = textfieldType
+        textfieldDelegate = delegate
+        textField.type = textfieldType
+        
         super.init(frame: .zero)
+        setupTextField()
+        setup()
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.addArrangedSubview(label)
+        self.addArrangedSubview(textField)
+        self.axis = .vertical
+        self.distribution = .fillEqually
+        self.alignment = .fill
+        self.spacing = 8
+    }
+    
+    required init(coder: NSCoder) {
+        self.textfieldType = .date
+        super.init(coder: coder)
     }
     
     private func setupTextField() {
-        switch textfieldType {
+        switch textField.type {
         case .title:
             textField.keyboardType = .default
         case .price:
@@ -60,8 +82,4 @@ class FormStackView: UIStackView, CodeView {
         textField.delegate = textfieldDelegate
     }
     
-    required init(coder: NSCoder) {
-        self.textfieldType = .title
-        super.init(coder: coder)
-    }
 }

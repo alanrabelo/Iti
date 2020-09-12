@@ -16,26 +16,37 @@ class NewInvestmentView: UIView, CodeView {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Preencha as informações sobre a sua nova compra de ações"
+        label.numberOfLines = 2
         return label
     }()
     
-    let stackViewName: FormStackView = {
-        return FormStackView(labelText: "Ativo", placeholder: "Digite um nome para seu ativo", textfieldType: .title)
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
     
-    let stackViewQuantity: FormStackView = {
-        return FormStackView(labelText: "Quantidade", placeholder: "Quantas ações você gostaria de investir?", textfieldType: .title)
+    lazy var stackViewName: FormStackView = {
+        return FormStackView(labelText: "Ativo", placeholder: "Digite um nome para seu ativo", textfieldType: .title, delegate: self)
     }()
     
-    let stackViewPrice: FormStackView = {
-        return FormStackView(labelText: "Preço de Compra", placeholder: "", textfieldType: .title)
+    lazy var stackViewQuantity: FormStackView = {
+        return FormStackView(labelText: "Quantidade", placeholder: "Quantas ações você gostaria de investir?", textfieldType: .ammount, delegate: self)
     }()
     
-    let stackViewStartDate: FormStackView = {
-        return FormStackView(labelText: "Data de início", placeholder: "", textfieldType: .title)
+    lazy var stackViewPrice: FormStackView = {
+        return FormStackView(labelText: "Preço de Compra", placeholder: "", textfieldType: .price, delegate: self)
     }()
     
-    let buttonInvest: UIButton = {
+    lazy var stackViewStartDate: FormStackView = {
+        return FormStackView(labelText: "Data de início", placeholder: "", textfieldType: .date, delegate: self)
+    }()
+    
+    let buttonInvest: GradientButton = {
         let button = GradientButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Investir", for: .normal)
@@ -54,14 +65,14 @@ class NewInvestmentView: UIView, CodeView {
         let scrollView = UIScrollView(frame: .zero)
         scrollView.keyboardDismissMode = .interactive
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-
         return scrollView
     }()
     
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView(frame: .zero)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
+    let contentView: UIView = {
+        let contentView = UIView(frame: .zero)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = .green
+        return contentView
     }()
 
     init(textFieldDelegate: UITextFieldDelegate, investmentsModelDelegate: InvestmentViewModelDelegate) {
@@ -76,21 +87,14 @@ class NewInvestmentView: UIView, CodeView {
     }
     
     func setupComponents() {
-        
-        stackViewName.textfieldDelegate = self
-        stackViewPrice.textfieldDelegate = self
-        stackViewQuantity.textfieldDelegate = self
-        stackViewStartDate.textfieldDelegate = self
-        
         self.addSubview(buttonDismiss)
         self.addSubview(labelTitle)
         self.addSubview(scrollView)
-        
+        self.addSubview(stackView)
         stackView.addArrangedSubview(stackViewName)
         stackView.addArrangedSubview(stackViewPrice)
         stackView.addArrangedSubview(stackViewQuantity)
         stackView.addArrangedSubview(stackViewStartDate)
-        scrollView.addSubview(stackView)
         self.addSubview(buttonInvest)
     }
     
@@ -105,9 +109,10 @@ class NewInvestmentView: UIView, CodeView {
         // LabelTitle
         labelTitle.topAnchor.constraint(equalTo: buttonDismiss.bottomAnchor, constant: 10).isActive = true
         labelTitle.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        labelTitle.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
+        labelTitle.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        labelTitle.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        //ScrollView
+//        ScrollView
         scrollView.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: 10).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
         scrollView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
@@ -115,24 +120,25 @@ class NewInvestmentView: UIView, CodeView {
         
         //Content View
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        let contentViewHeightContraint = stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        contentViewHeightContraint.priority = .defaultLow
-        contentViewHeightContraint.isActive = true
-        
+        stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -30).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        stackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -40).isActive = true
+
         // Button
         buttonInvest.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 20).isActive = true
-        buttonInvest.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        buttonInvest.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        buttonInvest.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        buttonInvest.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         buttonInvest.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     func setupExtraConfigurations() {
         self.backgroundColor = .white
     }
-
+    
+    @objc func didTapDismissButton() {
+        
+    }
     
     /*
     // Only override draw() if you perform custom drawing.
