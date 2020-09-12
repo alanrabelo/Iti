@@ -8,10 +8,13 @@
 
 import UIKit
 
+typealias ListEnabled = Coordinator & ListInvestmentPresenter
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var btnEye: UIButton!
     @IBOutlet weak var labelValue: UILabel!
+    weak var coordinator: ListEnabled?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,10 @@ class ViewController: UIViewController {
         }
     }
     
+    private func goToListInvestments() {
+        coordinator?.showList(with: ListInvestmentViewModel())
+    }
+    
     @IBAction func btnHideShow(_ sender: UIButton) {
         
         if sender.tag == 0 {
@@ -58,6 +65,10 @@ class ViewController: UIViewController {
         
     }
     
+    deinit {
+        coordinator?.childDidFinish(nil)
+        print("ViewController deinit")
+    }
     
 }
 

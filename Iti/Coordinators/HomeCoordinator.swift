@@ -1,5 +1,6 @@
 import UIKit
 
+// @TODO excluir, pois foi criada apenas para teste
 class ListInvestmentViewModel {
     
 }
@@ -20,7 +21,7 @@ class HomeCoordinator: Coordinator {
     
     func start() {
         let homeViewController = ViewController()
-//        homeViewController.delegate = self
+        homeViewController.coordinator = self
         navigationController.pushViewController(homeViewController, animated: true)
     }
     

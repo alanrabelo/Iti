@@ -1,5 +1,6 @@
 import UIKit
 
+// @TODO excluir, pois foi criada apenas para teste
 class DetailInvestmentViewModel {
     
 }
@@ -23,7 +24,8 @@ class DetailInvestmentCoordinator: Coordinator {
     
     func start() {
         let detailInvestmentViewController = DetailInvestimentViewController()
-//        detailInvestmentViewController.delegate = self
+//        detailInvestmentViewController.viewModel = detailInvestmentViewController
+        detailInvestmentViewController.coordinator = self
         navigationController.pushViewController(detailInvestmentViewController, animated: true)
     }
     

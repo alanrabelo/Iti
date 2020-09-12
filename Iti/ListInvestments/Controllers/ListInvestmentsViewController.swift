@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-typealias DetailEnabled = Coordinator & DetailInvestmentPresenter
+typealias DetailEnabled = Coordinator & DetailInvestmentPresenter & NewInvestmentPresenter
 
 class ListInvestmentsViewController: UIViewController {
     
@@ -54,7 +54,9 @@ class ListInvestmentsViewController: UIViewController {
     }
     
     @IBAction func newInvestiment(_ sender: Any) {
-        self.performSegue(withIdentifier: "showForm", sender: nil)
+//        self.performSegue(withIdentifier: "showForm", sender: nil)
+        
+        coordinator?.showNewInvestment(with: NewInvestmentViewModel())
     }
     
     // MARK: - Methods
@@ -77,6 +79,11 @@ class ListInvestmentsViewController: UIViewController {
     
     @IBAction func newInvestment(_ sender: Any) {
         self.performSegue(withIdentifier: "showForm", sender: nil)
+    }
+    
+    deinit {
+        coordinator?.childDidFinish(nil)
+        print("ListInvestmentsViewController deinit")
     }
 }
 
@@ -121,9 +128,9 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "SegueDetail", sender: indexPath)
+//        performSegue(withIdentifier: "SegueDetail", sender: indexPath)
         
-//        coordinator?.showDetailInvestment(with: DetailInvestmentViewModel())
+        coordinator?.showDetailInvestment(with: DetailInvestmentViewModel())
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -1,5 +1,6 @@
 import UIKit
 
+// @TODO excluir, pois foi criada apenas para teste
 class NewInvestmentViewModel {
     
 }
