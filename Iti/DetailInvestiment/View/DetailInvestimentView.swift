@@ -56,9 +56,7 @@ class DetailInvestimentView: UIView, CodeView {
     let lbStockIdentifier: UILabel = {
           
           let label                                           = UILabel(frame: .zero)
-          
-          label.text                                          = "ITAUSA"
-          
+                    
           label.textAlignment                                 = .center
           
           label.font                                          = .lbStockIdentifier
@@ -218,7 +216,7 @@ extension DetailInvestimentView {
         
         //MARK: Contraints lbPrice
         
-             lbPrice.topAnchor.constraint(equalTo: lbPurchasePrice.topAnchor, constant: Margin.topLbTitle).isActive = true
+             lbPrice.topAnchor.constraint(equalTo: lbPurchasePrice.bottomAnchor, constant: Margin.topLbTitle).isActive = true
         lbPrice.trailingAnchor.constraint(equalTo: lbPurchasePrice.trailingAnchor).isActive = true
         
         //MARK: Contraints lbPurchaseDate
@@ -265,7 +263,7 @@ extension DetailInvestimentView {
 
         //MARK: Contraints lbTodayValueText
 
-             lbTodayValueText.topAnchor.constraint(equalTo: lbTodayValue.topAnchor, constant: (Margin.topLbTitle + 5)).isActive = true
+             lbTodayValueText.topAnchor.constraint(equalTo: lbTodayValue.bottomAnchor, constant: (Margin.topLbTitle + 5)).isActive = true
              lbTodayValueText.trailingAnchor.constraint(equalTo: lbTodayValue.trailingAnchor).isActive = true
         
         //MARK: Contraints lbProfitabilityTitle

@@ -13,7 +13,10 @@ typealias HomeEnabled = Coordinator & ListInvestmentPresenter
 class DetailInvestimentViewController: UIViewController, HasCodeView {
 
     typealias CustomView = DetailInvestimentView
+    
     weak var coordinator: DetailInvestmentCoordinator?
+    
+    var detailView : DetailInvestimentView!
 
     // MARK: - Properties
     var viewModel: DetailInvestmentViewModel?
@@ -23,23 +26,12 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
 
     override func loadView() {
 
-        let detailView = DetailInvestimentView()
+        detailView = DetailInvestimentView()
+        
+        detailView.delegate = self
+        
         view = detailView
-//        view.lbStockIdentifier.text = viewModel?.active
-
-        detailView.lbQuantityDescription.text = viewModel?.quantity
-
-        detailView.lbPrice.text = viewModel?.price
-
-        detailView.lbDate.text = viewModel?.startDate
-
-//        detailView.lbTotalValueText.text  = initialValue.formattedPrice
-//
-//        detailView.lbTodayQuoteText.text  = quote.priceFormatted;
-//
-//        detailView.lbTodayValueText.text  = currentValue.formattedPrice
-//
-//        detailView.lbProfitability.text   = "\(Int(profitability))%"
+        
     }
 
     override func viewDidLoad() {
@@ -57,9 +49,9 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
 
                 switch result {
 
-                case .success(let forexQuote) : self.displayQuoteDetails(quote: forexQuote.quote)
+                    case .success(let forexQuote) : self.displayQuoteDetails(quote: forexQuote.quote)
 
-                case .failure(let error)  : self.handleError(error: error)
+                    case .failure(let error)  : self.handleError(error: error)
                 }
             }
 
@@ -84,9 +76,18 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
     }
 }
 
-extension DetailInvestimentViewController {
+extension DetailInvestimentViewController : DetailInvestimentViewDelegate {
 
 
+    func exitButtonTapped() {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func editInfosButtonTapped() {
+        
+        
+    }
 }
 
 
@@ -98,27 +99,27 @@ extension DetailInvestimentViewController {
 
             DispatchQueue.main.sync {
 
-//                let initialValue = (unwrappedInvestiment.quantity * unwrappedInvestiment.price)
-//
-//                let currentValue = (unwrappedInvestiment.quantity * (Double(quote.price) ?? 0))
-//
-//                let profitability = (currentValue - initialValue)/initialValue*100
-//
-//                                self.lbStockIdentifier.text = quote.symbol
-//
-//                                self.lbQuantityDescription.text          = String(unwrappedInvestiment.quantity)
-//
-//                                self.lbPrice.text           = unwrappedInvestiment.price.formattedPrice
-//
-//                                self.lbDate.text            = formatDate(with: unwrappedInvestiment.startDate ?? "")
-//
-//                                self.lbTotalValueText.text  = initialValue.formattedPrice
-//
-//                                self.lbTodayQuoteText.text  = quote.priceFormatted;
-//
-//                                self.lbTodayValueText.text  = currentValue.formattedPrice
-//
-//                                self.lbProfitability.text   = "\(Int(profitability))%"
+                let initialValue = (unwrappedInvestiment.investment.quantity * unwrappedInvestiment.investment.price)
+
+                let currentValue = (unwrappedInvestiment.investment.quantity * (Double(quote.price) ?? 0))
+
+                let profitability = (currentValue - initialValue)/initialValue*100
+
+                self.detailView.lbStockIdentifier.text = quote.symbol
+
+                detailView.lbQuantityDescription.text          = String(unwrappedInvestiment.quantity)
+
+                detailView.lbPrice.text           = unwrappedInvestiment.investment.price.formattedPrice
+
+                detailView.lbDate.text            = formatDate(with: unwrappedInvestiment.investment.startDate ?? "")
+
+                detailView.lbTotalValueText.text  = initialValue.formattedPrice
+
+                detailView.lbTodayQuoteText.text  = quote.priceFormatted;
+
+                detailView.lbTodayValueText.text  = currentValue.formattedPrice
+
+                detailView.lbProfitability.text   = "\(Int(profitability))%"
             }
         }
     }
