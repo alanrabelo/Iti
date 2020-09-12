@@ -26,7 +26,7 @@ class DetailInvestmentCoordinator: Coordinator {
         let detailInvestmentViewController = DetailInvestimentViewController()
 //        detailInvestmentViewController.viewModel = detailInvestmentViewController
         detailInvestmentViewController.coordinator = self
-        navigationController.pushViewController(detailInvestmentViewController, animated: true)
+        navigationController.present(detailInvestmentViewController, animated: true, completion: nil)
     }
     
     func showHome() {
