@@ -10,15 +10,16 @@ class ListInvestmentCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
-    var viewModel: ListInvestmentViewModel
+    var listViewModel: ListInvestmentViewModel
     
-    required init(navigationController: UINavigationController, viewModel: ListInvestmentViewModel) {
+    required init(navigationController: UINavigationController, listViewModel: ListInvestmentViewModel) {
         self.navigationController = navigationController
-        self.viewModel = viewModel
+        self.listViewModel = listViewModel
     }
     
     func start() {
         let listInvestmentViewController = ListInvestmentsViewController()
+        listInvestmentViewController.viewModel = listViewModel
         listInvestmentViewController.delegate = self
         navigationController.pushViewController(listInvestmentViewController, animated: true)
     }

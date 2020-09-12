@@ -22,6 +22,7 @@ class NewInvestmentCoordinator: Coordinator {
     
     func start() {
         let newInvestmentViewController = NewInvestmentViewController()
+        newInvestmentViewModel.viewModel = newInvestmentViewModel
         newInvestmentViewController.delegate = self
         navigationController.pushViewController(newInvestmentViewController, animated: true)
     }
