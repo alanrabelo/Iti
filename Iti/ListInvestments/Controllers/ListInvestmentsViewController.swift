@@ -83,7 +83,7 @@ class ListInvestmentsViewController: UIViewController {
         // TODO
         let controller = NewInvestmentViewController()
         controller.view = NewInvestmentView(textFieldDelegate: controller, investmentsModelDelegate: controller)
-        self.present(controller, animated: true, completion: nil)
+//        self.present(controller, animated: true, completion: nil)
         coordinator?.showNewInvestment(with: InvestmentViewModel(in: context))
     }
     
