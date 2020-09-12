@@ -10,13 +10,46 @@ import UIKit
 
 typealias HomeEnabled = Coordinator & ListInvestmentPresenter
 
+class DetailInvestmentViewModel {
+    
+     private var investment: Investment
+    
+     init(investment: Investment) {
+       self.investment = investment
+     }
+    
+    var quantity: Double {
+        return investment.quantity
+    }
+    
+    var price: Double {
+        return investment.price
+    }
+    
+    var active: String {
+        return investment.active!
+    }
+
+    var startDate: String {
+        return investment.startDate!
+    }
+    
+    fileprivate func callExternalAPI(with symbol : String, onComplete: @escaping (Result<ForexQuote, APIError>) -> Void){
+
+        ForexAPI.loadAction(withSymbol: symbol, onComplete: onComplete)
+    }
+
+    
+}
+
+
 class DetailInvestimentViewController: UIViewController, HasCodeView {
     
     typealias CustomView = DetailInvestimentView
     weak var coordinator: DetailInvestmentCoordinator?
     // MARK: - Properties
-
-    var investiment : Investment?
+    var viewModel: DetailInvestmentViewModel?
+    
 
     // MARK: - View Life Cycle
     
@@ -32,12 +65,20 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
 
     override func viewWillAppear(_ animated: Bool) {
 
-        if let unwrappedInvestiment = self.investiment {
+        if let unwrappedInvestiment = self.viewModel {
 
-            if let unwrappedSymbol = unwrappedInvestiment.active {
+            let unwrappedSymbol = unwrappedInvestiment.active
 
-                callExternalAPI(with: unwrappedSymbol)
+            viewModel?.callExternalAPI(with: unwrappedSymbol)  { (result) in
+                
+                switch result {
+                    
+                case .success(let forexQuote) : self.displayQuoteDetails(quote: forexQuote.quote)
+                    
+                case .failure(let error)  : self.handleError(error: error)
+                }
             }
+            
         }
     }
     
@@ -53,19 +94,7 @@ class DetailInvestimentViewController: UIViewController, HasCodeView {
 
 extension DetailInvestimentViewController {
 
-    fileprivate func callExternalAPI(with symbol : String){
-
-        ForexAPI.loadAction(withSymbol: symbol)
-        { (result) in
-
-            switch result {
-
-                case .success(let forexQuote) : self.displayQuoteDetails(quote: forexQuote.quote)
-
-                case .failure(let error)  : self.handleError(error: error)
-            }
-        }
-    }
+    
 }
 
 
@@ -73,7 +102,7 @@ extension DetailInvestimentViewController {
 
     fileprivate func displayQuoteDetails(quote : Forex){
 
-       if let unwrappedInvestiment = self.investiment {
+       if let unwrappedInvestiment = self.viewModel {
 
             DispatchQueue.main.sync {
 
