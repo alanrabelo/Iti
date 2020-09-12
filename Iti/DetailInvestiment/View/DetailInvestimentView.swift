@@ -41,7 +41,6 @@ class DetailInvestimentView: UIView, CodeView {
     let lbTodayQuoteText             = LbTodayValues(frame: .zero)
     let lbTodayValueText             = LbTodayValues(frame: .zero)
     let lbProfitabilityTitle         = LbTitle(title: "Rentabilidade obtida até hoje")
-    let btnEdit                      = GradientButton(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
     
     let contentView: UIView = {
            
@@ -57,9 +56,7 @@ class DetailInvestimentView: UIView, CodeView {
     let lbStockIdentifier: UILabel = {
           
           let label                                           = UILabel(frame: .zero)
-          
-          label.text                                          = "ITAUSA"
-          
+                    
           label.textAlignment                                 = .center
           
           label.font                                          = .lbStockIdentifier
@@ -104,6 +101,38 @@ class DetailInvestimentView: UIView, CodeView {
         return label
     }()
     
+    let btnEdit : GradientButton = {
+       
+        let button = GradientButton(frame: .zero)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.setTitle("Editar Informações", for: .normal)
+        
+        button.layer.cornerRadius = 20
+        
+        button.layer.masksToBounds = true
+        
+        button.backgroundColor = .orange
+        
+        return button
+    }()
+    
+    let btnExit : UIButton = {
+       
+        let button = UIButton(frame: .zero)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.setTitle("X", for: .normal)
+        
+        button.setTitleColor(UIColor.systemGray, for: .normal)
+        
+        button.backgroundColor = .clear
+        
+        return button
+    }()
+    
     // MARK: - View Life Cycle -
     
     override init(frame: CGRect) {
@@ -115,6 +144,11 @@ class DetailInvestimentView: UIView, CodeView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    override func layoutSubviews() {
+    
+        
     }
 }
 
@@ -140,6 +174,7 @@ extension DetailInvestimentView {
         contentView.addSubview(lbProfitabilityTitle)
         contentView.addSubview(lbProfitability)
         contentView.addSubview(btnEdit)
+        contentView.addSubview(btnExit)
         
         addSubview(contentView)
      }
@@ -181,7 +216,7 @@ extension DetailInvestimentView {
         
         //MARK: Contraints lbPrice
         
-             lbPrice.topAnchor.constraint(equalTo: lbPurchasePrice.topAnchor, constant: Margin.topLbTitle).isActive = true
+             lbPrice.topAnchor.constraint(equalTo: lbPurchasePrice.bottomAnchor, constant: Margin.topLbTitle).isActive = true
         lbPrice.trailingAnchor.constraint(equalTo: lbPurchasePrice.trailingAnchor).isActive = true
         
         //MARK: Contraints lbPurchaseDate
@@ -228,7 +263,7 @@ extension DetailInvestimentView {
 
         //MARK: Contraints lbTodayValueText
 
-             lbTodayValueText.topAnchor.constraint(equalTo: lbTodayValue.topAnchor, constant: (Margin.topLbTitle + 5)).isActive = true
+             lbTodayValueText.topAnchor.constraint(equalTo: lbTodayValue.bottomAnchor, constant: (Margin.topLbTitle + 5)).isActive = true
              lbTodayValueText.trailingAnchor.constraint(equalTo: lbTodayValue.trailingAnchor).isActive = true
         
         //MARK: Contraints lbProfitabilityTitle
@@ -249,9 +284,40 @@ extension DetailInvestimentView {
          btnEdit.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: Margin.trailingSuperview).isActive = true
          btnEdit.heightAnchor.constraint(equalToConstant: Size.btnEditHeight).isActive = true
          btnEdit.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: Margin.btnEditBottom).isActive = true
+        
+        
+        //MARK: Contraints BtnExit
+
+        btnExit.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: Margin.trailingSuperview).isActive = true
+        btnExit.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        btnExit.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        btnExit.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
     }
      
      func setupExtraConfigurations() {
-         
-     }
+        
+        btnExit.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        btnEdit.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+    
+       @objc
+       private func buttonTapped(sender: UIButton) {
+           
+        switch sender {
+            
+                case btnExit: delegate?.exitButtonTapped()
+                
+                case btnEdit: delegate?.editInfosButtonTapped()
+           
+                default: break
+           }
+       }
+    
+    func reloadSublayers() {
+        
+        let gradientColor = UIColor.gradientColorFor(view: btnEdit, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!)
+        
+        btnEdit.layer.insertSublayer(gradientColor, at: 0)
+    }
 }

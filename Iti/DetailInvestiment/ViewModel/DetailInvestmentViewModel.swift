@@ -2,7 +2,7 @@ import Foundation
 
 class DetailInvestmentViewModel {
     
-     private var investment: Investment
+     public var investment: Investment
 
      init(investment: Investment) {
          self.investment = investment
