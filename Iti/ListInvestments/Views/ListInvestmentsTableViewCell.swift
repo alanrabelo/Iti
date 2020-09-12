@@ -75,6 +75,7 @@ class ListInvestmentsTableViewCell: UITableViewCell {
         saldoAtualLabel.text = viewModel.totalValue
         percentageLabel.text = viewModel.percentageValue
     }
+    
 }
 
 extension ListInvestmentsTableViewCell: CodeView {

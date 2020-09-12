@@ -40,6 +40,12 @@ class ListInvestmentsViewController: UIViewController {
         setupView()
     }
     
+    override func viewDidLayoutSubviews() {
+        if let view = self.view as? ListInvestmentsView {
+            view.reloadSublayers()
+        }
+    }
+    
     // MARK: - IBActions
     @IBAction func hideShowValue(_ sender: UIButton) {
         if sender.tag == 0 {
@@ -49,20 +55,23 @@ class ListInvestmentsViewController: UIViewController {
             print(sender.tag)
         } else {
             buttonEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
-            labelValue.text = viewModel.totalAmount
+            if let view = self.view as? ListInvestmentsView {
+                view.totalAmmountLabel.text = viewModel.totalAmount
+            }
             sender.tag = 0
             print(sender.tag)
         }
     }
     
     @IBAction func newInvestiment(_ sender: Any) {
-//        self.performSegue(withIdentifier: "showForm", sender: nil)
-        
         coordinator?.showNewInvestment(with: InvestmentViewModel(in: context))
     }
     
     // MARK: - Methods
     private func setupView() {
+        if let view = self.view as? ListInvestmentsView {
+            view.totalAmmountLabel.text = viewModel.totalAmount
+        }
         let firstColor = UIColor(named: "MainOrange") ?? .white
         self.navigationController?.navigationBar.barTintColor = firstColor
     }
@@ -157,6 +166,8 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 extension ListInvestmentsViewController: ListInvestmentsViewModelDelegate {
     func didUpdateList() {
         tableView.reloadData()
-        self.labelValue.text = viewModel.totalAmount
+        if let view = self.view as? ListInvestmentsView {
+            view.totalAmmountLabel.text = viewModel.totalAmount
+        }
     }
 }
