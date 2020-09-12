@@ -25,8 +25,8 @@ class FormStackView: UIStackView, CodeView {
     var textfieldType: TextFieldType = .date
     var textfieldDelegate: UITextFieldDelegate?
     
-    let label: UILabel = {
-        let label = UILabel(frame: .zero)
+    let label: CustomLabel = {
+        let label = CustomLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .lightGray
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
@@ -49,6 +49,7 @@ class FormStackView: UIStackView, CodeView {
         textField.text = textFieldText
         textfieldDelegate = delegate
         textField.type = textfieldType
+        textField.label = label
         
         super.init(frame: .zero)
         setupTextField()

@@ -10,17 +10,6 @@ import UIKit
 
 class NewInvestmentViewController: UIViewController {
     
-    // MARK: - IBOutlets
-//    @IBOutlet weak var textfieldStockName: CustomTextfield!
-//    @IBOutlet weak var textfieldStockAmmount: CustomTextfield!
-//    @IBOutlet weak var textfieldStockPrice: CustomTextfield!
-//    @IBOutlet weak var textfieldPurchaseDate: CustomTextfield!
-//    @IBOutlet weak var labelStockName: CustomLabel!
-//    @IBOutlet weak var labelStockAmmount: CustomLabel!
-//    @IBOutlet weak var labelPurchasePrice: CustomLabel!
-//    @IBOutlet weak var labelPurchaseDate: CustomLabel!
-//    @IBOutlet weak var scrollView: UIScrollView!
-    
     weak var coordinator: NewInvestmentCoordinator?
     
     // MARK: - Properties
@@ -76,7 +65,6 @@ class NewInvestmentViewController: UIViewController {
         super.viewWillAppear(true)
         self.view = formView
         formView.buttonDismiss.addTarget(self, action: #selector(didTapDismissButton), for: .touchDown)
-        
 //        setupTextFields()
     }
     
@@ -104,25 +92,6 @@ class NewInvestmentViewController: UIViewController {
             formView.stackViewStartDate.textField.becomeFirstResponder()
         }
     }
-    
-//    func setupTextFields() {
-//        textfieldPurchaseDate.text = viewModel.purchaseDate
-//        textfieldStockPrice.text = viewModel.price
-//        textfieldStockAmmount.text = viewModel.quantity
-//        textfieldStockName.text = viewModel.name
-//
-//        textfieldStockAmmount.type = .ammount
-//        textfieldStockAmmount.label = labelStockAmmount
-//
-//        textfieldStockPrice.type = .price
-//        textfieldStockPrice.label = labelPurchasePrice
-//
-//        textfieldPurchaseDate.type = .date
-//        textfieldPurchaseDate.label = labelPurchaseDate
-//
-//        textfieldStockName.type = .title
-//        textfieldStockName.label = labelStockName
-//    }
     
     // MARK: - Keyboard Notifications for Scrollview
     func setupKeyboardNotifications() {

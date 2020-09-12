@@ -33,6 +33,7 @@ class ListInvestmentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let investmentView = ListInvestmentsView()
+        investmentView.newInvestmentButton.addTarget(self, action: #selector(newInvestment), for: .touchUpInside)
         view = investmentView
         investmentView.tableView.delegate = self
         investmentView.tableView.dataSource = self
@@ -67,13 +68,12 @@ class ListInvestmentsViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = firstColor
     }
     
-    @IBAction func newInvestment(_ sender: Any) {
-        self.performSegue(withIdentifier: "showForm", sender: nil)
+    @objc func newInvestment() {
+//        self.performSegue(withIdentifier: "showForm", sender: nil)
         
         // TODO
-        let controller = NewInvestmentViewController()
-        controller.view = NewInvestmentView(textFieldDelegate: controller, investmentsModelDelegate: controller)
-//        self.present(controller, animated: true, completion: nil)
+//        let controller = NewInvestmentViewController()
+//        controller.view = NewInvestmentView(textFieldDelegate: controller, investmentsModelDelegate: controller)
         coordinator?.showNewInvestment(with: InvestmentViewModel(in: context))
     }
     
@@ -160,7 +160,7 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
 
 extension ListInvestmentsViewController: ListInvestmentsViewModelDelegate {
     func didUpdateList() {
-        tableView.reloadData()
-        self.labelValue.text = viewModel.totalAmount
+//        tableView.reloadData()
+//        self.labelValue.text = viewModel.totalAmount
     }
 }

@@ -23,9 +23,11 @@ class NewInvestmentCoordinator: Coordinator {
     
     func start() {
         let newInvestmentViewController = NewInvestmentViewController()
+        newInvestmentViewController.view = NewInvestmentView(textFieldDelegate: newInvestmentViewController, investmentsModelDelegate: newInvestmentViewController)
         newInvestmentViewController.viewModel = newInvestmentViewModel
         newInvestmentViewController.coordinator = self
-        navigationController.pushViewController(newInvestmentViewController, animated: true)
+        navigationController.present(newInvestmentViewController, animated: true, completion: nil)
+//        navigationController.pushViewController(newInvestmentViewController, animated: true)
     }
     
     func showDetailInvestment(with viewModel: DetailInvestmentViewModel) {
