@@ -20,7 +20,7 @@ class ListInvestmentsViewController: UIViewController {
     
     let label: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 22))
-        label.text = "Sem ações cadastradas"
+        label.text = Localization.noRegisteredText
         label.textAlignment = .center
         return label
     }()

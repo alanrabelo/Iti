@@ -14,6 +14,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var btnEye: UIButton!
     @IBOutlet weak var labelValue: UILabel!
+    @IBOutlet weak var labelProfile: UILabel!
+    @IBOutlet weak var labelBalance: UILabel!
+    @IBOutlet weak var labelAbout: UILabel!
+    
     weak var coordinator: ListEnabled?
     
     override func viewDidLoad() {
@@ -37,6 +41,10 @@ class ViewController: UIViewController {
         
         btnEye.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
         labelValue.text = "R$ 0,00"
+        
+        labelProfile.text = Localization.profileText
+        labelBalance.text = Localization.balanceText
+        labelAbout.text = Localization.aboutText
     }
 
     @IBAction func saibaTudo(_ sender: UIButton) {
