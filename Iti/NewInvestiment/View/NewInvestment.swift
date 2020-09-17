@@ -15,7 +15,7 @@ class NewInvestmentView: UIView, CodeView {
     private let labelTitle: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Preencha as informações sobre a sua nova compra de ações"
+        label.text = Localization.titleInvestimentText
         label.numberOfLines = 2
         return label
     }()
@@ -31,26 +31,26 @@ class NewInvestmentView: UIView, CodeView {
     }()
     
     lazy var stackViewName: FormStackView = {
-        return FormStackView(labelText: "Ativo", placeholder: "Digite um nome para seu ativo", textfieldType: .title, delegate: self)
+        return FormStackView(labelText: Localization.activeText, placeholder: Localization.activedPlaceholder, textfieldType: .title, delegate: self)
     }()
     
     lazy var stackViewQuantity: FormStackView = {
-        return FormStackView(labelText: "Quantidade", placeholder: "Quantas ações você gostaria de investir?", textfieldType: .ammount, delegate: self)
+        return FormStackView(labelText: Localization.quantityNewText, placeholder: Localization.quantityPlaceholder, textfieldType: .ammount, delegate: self)
     }()
     
     lazy var stackViewPrice: FormStackView = {
-        return FormStackView(labelText: "Preço de Compra", placeholder: "", textfieldType: .price, delegate: self)
+        return FormStackView(labelText: Localization.purchasePriceText, placeholder: "", textfieldType: .price, delegate: self)
     }()
     
     lazy var stackViewStartDate: FormStackView = {
-        return FormStackView(labelText: "Data de início", placeholder: "", textfieldType: .date, delegate: self)
+        return FormStackView(labelText: Localization.startDateText, placeholder: "", textfieldType: .date, delegate: self)
     }()
     
     let buttonInvest: GradientButton = {
         let button = GradientButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .orange
-        button.setTitle("Investir", for: .normal)
+        button.setTitle(Localization.investText, for: .normal)
         return button
     }()
     

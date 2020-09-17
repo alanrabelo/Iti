@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  Iti
+
+  Created by Cleber Reis on 16/09/20.
+  Copyright © 2020 Alan Rabelo Martins. All rights reserved.
+*/
+
+"PROFILE" = "mira mi perfil";
+"BALANCE" = "equilibrio de iti";
+"ABOUT_HOME" = "todo sobre o iti";
+"MY_HERITAGE" = "mis activos";
+"CURRENT_BALANCE" = "saldo actual";
+"IN_WALLET" = "% na billetera";
+"NEW_INVESTIMENT" = "Nueva inversión";
+"NO_REGISTERED_ACTIONS" = "No hay acciones registradas";
+"QUANTITY" = "cantidad";
+"PURCHASE_PRICE" = "Precio de compra";
+"PURCHASE_DATE" = "Fecha de compra";
+"AMOUNT" = "Valor Total";
+"QUOTE_TODAY" = "Cotizar hoy";
+"VALUE_TODAY" = "Valor hoy";
+"PROFITABILITY" = "Rentabilidad alcanzada hasta la fecha";
+"EDIT_INFORMATION" = "Editar informacion";
+"TITLE_INVESTIMENT" = "Complete la información sobre su nueva compra de acciones";
+"ACTIVE" = "Activo";
+"QUANTITY_NEW" = "Cantidad";
+"PURCHASE_PRICE_NEW" = "Precio de compra";
+"START_DATE" = "Fecha de inicio";
+"INVEST" = "Invertir";
+"REQUIRED_FIELD" = "Campo Obligatorio";
+"NAME_ACTIVED_PLACEHOLDER" = "Ingrese un nombre para su activo";
+"QUANTITY_PLACEHOLDER" = "¿Cuántas acciones le gustaría invertir?";

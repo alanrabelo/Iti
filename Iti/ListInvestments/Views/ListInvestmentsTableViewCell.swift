@@ -33,7 +33,7 @@ class ListInvestmentsTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGray
         label.font = .systemFont(ofSize: 12)
-        label.text = "saldo atual"
+        label.text = Localization.currentBalanceText
         return label
     }()
     
@@ -50,7 +50,7 @@ class ListInvestmentsTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12, weight: .light)
-        label.text = "% na carteira"
+        label.text = Localization.inWalletText
         return label
     }()
     
