@@ -1,0 +1,6 @@
+framework module Pods_Iti {
+  umbrella header "Pods-Iti-umbrella.h"
+
+  export *
+  module * { export * }
+}
