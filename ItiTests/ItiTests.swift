@@ -19,8 +19,8 @@ class ItiTests: XCTestCase {
     }
 
     func testExample() throws {
-        
         XCTAssertEqual(2, 2)
+        XCTAssertEqual("Teste", "Teste")
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
