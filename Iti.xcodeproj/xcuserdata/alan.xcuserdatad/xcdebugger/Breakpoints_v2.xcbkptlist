@@ -23,32 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9762A74D-CD9F-4295-9476-F3747D828B16"
+            uuid = "EA7DE0BB-9F4D-4653-B4CF-5764E0AFE2B9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Iti/NewInvestiment/Controller/NewInvestimentViewController.swift"
+            filePath = "Iti/Coordinators/NewInvestmentCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "43186010-75CB-4939-90AD-BAC53901EC9E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Iti/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "saveContext()"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "showList(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

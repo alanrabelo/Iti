@@ -17,7 +17,7 @@ class DetailInvestmentViewModel {
      }
 
      var active: String {
-         return investment.active!
+         return investment.active ?? "Ativo sem nome"
      }
 
      var startDate: String {

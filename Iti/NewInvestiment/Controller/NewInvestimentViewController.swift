@@ -161,7 +161,6 @@ extension NewInvestmentViewController: UITextFieldDelegate {
         viewModel.textFieldDidBeginEditing(currentTextField)
         activeTextfield = currentTextField
         textField.inputAccessoryView = toolbar
-        print(currentTextField.type)
         if currentTextField.type == .date {
             textField.inputView = datePicker
         }

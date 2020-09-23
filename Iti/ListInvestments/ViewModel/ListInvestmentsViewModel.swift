@@ -16,7 +16,6 @@ protocol ListInvestmentsViewModelDelegate: class {
 class ListInvestmentsViewModel: NSObject {
     
     private let manager: InvestmentManager
-    
     weak var delegate: ListInvestmentsViewModelDelegate?
     
     init(context: NSManagedObjectContext) {

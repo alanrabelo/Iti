@@ -60,7 +60,7 @@ class FormStackView: UIStackView, CodeView {
         self.axis = .vertical
         self.distribution = .fillEqually
         self.alignment = .fill
-        self.spacing = 8
+        self.spacing = 0
     }
     
     private func setupTextField() {

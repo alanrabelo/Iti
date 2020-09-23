@@ -18,7 +18,7 @@ protocol InvestmentViewModelDelegate: AnyObject {
 class InvestmentViewModel {
     
     //MARK: - Properties
-    private var investment: Investment
+    private var investment: Investment?
     private var context: NSManagedObjectContext
     var newInvestmentModel: NewInvestmentModel
     weak var delegate: InvestmentViewModelDelegate?
@@ -57,7 +57,7 @@ class InvestmentViewModel {
     // MARK: - Methods
     
     init(in context: NSManagedObjectContext) {
-        self.investment = Investment(context: context)
+//        self.investment = Investment(context: context)
         self.newInvestmentModel = NewInvestmentModel(withModel: nil)
         self.context = context
     }
@@ -80,10 +80,14 @@ class InvestmentViewModel {
             return
         }
         
-        investment.quantity = newInvestmentModel.quantity
-        investment.active = newInvestmentModel.active
-        investment.price = Double(newInvestmentModel.price)/100
-        investment.startDate = newInvestmentModel.startDate
+        if investment == nil {
+            investment = Investment(context: context)
+        }
+        
+        investment?.quantity = newInvestmentModel.quantity
+        investment?.active = newInvestmentModel.active
+        investment?.price = Double(newInvestmentModel.price)/100
+        investment?.startDate = newInvestmentModel.startDate
         
         do {
             try context.save()
