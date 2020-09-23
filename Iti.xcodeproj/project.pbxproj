@@ -116,7 +116,6 @@
 		BF9414AD2512E90E000FA3B3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E705293D251C071800D12408 /* ItiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E705293F251C071800D12408 /* ItiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItiTests.swift; sourceTree = "<group>"; };
-		E7052941251C071800D12408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E72270082503E4C7006BF6F1 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		E722700A2503E4CC006BF6F1 /* CustomTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfield.swift; sourceTree = "<group>"; };
 		E722700C2503E502006BF6F1 /* FormStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatus.swift; sourceTree = "<group>"; };
@@ -319,6 +318,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E705294D251C07B000D12408 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E705293F251C071800D12408 /* ItiTests.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		E7742465E66AC6262B6DE554 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,10 +410,10 @@
 			isa = PBXGroup;
 			children = (
 				E7EAD0A02503C05D00400CB7 /* Iti */,
-				E705293E251C071800D12408 /* ItiTests */,
 				E7EAD09F2503C05D00400CB7 /* Products */,
 				E7742465E66AC6262B6DE554 /* Pods */,
 				EB78B860955FC5C0958A2C3F /* Frameworks */,
+				E705294D251C07B000D12408 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -737,6 +744,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 338S3PS486;
 				INFOPLIST_FILE = ItiTests/Info.plist;
@@ -759,6 +767,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 338S3PS486;
 				INFOPLIST_FILE = ItiTests/Info.plist;
