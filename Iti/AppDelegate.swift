@@ -18,13 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        appCoordinator = HomeCoordinator()
-//        window?.rootViewController = appCoordinator?.navigationController
-//        window?.makeKeyAndVisible()
-//
+
         appCoordinator?.start()
         FirebaseApp.configure()
+        
+        if FirebaseAuth.userIsLogged {
+            
+            window = UIWindow(frame: UIScreen.main.bounds)
+            appCoordinator = HomeCoordinator()
+            window?.rootViewController = appCoordinator?.navigationController
+            window?.makeKeyAndVisible()
+    
+    
+        } else {
+            
+           window = UIWindow(frame: UIScreen.main.bounds)
+           appCoordinator = LoginCoordinator()
+           window?.rootViewController = appCoordinator?.navigationController
+           window?.makeKeyAndVisible()
+            
+        }
         
         return true
     }

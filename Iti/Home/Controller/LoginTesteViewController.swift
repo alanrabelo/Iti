@@ -11,14 +11,14 @@ import UIKit
 class LoginTesteViewController: UIViewController {
     
     var firebaseAuth = FirebaseAuth()
-    var auth: Auth?
+    var auth: ItiAuth?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        auth = Auth(email: "matheusteste1@gmail.com", password: "123456")
+        auth = ItiAuth(email: "matheusteste1@gmail.com", password: "123456")
     }
     
     @IBAction func register(_ sender: Any) {

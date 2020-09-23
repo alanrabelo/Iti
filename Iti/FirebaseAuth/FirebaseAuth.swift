@@ -5,7 +5,7 @@ class FirebaseAuth {
     
     static var userIsLogged = false
     
-    func register(authentication: Auth?) {
+    func register(authentication: ItiAuth?) {
         
         guard let authentication = authentication else { print("Objeto de autenticação inválido!") }
         
@@ -22,7 +22,7 @@ class FirebaseAuth {
         }
     }
     
-    func signIn(authentication: Auth?) {
+    func signIn(authentication: ItiAuth?) {
         
         guard let authentication = authentication else { print("Objeto de autenticação inválido!") }
         
@@ -46,7 +46,7 @@ class FirebaseAuth {
     
     func signOut() {
         
-        let firebaseAuth = Auth.auth()
+        let firebaseAuth = ItiAuth.auth()
         
         do {
           try firebaseAuth.signOut()
