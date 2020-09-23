@@ -28,19 +28,19 @@ class DetailInvestimentView: UIView, CodeView {
     
     var state         : CodeViewState = .start
     
-    let lbAmount                     = LbTitle(title: "Quatidade")
-    let lbPurchasePrice              = LbTitle(title: "Preço de Compra")
+    let lbAmount                     = LbTitle(title: Localization.quantityNewText)
+    let lbPurchasePrice              = LbTitle(title: Localization.purchasePriceText)
     let lbQuantityDescription        = LbInfos(frame: .zero)
     let lbPrice                      = LbInfos(frame: .zero)
-    let lbPurchaseDate               = LbTitle(title: "Data da Compra")
-    let lbTotalValue                 = LbTitle(title: "Valor Total")
+    let lbPurchaseDate               = LbTitle(title: Localization.purchaseDateText)
+    let lbTotalValue                 = LbTitle(title: Localization.amountText)
     let lbDate                       = LbInfos(frame: .zero)
     let lbTotalValueText             = LbInfos(frame: .zero)
-    let lbTodayQuote                 = LbTitle(title: "Cotação hoje")
-    let lbTodayValue                 = LbTitle(title: "Valor Hoje")
+    let lbTodayQuote                 = LbTitle(title: Localization.quoteTodayText)
+    let lbTodayValue                 = LbTitle(title: Localization.valueTodayText)
     let lbTodayQuoteText             = LbTodayValues(frame: .zero)
     let lbTodayValueText             = LbTodayValues(frame: .zero)
-    let lbProfitabilityTitle         = LbTitle(title: "Rentabilidade obtida até hoje")
+    let lbProfitabilityTitle         = LbTitle(title: Localization.profitabilityText)
     
     let contentView: UIView = {
            
@@ -107,7 +107,7 @@ class DetailInvestimentView: UIView, CodeView {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.setTitle("Editar Informações", for: .normal)
+        button.setTitle(Localization.editInformationText, for: .normal)
         
         button.layer.cornerRadius = 20
         

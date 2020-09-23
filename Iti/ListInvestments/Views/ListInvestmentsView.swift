@@ -35,7 +35,7 @@ class ListInvestmentsView: UIView, CodeView {
     let patrimonyLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "meu patrimônio"
+        label.text = Localization.heritageText
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textColor = .white
         label.alpha = 0.5
@@ -64,7 +64,7 @@ class ListInvestmentsView: UIView, CodeView {
     let newInvestmentButton: GradientButton = {
         let button = GradientButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Novo Investimento", for: .normal)
+        button.setTitle(Localization.newInvestimentText, for: .normal)
         button.layer.cornerRadius = 25
         button.layer.masksToBounds = true
         button.backgroundColor = .orange

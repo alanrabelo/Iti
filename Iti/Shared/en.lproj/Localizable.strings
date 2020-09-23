@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  Iti
+
+  Created by Cleber Reis on 16/09/20.
+  Copyright © 2020 Alan Rabelo Martins. All rights reserved.
+*/
+
+"PROFILE" = "view my profile";
+"BALANCE" = "balance iti";
+"ABOUT_HOME" = "all about iti";
+"MY_HERITAGE" = "my heritage";
+"CURRENT_BALANCE" = "current balance";
+"IN_WALLET" = "% in wallet";
+"NEW_INVESTIMENT" = "New Investment";
+"NO_REGISTERED_ACTIONS" = "No registered actions";
+"QUANTITY" = "amount";
+"PURCHASE_PRICE" = "Purchase Price";
+"PURCHASE_DATE" = "Purchase Date";
+"AMOUNT" = "Amount";
+"QUOTE_TODAY" = "Quote today";
+"VALUE_TODAY" = "Value Today";
+"PROFITABILITY" = "Profitability achieved to date";
+"EDIT_INFORMATION" = "Edit information";
+"TITLE_INVESTIMENT" = "Fill in the information about your new stock purchase";
+"ACTIVE" = "Active";
+"QUANTITY_NEW" = "Quantity";
+"PURCHASE_PRICE_NEW" = "Purchase Price";
+"START_DATE" = "Start Date";
+"INVEST" = "Invest";
+"REQUIRED_FIELD" = "Required field";
+"NAME_ACTIVED_PLACEHOLDER" = "Enter a name for your asset";
+"QUANTITY_PLACEHOLDER" = "How many shares would you like to invest?";

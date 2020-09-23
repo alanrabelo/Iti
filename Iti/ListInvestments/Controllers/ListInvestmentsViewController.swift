@@ -20,7 +20,7 @@ class ListInvestmentsViewController: UIViewController {
     
     let label: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 22))
-        label.text = "Sem ações cadastradas"
+        label.text = Localization.noRegisteredText
         label.textAlignment = .center
         return label
     }()
@@ -54,11 +54,12 @@ class ListInvestmentsViewController: UIViewController {
         if let view = self.view as? ListInvestmentsView {
             view.totalAmmountLabel.text = viewModel.totalAmount
         }
-        let firstColor = UIColor(named: "MainOrange") ?? .white
-        self.navigationController?.navigationBar.barTintColor = firstColor
+        let mainOrange = UIColor(named: "MainOrange") ?? .white
+        self.navigationController!.navigationBar.barTintColor = mainOrange
     }
     
     @objc func newInvestment() {
+        
         coordinator?.showNewInvestment(with: InvestmentViewModel(in: context))
     }
     
@@ -83,13 +84,16 @@ extension ListInvestmentsViewController: UITableViewDelegate, UITableViewDataSou
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListInvestmentsTableViewCell else {
             return UITableViewCell()
         }
+        
         cell.configure(with: viewModel.getInvestmentCellViewModelFor(indexPath))
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete { viewModel.deleteInvestment(indexPath) }
+        
         
     }
     
