@@ -8,6 +8,7 @@ target 'Iti' do
   # Pods for Iti
 
   pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
 
 
 end
