@@ -25,6 +25,9 @@
 		179648C0250CF83700DF6424 /* ListInvestmentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179648BF250CF83700DF6424 /* ListInvestmentCoordinator.swift */; };
 		179648C2250CF84900DF6424 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179648C1250CF84900DF6424 /* HomeCoordinator.swift */; };
 		179648C6250D4B4000DF6424 /* DetailInvestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179648C5250D4B4000DF6424 /* DetailInvestmentViewModel.swift */; };
+		8A7CFCE9251C04A800396215 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7CFCE8251C04A800396215 /* LoginView.swift */; };
+		8A7CFCED251C05AD00396215 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7CFCEC251C05AD00396215 /* LoginViewController.swift */; };
+		8A7CFCF0251C060000396215 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7CFCEF251C060000396215 /* LoginCoordinator.swift */; };
 		413E66563B17A207BC83A6D3 /* Pods_Iti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6FD63CD8A33ED227D43A18 /* Pods_Iti.framework */; };
 		8AA4E22D250D0CBA00C1DB58 /* ListInvestmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4E22C250D0CBA00C1DB58 /* ListInvestmentsView.swift */; };
 		8AAE714C250D003B0014F090 /* ListInvestmentsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE714B250D003B0014F090 /* ListInvestmentsCellViewModel.swift */; };
@@ -89,6 +92,9 @@
 		179648BF250CF83700DF6424 /* ListInvestmentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInvestmentCoordinator.swift; sourceTree = "<group>"; };
 		179648C1250CF84900DF6424 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		179648C5250D4B4000DF6424 /* DetailInvestmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvestmentViewModel.swift; sourceTree = "<group>"; };
+		8A7CFCE8251C04A800396215 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8A7CFCEC251C05AD00396215 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8A7CFCEF251C060000396215 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		1E6FD63CD8A33ED227D43A18 /* Pods_Iti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Iti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F1142949C6BF6EE0F4EF57F /* Pods-Iti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Iti.release.xcconfig"; path = "Target Support Files/Pods-Iti/Pods-Iti.release.xcconfig"; sourceTree = "<group>"; };
 		8AA4E22C250D0CBA00C1DB58 /* ListInvestmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInvestmentsView.swift; sourceTree = "<group>"; };
@@ -223,6 +229,56 @@
 				179648C5250D4B4000DF6424 /* DetailInvestmentViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8A7CFCE2251C044D00396215 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8A7CFCE7251C047700396215 /* Controllers */,
+				8A7CFCE6251C047200396215 /* ViewModels */,
+				8A7CFCE5251C046B00396215 /* Views */,
+				8A7CFCE4251C046700396215 /* Models */,
+				8A7CFCE3251C045600396215 /* Coordinator */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8A7CFCE3251C045600396215 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8A7CFCEF251C060000396215 /* LoginCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		8A7CFCE4251C046700396215 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8A7CFCE5251C046B00396215 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8A7CFCE8251C04A800396215 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8A7CFCE6251C047200396215 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8A7CFCE7251C047700396215 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8A7CFCEC251C05AD00396215 /* LoginViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		8ABB7C2C2503C3CF00DBAF15 /* Controllers */ = {
@@ -431,6 +487,7 @@
 		E7EAD0A02503C05D00400CB7 /* Iti */ = {
 			isa = PBXGroup;
 			children = (
+				8A7CFCE2251C044D00396215 /* Login */,
 				172A0217251C068100A5B99B /* Firebase */,
 				179648B8250CF70C00DF6424 /* Coordinators */,
 				08CABAF3250D1CAB00CEC740 /* Components */,
@@ -653,6 +710,7 @@
 				174ABA9E2503CAFC00CC09E9 /* InvestmentManager.swift in Sources */,
 				E7EAD0A62503C05D00400CB7 /* ViewController.swift in Sources */,
 				E7EAD0A22503C05D00400CB7 /* AppDelegate.swift in Sources */,
+				8A7CFCE9251C04A800396215 /* LoginView.swift in Sources */,
 				174ABA9C2503CADB00CC09E9 /* NewInvestmentModel.swift in Sources */,
 				E7BA9695250D0FB8006B464F /* NewInvestment.swift in Sources */,
 				179648C2250CF84900DF6424 /* HomeCoordinator.swift in Sources */,
@@ -678,6 +736,7 @@
 				8AA4E22D250D0CBA00C1DB58 /* ListInvestmentsView.swift in Sources */,
 				8ABB7C3E2503CE7100DBAF15 /* ListInvestmentsTableViewCell.swift in Sources */,
 				179648BC250CF81500DF6424 /* DetailInvestmentCoordinator.swift in Sources */,
+				8A7CFCF0251C060000396215 /* LoginCoordinator.swift in Sources */,
 				E7EAD0AC2503C05D00400CB7 /* Iti.xcdatamodeld in Sources */,
 				08723E7B2503C54C006FF47F /* DetailInvestimentViewController.swift in Sources */,
 				08CABAEE250CFEC200CEC740 /* CodeView.swift in Sources */,
@@ -688,6 +747,7 @@
 				8ABB7C3A2503C80700DBAF15 /* ListInvestmentsViewController.swift in Sources */,
 				E722700F2503FA0B006BF6F1 /* Date+Formatter.swift in Sources */,
 				E722700F2503FA0B006BF6F1 /* Date+Formatter.swift in Sources */,
+				8A7CFCED251C05AD00396215 /* LoginViewController.swift in Sources */,
 				179648BA250CF75300DF6424 /* Coordinator.swift in Sources */,
 				08CABAF9250D1E9A00CEC740 /* DetailInvestimentLbInfos.swift in Sources */,
 				BF9414A22512E857000FA3B3 /* Localization.swift in Sources */,
