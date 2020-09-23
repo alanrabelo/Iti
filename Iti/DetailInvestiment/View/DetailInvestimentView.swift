@@ -124,9 +124,9 @@ class DetailInvestimentView: UIView, CodeView {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.setTitle("X", for: .normal)
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
         
-        button.setTitleColor(UIColor.systemGray, for: .normal)
+        button.tintColor = UIColor.systemGray
         
         button.backgroundColor = .clear
         
@@ -291,7 +291,7 @@ extension DetailInvestimentView {
         btnExit.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: Margin.trailingSuperview).isActive = true
         btnExit.heightAnchor.constraint(equalToConstant: 35).isActive = true
         btnExit.heightAnchor.constraint(equalToConstant: 35).isActive = true
-        btnExit.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        btnExit.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 18).isActive = true
     }
      
      func setupExtraConfigurations() {
