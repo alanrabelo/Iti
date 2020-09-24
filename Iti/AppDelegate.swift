@@ -8,21 +8,40 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var appCoordinator: LoginCoordinator?
+    var loginCoordinator: LoginCoordinator?
+    var homeCoordinator: HomeCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        window = UIWindow(frame: UIScreen.main.bounds)
-        appCoordinator = LoginCoordinator()
-        window?.rootViewController = appCoordinator?.navigationController
-        window?.makeKeyAndVisible()
 
-        appCoordinator?.start()
+        
+        FirebaseApp.configure()
+        
+        if FirebaseAuth.userIsLogged {
+            
+            window = UIWindow(frame: UIScreen.main.bounds)
+            homeCoordinator = HomeCoordinator()
+            window?.rootViewController = homeCoordinator?.navigationController
+            window?.makeKeyAndVisible()
+            homeCoordinator?.start()
+    
+        } else {
+            
+           window = UIWindow(frame: UIScreen.main.bounds)
+           loginCoordinator = LoginCoordinator()
+           window?.rootViewController = loginCoordinator?.navigationController
+           window?.makeKeyAndVisible()
+           loginCoordinator?.start()
+            
+        }
+        
+       
         
         return true
     }

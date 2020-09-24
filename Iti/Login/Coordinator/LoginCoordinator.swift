@@ -28,4 +28,12 @@ class LoginCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: false)
     }
     
+    func showHome() {
+        
+       let childCoordinator = HomeCoordinator()
+       childCoordinator.parentCoordinator = self
+       add(childCoordinator: childCoordinator)
+       childCoordinator.start()
+    }
+    
 }
