@@ -28,6 +28,10 @@ class LoginViewController: UIViewController {
     @objc func didTapSignUpButton() {
         print("signup")
     }
+    
+    override func viewDidLayoutSubviews() {
+        loginView.reloadSublayers()
+    }
 
 }
 
