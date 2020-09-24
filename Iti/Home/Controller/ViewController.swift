@@ -77,6 +77,10 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func buttonShared(_ sender: UIBarButtonItem) {
+        sharedButton()
+    }
+    
     deinit {
         coordinator?.childDidFinish(nil)
         print("ViewController deinit")
