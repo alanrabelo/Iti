@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1026780867279-21df5b7vo9ao74cu3t10ajo7b43s4ch7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1026780867279-21df5b7vo9ao74cu3t10ajo7b43s4ch7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7QjyizopV_E8CH-fTK9hF1-L77jcnmGg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1026780867279</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.github.alanrabelo.Iti</string>
+	<key>PROJECT_ID</key>
+	<string>devboost-iti</string>
+	<key>STORAGE_BUCKET</key>
+	<string>devboost-iti.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1026780867279:ios:0ac6a3071a2e9f3a7e65ba</string>
+	<key>DATABASE_URL</key>
+	<string>https://devboost-iti.firebaseio.com</string>
+</dict>
+</plist>

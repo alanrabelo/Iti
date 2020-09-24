@@ -10,7 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    weak var coordinator: Coordinator?
+    var firebaseAuth = FirebaseAuth()
+    var auth: ItiAuth?
+    weak var coordinator: LoginCoordinator?
     lazy var loginView = LoginView(textFieldDelegate: self)
     
     override func viewDidLoad() {
@@ -23,10 +25,26 @@ class LoginViewController: UIViewController {
     
     @objc func didTapLoginButton() {
         print("login")
+        
+        guard let email = loginView.emailTextField.text, let password = loginView.passwordTextField.text else { return }
+        auth = ItiAuth(email: email, password: password)
+        
+        firebaseAuth.signIn(authentication: auth, onSuccess: { [weak self] in
+            self?.coordinator?.showHome()
+        })
     }
     
     @objc func didTapSignUpButton() {
         print("signup")
+        
+        guard let email = loginView.emailTextField.text, let password = loginView.passwordTextField.text else { return }
+        auth = ItiAuth(email: email, password: password)
+        
+        firebaseAuth.register(authentication: auth, onSuccess: { [weak self] in
+            self?.firebaseAuth.signIn(authentication: self?.auth, onSuccess: {
+                self?.coordinator?.showHome()
+            })
+        })
     }
 
 }
