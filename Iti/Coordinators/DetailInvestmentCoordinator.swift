@@ -25,7 +25,7 @@ class DetailInvestmentCoordinator: Coordinator {
     }
     
     func showHome() {
-        let childCooordinator = HomeCoordinator()
+        let childCooordinator = HomeCoordinator(navigationController: self.navigationController)
         childCooordinator.parentCoordinator = self
         add(childCoordinator: childCooordinator)
         childCooordinator.start()

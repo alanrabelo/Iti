@@ -30,7 +30,7 @@ class LoginCoordinator: Coordinator {
     
     func showHome() {
         
-       let childCoordinator = HomeCoordinator()
+        let childCoordinator = HomeCoordinator(navigationController: self.navigationController)
        childCoordinator.parentCoordinator = self
        add(childCoordinator: childCoordinator)
        childCoordinator.start()
