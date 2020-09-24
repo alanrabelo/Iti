@@ -13,7 +13,9 @@ class LoginView: UIView, CodeView {
     let topImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .green
+        imageView.image = UIImage(named: "backImage")
+        imageView.contentMode = .top
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -56,6 +58,8 @@ class LoginView: UIView, CodeView {
         button.setTitle("entrar", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .red
+        button.layer.cornerRadius = 20
+        button.layer.masksToBounds = true
         return button
     }()
     
@@ -64,7 +68,9 @@ class LoginView: UIView, CodeView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("criar cadastro", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .red
+        button.layer.cornerRadius = 20
+        button.layer.masksToBounds = true
+        button.layer.borderWidth = 1
         return button
     }()
     
@@ -111,26 +117,52 @@ class LoginView: UIView, CodeView {
         emailTextField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20).isActive = true
         emailTextField.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
         emailTextField.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        emailTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         //PasswordTextField
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10).isActive = true
         passwordTextField.widthAnchor.constraint(equalTo: emailTextField.widthAnchor).isActive = true
         passwordTextField.centerXAnchor.constraint(equalTo: emailTextField.centerXAnchor).isActive = true
+        passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
         
         //LoginButton
         loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20).isActive = true
         loginButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor).isActive = true
         loginButton.centerXAnchor.constraint(equalTo: emailTextField.centerXAnchor).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        loginButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
         
         //SignUpButton
         signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20).isActive = true
         signUpButton.widthAnchor.constraint(equalTo: emailTextField.widthAnchor).isActive = true
         signUpButton.centerXAnchor.constraint(equalTo: emailTextField.centerXAnchor).isActive = true
-        signUpButton.heightAnchor.constraint(equalTo: loginButton.heightAnchor).isActive = true
+        signUpButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
     }
     
     func setupExtraConfigurations() {
+        
+    }
+    
+    func reloadSublayers() {
+        let gradientColor = UIColor.gradientColorFor(view: loginButton, firstColor: UIColor(named: "MainOrange")!, secondColor: UIColor(named: "MainPink")!)
+        print(loginButton.frame.width)
+        loginButton.layer.insertSublayer(gradientColor, at: 0)
+        
+        topImageView.image = topImageView.image!.resizeTopAlignedToFill(newWidth: topImageView.frame.width)
     }
 
+}
+
+extension UIImage {
+    func resizeTopAlignedToFill(newWidth: CGFloat) -> UIImage? {
+        let newHeight = size.height * newWidth / size.width
+
+        let newSize = CGSize(width: newWidth, height: newHeight)
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
+        draw(in: CGRect(origin: .zero, size: newSize))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
+    }
 }

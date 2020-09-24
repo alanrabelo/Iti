@@ -46,6 +46,10 @@ class LoginViewController: UIViewController {
             })
         })
     }
+    
+    override func viewDidLayoutSubviews() {
+        loginView.reloadSublayers()
+    }
 
 }
 
