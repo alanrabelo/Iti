@@ -47,6 +47,7 @@
 		8ABB7C482503EEBB00DBAF15 /* Double+MoneyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB7C472503EEBA00DBAF15 /* Double+MoneyFormat.swift */; };
 		8ABEC83C2503F95D0008568D /* UIView+GradientSublayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABEC83B2503F95D0008568D /* UIView+GradientSublayer.swift */; };
 		8AF3E65C250CF72900EA75CA /* ListInvestmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3E65B250CF72900EA75CA /* ListInvestmentsViewModel.swift */; };
+		BF35CD30251C111500FE4530 /* ButtonShared+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35CD2F251C111500FE4530 /* ButtonShared+UIViewController.swift */; };
 		BF9414A22512E857000FA3B3 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9414A12512E857000FA3B3 /* Localization.swift */; };
 		BF9414A92512E908000FA3B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF9414AB2512E908000FA3B3 /* Localizable.strings */; };
 		E7052976251C104800D12408 /* ItiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052975251C104800D12408 /* ItiTests.swift */; };
@@ -120,6 +121,7 @@
 		8ABEC83B2503F95D0008568D /* UIView+GradientSublayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+GradientSublayer.swift"; sourceTree = "<group>"; };
 		8AF3E65B250CF72900EA75CA /* ListInvestmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInvestmentsViewModel.swift; sourceTree = "<group>"; };
 		9BBC57ACA2A7DDF52A2AC9F8 /* Pods-Iti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Iti.release.xcconfig"; path = "Target Support Files/Pods-Iti/Pods-Iti.release.xcconfig"; sourceTree = "<group>"; };
+		BF35CD2F251C111500FE4530 /* ButtonShared+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ButtonShared+UIViewController.swift"; sourceTree = "<group>"; };
 		BF9414A12512E857000FA3B3 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		BF9414A52512E8DC000FA3B3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		BF9414A62512E8DC000FA3B3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				E722700E2503FA0B006BF6F1 /* Date+Formatter.swift */,
 				8ABEC83B2503F95D0008568D /* UIView+GradientSublayer.swift */,
 				BF9414A12512E857000FA3B3 /* Localization.swift */,
+				BF35CD2F251C111500FE4530 /* ButtonShared+UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				8ABB7C442503E66500DBAF15 /* ForexModel.swift in Sources */,
 				179648BE250CF82400DF6424 /* NewInvestmentCoordinator.swift in Sources */,
 				179648C0250CF83700DF6424 /* ListInvestmentCoordinator.swift in Sources */,
+				BF35CD30251C111500FE4530 /* ButtonShared+UIViewController.swift in Sources */,
 				8ABB7C412503E32300DBAF15 /* ForexAPI.swift in Sources */,
 				E7BA9697250D0FED006B464F /* FormStackView.swift in Sources */,
 				8AA4E22D250D0CBA00C1DB58 /* ListInvestmentsView.swift in Sources */,
