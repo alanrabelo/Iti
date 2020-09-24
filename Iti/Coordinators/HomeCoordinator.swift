@@ -11,17 +11,15 @@ class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
 
 
-    init() {
-       navigationController = UINavigationController()
-       navigationController.navigationBar.prefersLargeTitles = false
-        navigationController.navigationBar.tintColor = .white
-        navigationController.navigationBar.isTranslucent = false
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+        self.navigationController.isNavigationBarHidden = false
     }
     
     func start() {
         let viewController = ViewController.instantiateFromStoryboard(.main)
         viewController.coordinator = self
-        navigationController.pushViewController(viewController, animated: false)
+        navigationController.present(viewController, animated: true, completion: nil)
     }
     
     func showList(with viewModel: ListInvestmentsViewModel) {
@@ -36,6 +34,7 @@ class HomeCoordinator: Coordinator {
     }
     
     deinit {
+        self.navigationController.isNavigationBarHidden = true
         print("HomeCoordinator deinit")
     }
     

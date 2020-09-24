@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if FirebaseAuth.userIsLogged {
             
             window = UIWindow(frame: UIScreen.main.bounds)
-            homeCoordinator = HomeCoordinator()
+            homeCoordinator = HomeCoordinator(navigationController: UINavigationController())
             window?.rootViewController = homeCoordinator?.navigationController
             window?.makeKeyAndVisible()
             homeCoordinator?.start()
